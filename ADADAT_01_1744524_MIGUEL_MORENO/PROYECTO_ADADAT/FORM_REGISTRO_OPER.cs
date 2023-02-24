@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace PROYECTO_ADADAT
 {
-    public partial class FORM_LOGIN_OPER : Form
+    public partial class FORM_REGISTRO_OPER : Form
     {
-        public FORM_LOGIN_OPER()
+        public FORM_REGISTRO_OPER()
         {
             InitializeComponent();
         }
 
-        private void FORM_LOGIN_OPER_Load(object sender, EventArgs e)
+        private void FORM_REGISTO_OPER_Load(object sender, EventArgs e)
         {
 
         }
@@ -29,20 +29,13 @@ namespace PROYECTO_ADADAT
 
         private void BTN_REGRESAR_Click(object sender, EventArgs e)
         {
-            VariablesGlobales.FormMain.Show();
+            VariablesGlobales.FormLoginOper.Show();
             this.Hide();
         }
 
         private void BTN_REGISTRAR_Click(object sender, EventArgs e)
         {
-            VariablesGlobales.FormRegistroOper.Show();
-            this.Hide();
-        }
-
-        private void BTN_INGRESAR_Click(object sender, EventArgs e)
-        {
-            VariablesGlobales.FormMenuOper.Show();
-            this.Hide();
+            MessageBox.Show("SE CAPTURÓ EL OPERADOR DE MANERA CORRECTA");
         }
     }
 }

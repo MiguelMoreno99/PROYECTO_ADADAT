@@ -12,6 +12,8 @@ namespace PROYECTO_ADADAT
             public static Form FormLoginOper = new FORM_LOGIN_OPER();
             public static Form FormLoginAdmin = new FORM_LOGIN_ADMIN();
             public static Form FormMain = new FORM_MAIN();
-
+            public static Form FormRegistroOper = new FORM_REGISTRO_OPER();
+            public static Form FormMenuOper = new FORM_MENU_OPER();
+            public static Form FormMenuAdmin = new FORM_MENU_ADMIN();
     }
 }

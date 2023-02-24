@@ -10,5 +10,14 @@
     <Compile Update="FORM_MAIN.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FORM_MENU_ADMIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORM_MENU_OPER.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORM_REGISTRO_OPER.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

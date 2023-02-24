@@ -38,5 +38,11 @@ namespace PROYECTO_ADADAT
             VariablesGlobales.FormMain.Show();
             this.Hide();
         }
+
+        private void BTN_INGRESAR_Click(object sender, EventArgs e)
+        {
+            VariablesGlobales.FormMenuAdmin.Show();
+            this.Hide();
+        }
     }
 }
