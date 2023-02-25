@@ -16,5 +16,22 @@ namespace PROYECTO_ADADAT
         {
             InitializeComponent();
         }
+
+        private void cERRARSESIONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VariablesGlobales.FormMain.Show();
+            this.Hide();
+        }
+
+        private void sALIRToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void eDITARHOTELESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VariablesGlobales.FormRegistoHoteles.Show();
+            this.Hide();
+        }
     }
 }

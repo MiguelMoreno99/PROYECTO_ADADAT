@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace PROYECTO_ADADAT
 {
-    public partial class FORM_MENU_OPER : Form
+    public partial class FORM_REGISTRO_HOTELES : Form
     {
-        public FORM_MENU_OPER()
+        public FORM_REGISTRO_HOTELES()
         {
             InitializeComponent();
         }
 
-        private void cERRARSESIONToolStripMenuItem_Click(object sender, EventArgs e)
+        private void BTN_REGRESAR_Click(object sender, EventArgs e)
         {
-            VariablesGlobales.FormMain.Show();
+            VariablesGlobales.FormMenuAdmin.Show();
             this.Hide();
         }
 
-        private void sALIRToolStripMenuItem_Click(object sender, EventArgs e)
+        private void BTN_SALIR_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

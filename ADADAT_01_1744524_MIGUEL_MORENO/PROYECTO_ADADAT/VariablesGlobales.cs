@@ -15,5 +15,8 @@ namespace PROYECTO_ADADAT
             public static Form FormRegistroOper = new FORM_REGISTRO_OPER();
             public static Form FormMenuOper = new FORM_MENU_OPER();
             public static Form FormMenuAdmin = new FORM_MENU_ADMIN();
+            public static Form FormContraRest= new FORM_CONTRA_REST();
+            public static Form FormRegistoHoteles = new FORM_REGISTRO_HOTELES();
+
     }
 }

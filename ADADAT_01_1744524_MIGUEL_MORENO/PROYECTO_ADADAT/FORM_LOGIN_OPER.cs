@@ -41,7 +41,7 @@ namespace PROYECTO_ADADAT
 
         private void BTN_INGRESAR_Click(object sender, EventArgs e)
         {
-            VariablesGlobales.FormMenuOper.Show();
+            VariablesGlobales.FormContraRest.Show();
             this.Hide();
         }
     }

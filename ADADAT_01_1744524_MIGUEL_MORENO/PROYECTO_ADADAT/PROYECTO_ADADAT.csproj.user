@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="FORM_CONTRA_REST.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FORM_LOGIN_ADMIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -14,6 +17,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FORM_MENU_OPER.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORM_REGISTRO_HOTELES.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FORM_REGISTRO_OPER.cs">
