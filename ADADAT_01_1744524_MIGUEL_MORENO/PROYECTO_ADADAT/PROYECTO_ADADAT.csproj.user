@@ -1,28 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="FORM_CONTRA_REST.cs">
+    <Compile Update="FORMS LOGIN\FORM_CONTRA_REST.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FORM_LOGIN_ADMIN.cs">
+    <Compile Update="FORMS LOGIN\FORM_LOGIN_ADMIN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FORM_LOGIN_OPER.cs">
+    <Compile Update="FORMS LOGIN\FORM_LOGIN_OPER.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FORM_MAIN.cs">
+    <Compile Update="FORMS LOGIN\FORM_MAIN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FORM_MENU_ADMIN.cs">
+    <Compile Update="FORMS MENUS\FORM_MENU_ADMIN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FORM_MENU_OPER.cs">
+    <Compile Update="FORMS MENUS\FORM_MENU_OPER.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FORM_REGISTRO_HOTELES.cs">
+    <Compile Update="FORMS REGISTRO\FORM_REGISTRO_HOTELES.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FORM_REGISTRO_OPER.cs">
+    <Compile Update="FORMS REGISTRO\FORM_REGISTRO_OPERADORES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS REGISTRO\FORM_REGISTRO_HABITACIONES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS REGISTRO\FORM_REGISTRO_HABITACIONESenHOTELES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS REGISTRO\FORM_REGISTRO_RESERVACION.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS REGISTRO\FORM_REGISTRO_CLIENTES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS REGISTRO\FORM_REGISTRO_CANCELACIONES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS REGISTRO\FORM_REGISTRO_CHECKIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS REGISTRO\FORM_REGISTRO_CHECKOUT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS REGISTRO\FORM_REGISTRO_PAGORESERVACION.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS REGISTRO\FORM_REGISTRO_HABILITARUSUARIOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS REPORTE\FORM_REPORTE_CLIENTE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS REPORTE\FORM_REPORTE_OCUPACION.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS REPORTE\FORM_REPORTE_VENTAS.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
