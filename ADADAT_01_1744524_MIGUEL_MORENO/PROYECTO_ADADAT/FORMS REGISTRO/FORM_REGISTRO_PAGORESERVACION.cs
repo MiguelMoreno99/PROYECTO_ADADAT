@@ -39,5 +39,10 @@ namespace PROYECTO_ADADAT
             MessageBox.Show("Hacer el cobro del Total!!", "Se generó la Factura Correctamente!");
             BTN_EXTENDERESTANCIA.Enabled = true;
         }
+
+        private void FORM_REGISTRO_PAGORESERVACION_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -27,5 +27,10 @@ namespace PROYECTO_ADADAT
         {
             Application.Exit();
         }
+
+        private void FORM_REPORTE_OCUPACION_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

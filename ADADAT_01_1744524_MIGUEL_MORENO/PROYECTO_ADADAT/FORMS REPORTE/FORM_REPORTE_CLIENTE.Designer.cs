@@ -30,121 +30,120 @@ namespace PROYECTO_ADADAT
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FORM_REPORTE_CLIENTE));
-            this.BTN_REGRESAR = new System.Windows.Forms.Button();
-            this.BTN_SALIR = new System.Windows.Forms.Button();
-            this.BTN_FILTROANO = new System.Windows.Forms.Button();
-            this.BTN_FILTRORFC = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TXT_FILTRO = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            BTN_REGRESAR = new System.Windows.Forms.Button();
+            BTN_SALIR = new System.Windows.Forms.Button();
+            BTN_FILTROANO = new System.Windows.Forms.Button();
+            BTN_FILTRORFC = new System.Windows.Forms.Button();
+            label1 = new System.Windows.Forms.Label();
+            TXT_FILTRO = new System.Windows.Forms.TextBox();
+            label2 = new System.Windows.Forms.Label();
+            label22 = new System.Windows.Forms.Label();
+            label17 = new System.Windows.Forms.Label();
+            SuspendLayout();
             // 
             // BTN_REGRESAR
             // 
-            this.BTN_REGRESAR.Location = new System.Drawing.Point(12, 578);
-            this.BTN_REGRESAR.Name = "BTN_REGRESAR";
-            this.BTN_REGRESAR.Size = new System.Drawing.Size(102, 34);
-            this.BTN_REGRESAR.TabIndex = 0;
-            this.BTN_REGRESAR.Text = "REGRESAR";
-            this.BTN_REGRESAR.UseVisualStyleBackColor = true;
-            this.BTN_REGRESAR.Click += new System.EventHandler(this.BTN_REGRESAR_Click);
+            BTN_REGRESAR.Location = new System.Drawing.Point(12, 515);
+            BTN_REGRESAR.Name = "BTN_REGRESAR";
+            BTN_REGRESAR.Size = new System.Drawing.Size(102, 34);
+            BTN_REGRESAR.TabIndex = 0;
+            BTN_REGRESAR.Text = "REGRESAR";
+            BTN_REGRESAR.UseVisualStyleBackColor = true;
+            BTN_REGRESAR.Click += BTN_REGRESAR_Click;
             // 
             // BTN_SALIR
             // 
-            this.BTN_SALIR.Location = new System.Drawing.Point(1073, 578);
-            this.BTN_SALIR.Name = "BTN_SALIR";
-            this.BTN_SALIR.Size = new System.Drawing.Size(102, 34);
-            this.BTN_SALIR.TabIndex = 1;
-            this.BTN_SALIR.Text = "SALIR";
-            this.BTN_SALIR.UseVisualStyleBackColor = true;
-            this.BTN_SALIR.Click += new System.EventHandler(this.BTN_SALIR_Click);
+            BTN_SALIR.Location = new System.Drawing.Point(1073, 515);
+            BTN_SALIR.Name = "BTN_SALIR";
+            BTN_SALIR.Size = new System.Drawing.Size(102, 34);
+            BTN_SALIR.TabIndex = 1;
+            BTN_SALIR.Text = "SALIR";
+            BTN_SALIR.UseVisualStyleBackColor = true;
+            BTN_SALIR.Click += BTN_SALIR_Click;
             // 
             // BTN_FILTROANO
             // 
-            this.BTN_FILTROANO.Location = new System.Drawing.Point(295, 584);
-            this.BTN_FILTROANO.Name = "BTN_FILTROANO";
-            this.BTN_FILTROANO.Size = new System.Drawing.Size(75, 23);
-            this.BTN_FILTROANO.TabIndex = 12;
-            this.BTN_FILTROANO.Text = "AÑO";
-            this.BTN_FILTROANO.UseVisualStyleBackColor = true;
+            BTN_FILTROANO.Location = new System.Drawing.Point(295, 521);
+            BTN_FILTROANO.Name = "BTN_FILTROANO";
+            BTN_FILTROANO.Size = new System.Drawing.Size(75, 23);
+            BTN_FILTROANO.TabIndex = 12;
+            BTN_FILTROANO.Text = "AÑO";
+            BTN_FILTROANO.UseVisualStyleBackColor = true;
             // 
             // BTN_FILTRORFC
             // 
-            this.BTN_FILTRORFC.Location = new System.Drawing.Point(214, 584);
-            this.BTN_FILTRORFC.Name = "BTN_FILTRORFC";
-            this.BTN_FILTRORFC.Size = new System.Drawing.Size(75, 23);
-            this.BTN_FILTRORFC.TabIndex = 11;
-            this.BTN_FILTRORFC.Text = "RFC";
-            this.BTN_FILTRORFC.UseVisualStyleBackColor = true;
+            BTN_FILTRORFC.Location = new System.Drawing.Point(214, 521);
+            BTN_FILTRORFC.Name = "BTN_FILTRORFC";
+            BTN_FILTRORFC.Size = new System.Drawing.Size(75, 23);
+            BTN_FILTRORFC.TabIndex = 11;
+            BTN_FILTRORFC.Text = "RFC";
+            BTN_FILTRORFC.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(147, 588);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 15);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Filtrar por:";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(147, 525);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(61, 15);
+            label1.TabIndex = 10;
+            label1.Text = "Filtrar por:";
             // 
             // TXT_FILTRO
             // 
-            this.TXT_FILTRO.Location = new System.Drawing.Point(521, 22);
-            this.TXT_FILTRO.Name = "TXT_FILTRO";
-            this.TXT_FILTRO.Size = new System.Drawing.Size(274, 23);
-            this.TXT_FILTRO.TabIndex = 87;
+            TXT_FILTRO.Location = new System.Drawing.Point(521, 22);
+            TXT_FILTRO.Name = "TXT_FILTRO";
+            TXT_FILTRO.Size = new System.Drawing.Size(274, 23);
+            TXT_FILTRO.TabIndex = 87;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(401, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 15);
-            this.label2.TabIndex = 86;
-            this.label2.Text = "Ingrese el filtro aquí:";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(401, 25);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(114, 15);
+            label2.TabIndex = 86;
+            label2.Text = "Ingrese el filtro aquí:";
             // 
             // label22
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(19, 71);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(1142, 15);
-            this.label22.TabIndex = 85;
-            this.label22.Text = resources.GetString("label22.Text");
+            label22.AutoSize = true;
+            label22.Location = new System.Drawing.Point(19, 71);
+            label22.Name = "label22";
+            label22.Size = new System.Drawing.Size(1142, 15);
+            label22.TabIndex = 85;
+            label22.Text = resources.GetString("label22.Text");
             // 
             // label17
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(437, 102);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(329, 21);
-            this.label17.TabIndex = 84;
-            this.label17.Text = "AQUÍ SE MUESTRA EL REPORTE DE CLIENTES!";
+            label17.AutoSize = true;
+            label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label17.Location = new System.Drawing.Point(437, 102);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(329, 21);
+            label17.TabIndex = 84;
+            label17.Text = "AQUÍ SE MUESTRA EL REPORTE DE CLIENTES!";
             // 
             // FORM_REPORTE_CLIENTE
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1187, 624);
-            this.ControlBox = false;
-            this.Controls.Add(this.TXT_FILTRO);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.label17);
-            this.Controls.Add(this.BTN_FILTROANO);
-            this.Controls.Add(this.BTN_FILTRORFC);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.BTN_SALIR);
-            this.Controls.Add(this.BTN_REGRESAR);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FORM_REPORTE_CLIENTE";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bienvenido al Reporte de Clientes!";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1187, 561);
+            ControlBox = false;
+            Controls.Add(TXT_FILTRO);
+            Controls.Add(label2);
+            Controls.Add(label22);
+            Controls.Add(label17);
+            Controls.Add(BTN_FILTROANO);
+            Controls.Add(BTN_FILTRORFC);
+            Controls.Add(label1);
+            Controls.Add(BTN_SALIR);
+            Controls.Add(BTN_REGRESAR);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Name = "FORM_REPORTE_CLIENTE";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Bienvenido al Reporte de Clientes!";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

@@ -27,5 +27,10 @@ namespace PROYECTO_ADADAT
         {
             Application.Exit();
         }
+
+        private void BTN_CANCELARRESERVACION_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
