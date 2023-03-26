@@ -32,5 +32,15 @@ namespace PROYECTO_ADADAT
         {
 
         }
+
+        private void BTN_EDITAR_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BTN_ELIMINAR_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

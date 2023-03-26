@@ -27,5 +27,15 @@ namespace PROYECTO_ADADAT
             VariablesGlobales.FormMenuAdmin.Show();
             this.Hide();
         }
+
+        private void BTN_GUARDAR_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BTN_ELIMINAR_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
