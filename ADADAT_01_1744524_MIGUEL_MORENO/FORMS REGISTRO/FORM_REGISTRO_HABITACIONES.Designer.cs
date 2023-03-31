@@ -52,16 +52,12 @@ namespace PROYECTO_ADADAT
             this.label17 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CB_PERSONAS = new System.Windows.Forms.ComboBox();
-            this.TXT_CARACTERISTICAS = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.TXT_AMENIDADES = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(359, 246);
+            this.label9.Location = new System.Drawing.Point(651, 239);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(54, 15);
             this.label9.TabIndex = 89;
@@ -71,7 +67,7 @@ namespace PROYECTO_ADADAT
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(502, 129);
+            this.label8.Location = new System.Drawing.Point(794, 122);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(43, 15);
             this.label8.TabIndex = 88;
@@ -80,28 +76,28 @@ namespace PROYECTO_ADADAT
             // 
             // TXT_NIVEL
             // 
-            this.TXT_NIVEL.Location = new System.Drawing.Point(183, 94);
+            this.TXT_NIVEL.Location = new System.Drawing.Point(475, 87);
             this.TXT_NIVEL.Name = "TXT_NIVEL";
             this.TXT_NIVEL.Size = new System.Drawing.Size(313, 23);
             this.TXT_NIVEL.TabIndex = 87;
             // 
             // TXT_PRECIO
             // 
-            this.TXT_PRECIO.Location = new System.Drawing.Point(359, 126);
+            this.TXT_PRECIO.Location = new System.Drawing.Point(651, 119);
             this.TXT_PRECIO.Name = "TXT_PRECIO";
             this.TXT_PRECIO.Size = new System.Drawing.Size(137, 23);
             this.TXT_PRECIO.TabIndex = 85;
             // 
             // TXT_NUMEROCAMAS
             // 
-            this.TXT_NUMEROCAMAS.Location = new System.Drawing.Point(168, 126);
+            this.TXT_NUMEROCAMAS.Location = new System.Drawing.Point(460, 119);
             this.TXT_NUMEROCAMAS.Name = "TXT_NUMEROCAMAS";
             this.TXT_NUMEROCAMAS.Size = new System.Drawing.Size(79, 23);
             this.TXT_NUMEROCAMAS.TabIndex = 84;
             // 
             // TXT_TIPOCAMAS
             // 
-            this.TXT_TIPOCAMAS.Location = new System.Drawing.Point(151, 166);
+            this.TXT_TIPOCAMAS.Location = new System.Drawing.Point(443, 159);
             this.TXT_TIPOCAMAS.Multiline = true;
             this.TXT_TIPOCAMAS.Name = "TXT_TIPOCAMAS";
             this.TXT_TIPOCAMAS.Size = new System.Drawing.Size(345, 69);
@@ -109,7 +105,7 @@ namespace PROYECTO_ADADAT
             // 
             // TXT_NOMBRE
             // 
-            this.TXT_NOMBRE.Location = new System.Drawing.Point(206, 65);
+            this.TXT_NOMBRE.Location = new System.Drawing.Point(498, 58);
             this.TXT_NOMBRE.Name = "TXT_NOMBRE";
             this.TXT_NOMBRE.Size = new System.Drawing.Size(290, 23);
             this.TXT_NOMBRE.TabIndex = 82;
@@ -117,7 +113,7 @@ namespace PROYECTO_ADADAT
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(59, 97);
+            this.label7.Location = new System.Drawing.Point(351, 90);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(124, 15);
             this.label7.TabIndex = 81;
@@ -126,7 +122,7 @@ namespace PROYECTO_ADADAT
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(59, 238);
+            this.label6.Location = new System.Drawing.Point(351, 231);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(170, 30);
             this.label6.TabIndex = 80;
@@ -136,7 +132,7 @@ namespace PROYECTO_ADADAT
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(253, 129);
+            this.label5.Location = new System.Drawing.Point(545, 122);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 30);
             this.label5.TabIndex = 79;
@@ -146,7 +142,7 @@ namespace PROYECTO_ADADAT
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(59, 129);
+            this.label4.Location = new System.Drawing.Point(351, 122);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 15);
             this.label4.TabIndex = 78;
@@ -155,7 +151,7 @@ namespace PROYECTO_ADADAT
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(59, 169);
+            this.label3.Location = new System.Drawing.Point(351, 162);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 15);
             this.label3.TabIndex = 77;
@@ -164,7 +160,7 @@ namespace PROYECTO_ADADAT
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 68);
+            this.label1.Location = new System.Drawing.Point(351, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 15);
             this.label1.TabIndex = 76;
@@ -222,7 +218,7 @@ namespace PROYECTO_ADADAT
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(12, 299);
+            this.label22.Location = new System.Drawing.Point(12, 267);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(1187, 15);
             this.label22.TabIndex = 70;
@@ -232,7 +228,7 @@ namespace PROYECTO_ADADAT
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(310, 330);
+            this.label17.Location = new System.Drawing.Point(310, 298);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(556, 21);
             this.label17.TabIndex = 69;
@@ -268,46 +264,10 @@ namespace PROYECTO_ADADAT
             "13",
             "14",
             "15"});
-            this.CB_PERSONAS.Location = new System.Drawing.Point(232, 243);
+            this.CB_PERSONAS.Location = new System.Drawing.Point(524, 236);
             this.CB_PERSONAS.Name = "CB_PERSONAS";
             this.CB_PERSONAS.Size = new System.Drawing.Size(121, 23);
             this.CB_PERSONAS.TabIndex = 90;
-            // 
-            // TXT_CARACTERISTICAS
-            // 
-            this.TXT_CARACTERISTICAS.Location = new System.Drawing.Point(720, 166);
-            this.TXT_CARACTERISTICAS.Multiline = true;
-            this.TXT_CARACTERISTICAS.Name = "TXT_CARACTERISTICAS";
-            this.TXT_CARACTERISTICAS.Size = new System.Drawing.Size(472, 112);
-            this.TXT_CARACTERISTICAS.TabIndex = 94;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(568, 169);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(146, 30);
-            this.label10.TabIndex = 93;
-            this.label10.Text = "Caracteristicas que tendrá \r\nla habitación:";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // TXT_AMENIDADES
-            // 
-            this.TXT_AMENIDADES.Location = new System.Drawing.Point(720, 65);
-            this.TXT_AMENIDADES.Multiline = true;
-            this.TXT_AMENIDADES.Name = "TXT_AMENIDADES";
-            this.TXT_AMENIDADES.Size = new System.Drawing.Size(472, 84);
-            this.TXT_AMENIDADES.TabIndex = 92;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(519, 68);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(195, 30);
-            this.label12.TabIndex = 91;
-            this.label12.Text = "Amenidades que estarán disponible\r\nen este tipo de habitaciones:";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FORM_REGISTRO_HABITACIONES
             // 
@@ -315,10 +275,6 @@ namespace PROYECTO_ADADAT
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1209, 561);
             this.ControlBox = false;
-            this.Controls.Add(this.TXT_CARACTERISTICAS);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.TXT_AMENIDADES);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.CB_PERSONAS);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -374,9 +330,5 @@ namespace PROYECTO_ADADAT
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox CB_PERSONAS;
-        private System.Windows.Forms.TextBox TXT_CARACTERISTICAS;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox TXT_AMENIDADES;
-        private System.Windows.Forms.Label label12;
     }
 }
