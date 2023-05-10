@@ -63,7 +63,7 @@ namespace PROYECTO_ADADAT
             this.BTN_SALIR.TabIndex = 2;
             this.BTN_SALIR.Text = "SALIR";
             this.BTN_SALIR.UseVisualStyleBackColor = true;
-            this.BTN_SALIR.Click += new System.EventHandler(this.button3_Click);
+            this.BTN_SALIR.Click += new System.EventHandler(this.BTN_SALIR_Click);
             // 
             // FORM_MAIN
             // 

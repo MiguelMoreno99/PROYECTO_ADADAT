@@ -30,5 +30,11 @@ namespace PROYECTO_ADADAT
             public static Form FormReporteClientes = new FORM_REPORTE_CLIENTE();
             public static Form FormReporteOcupacion = new FORM_REPORTE_OCUPACION();
 
+        public static Int64 DevolverFechaRegistro()
+        {
+            Int64 fecha_registro = ((DateTimeOffset.Now).ToUnixTimeMilliseconds()) - 21600000;
+            return fecha_registro;
+        }
+
     }
 }

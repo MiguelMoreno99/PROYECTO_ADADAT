@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace PROYECTO_ADADAT
 {
+
     public partial class FORM_MAIN : Form
     {
         public FORM_MAIN()
@@ -22,7 +23,7 @@ namespace PROYECTO_ADADAT
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void BTN_SALIR_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
