@@ -114,6 +114,46 @@ namespace PROYECTO_ADADAT
             }
         }
 
+        public static void RegistrarCliente(string nombre, string apellido_paterno, string apellido_materno, string rfc, string domicilio, string correo_electronico, int telefono_casa, Int64 telefono_celular, string referencia, string estado_civil, DateTime fecha_nacimiento)
+        {
+            try
+            {
+                Conectar();
+                string query = ("INSERT INTO clientes(id_cliente, nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento,id_reservacion, correo_operativo, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, 1, nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento, null, "correo@admin.com", VariablesGlobales.DevolverFechaRegistro());
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("LA INFORMACION DEL CLIENTE SE CAPTURO CORRECTAMENTE", "FELICIDADES!!");
+            }
+        }
+
+        public static void RegistrarReservacion(Guid id_reservacion, DateTime fecha_inicial, DateTime fecha_final, int personas_hospedar, double anticipo, double total_hospedaje)
+        {
+            try
+            {
+                Conectar();
+                string query = ("INSERT INTO reservaciones(id_reservacion, reservacion_activa, id_hotel, id_habitacion_hotel, id_cliente, fecha_inicial, fecha_final, personas_hospedar, anticipo, checkin, checkout, fecha_checkout, servicios_utilizados, numero_servicios, descuento, total_hospedaje, total_servicios, total_pagar, correo_admin_cancelacion, fecha_cancelacion, correo_operativo, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, id_reservacion, true, 1, 1, 1, fecha_inicial, fecha_final, personas_hospedar, anticipo, false, false, "", "","","", total_hospedaje, "","","","","correo@operativo.com",VariablesGlobales.DevolverFechaRegistro());
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("LA INFORMACION DE LA RESERVACION SE CAPTURO CORRECTAMENTE, SU RESERVACION ES: "+ id_reservacion, "FELICIDADES!!");
+            }
+        }
+
         //public IEnumerable<UsuariosAdministradores> Get_One(int dato)
         //{
         //    string query = "SELECT campo1, campo2 FROM ejemplo WHERE campo1 = ?;";

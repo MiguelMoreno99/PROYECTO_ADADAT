@@ -31,15 +31,10 @@ namespace PROYECTO_ADADAT
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FORM_REGISTRO_HABITACIONES));
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.TXT_NIVEL = new System.Windows.Forms.TextBox();
-            this.TXT_PRECIO = new System.Windows.Forms.TextBox();
-            this.TXT_NUMEROCAMAS = new System.Windows.Forms.TextBox();
             this.TXT_TIPOCAMAS = new System.Windows.Forms.TextBox();
             this.TXT_NOMBRE = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,6 +47,9 @@ namespace PROYECTO_ADADAT
             this.label17 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CB_PERSONAS = new System.Windows.Forms.ComboBox();
+            this.CB_NIVEL = new System.Windows.Forms.ComboBox();
+            this.CB_NUMEROCAMAS = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label9
@@ -64,40 +62,9 @@ namespace PROYECTO_ADADAT
             this.label9.Text = "Personas";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(794, 122);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 15);
-            this.label8.TabIndex = 88;
-            this.label8.Text = "$ MXN";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // TXT_NIVEL
-            // 
-            this.TXT_NIVEL.Location = new System.Drawing.Point(475, 87);
-            this.TXT_NIVEL.Name = "TXT_NIVEL";
-            this.TXT_NIVEL.Size = new System.Drawing.Size(313, 23);
-            this.TXT_NIVEL.TabIndex = 87;
-            // 
-            // TXT_PRECIO
-            // 
-            this.TXT_PRECIO.Location = new System.Drawing.Point(651, 119);
-            this.TXT_PRECIO.Name = "TXT_PRECIO";
-            this.TXT_PRECIO.Size = new System.Drawing.Size(137, 23);
-            this.TXT_PRECIO.TabIndex = 85;
-            // 
-            // TXT_NUMEROCAMAS
-            // 
-            this.TXT_NUMEROCAMAS.Location = new System.Drawing.Point(460, 119);
-            this.TXT_NUMEROCAMAS.Name = "TXT_NUMEROCAMAS";
-            this.TXT_NUMEROCAMAS.Size = new System.Drawing.Size(79, 23);
-            this.TXT_NUMEROCAMAS.TabIndex = 84;
-            // 
             // TXT_TIPOCAMAS
             // 
-            this.TXT_TIPOCAMAS.Location = new System.Drawing.Point(443, 159);
+            this.TXT_TIPOCAMAS.Location = new System.Drawing.Point(443, 116);
             this.TXT_TIPOCAMAS.Multiline = true;
             this.TXT_TIPOCAMAS.Name = "TXT_TIPOCAMAS";
             this.TXT_TIPOCAMAS.Size = new System.Drawing.Size(345, 69);
@@ -129,20 +96,10 @@ namespace PROYECTO_ADADAT
             this.label6.Text = "Cantidad máxima de personas \r\npor habitación:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(545, 122);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 30);
-            this.label5.TabIndex = 79;
-            this.label5.Text = "Precio por noche \r\nde la habitación:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(351, 122);
+            this.label4.Location = new System.Drawing.Point(411, 194);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 15);
             this.label4.TabIndex = 78;
@@ -151,7 +108,7 @@ namespace PROYECTO_ADADAT
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(351, 162);
+            this.label3.Location = new System.Drawing.Point(351, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 15);
             this.label3.TabIndex = 77;
@@ -269,23 +226,62 @@ namespace PROYECTO_ADADAT
             this.CB_PERSONAS.Size = new System.Drawing.Size(121, 23);
             this.CB_PERSONAS.TabIndex = 90;
             // 
+            // CB_NIVEL
+            // 
+            this.CB_NIVEL.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_NIVEL.FormattingEnabled = true;
+            this.CB_NIVEL.Items.AddRange(new object[] {
+            "HABITACION BASICA",
+            "HABITACION MEDIA",
+            "HABITACION PLUS",
+            "HABITACION DELUXE",
+            "HABITACION LUXURY"});
+            this.CB_NIVEL.Location = new System.Drawing.Point(481, 87);
+            this.CB_NIVEL.Name = "CB_NIVEL";
+            this.CB_NIVEL.Size = new System.Drawing.Size(307, 23);
+            this.CB_NIVEL.TabIndex = 91;
+            // 
+            // CB_NUMEROCAMAS
+            // 
+            this.CB_NUMEROCAMAS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_NUMEROCAMAS.FormattingEnabled = true;
+            this.CB_NUMEROCAMAS.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.CB_NUMEROCAMAS.Location = new System.Drawing.Point(524, 191);
+            this.CB_NUMEROCAMAS.Name = "CB_NUMEROCAMAS";
+            this.CB_NUMEROCAMAS.Size = new System.Drawing.Size(121, 23);
+            this.CB_NUMEROCAMAS.TabIndex = 92;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(651, 194);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 15);
+            this.label5.TabIndex = 93;
+            this.label5.Text = "Camas";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // FORM_REGISTRO_HABITACIONES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1209, 561);
             this.ControlBox = false;
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.CB_NUMEROCAMAS);
+            this.Controls.Add(this.CB_NIVEL);
             this.Controls.Add(this.CB_PERSONAS);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.TXT_NIVEL);
-            this.Controls.Add(this.TXT_PRECIO);
-            this.Controls.Add(this.TXT_NUMEROCAMAS);
             this.Controls.Add(this.TXT_TIPOCAMAS);
             this.Controls.Add(this.TXT_NOMBRE);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -309,15 +305,10 @@ namespace PROYECTO_ADADAT
         #endregion
 
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox TXT_NIVEL;
-        private System.Windows.Forms.TextBox TXT_PRECIO;
-        private System.Windows.Forms.TextBox TXT_NUMEROCAMAS;
         private System.Windows.Forms.TextBox TXT_TIPOCAMAS;
         private System.Windows.Forms.TextBox TXT_NOMBRE;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
@@ -330,5 +321,8 @@ namespace PROYECTO_ADADAT
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox CB_PERSONAS;
+        private System.Windows.Forms.ComboBox CB_NIVEL;
+        private System.Windows.Forms.ComboBox CB_NUMEROCAMAS;
+        private System.Windows.Forms.Label label5;
     }
 }

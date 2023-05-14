@@ -46,6 +46,9 @@ namespace PROYECTO_ADADAT
             this.label10 = new System.Windows.Forms.Label();
             this.TXT_AMENIDADES = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.TXT_PRECIO = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BTN_SALIR
@@ -56,7 +59,7 @@ namespace PROYECTO_ADADAT
             this.BTN_SALIR.TabIndex = 79;
             this.BTN_SALIR.Text = "SALIR";
             this.BTN_SALIR.UseVisualStyleBackColor = true;
-            this.BTN_SALIR.Click += new System.EventHandler(this.BTN_REGRESAR_Click);
+            this.BTN_SALIR.Click += new System.EventHandler(this.BTN_SALIR_Click);
             // 
             // BTN_ELIMINAR
             // 
@@ -144,7 +147,7 @@ namespace PROYECTO_ADADAT
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(-1, 241);
+            this.label22.Location = new System.Drawing.Point(-1, 233);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(1157, 15);
             this.label22.TabIndex = 66;
@@ -172,16 +175,16 @@ namespace PROYECTO_ADADAT
             // 
             // TXT_CARACTERISTICAS
             // 
-            this.TXT_CARACTERISTICAS.Location = new System.Drawing.Point(213, 183);
+            this.TXT_CARACTERISTICAS.Location = new System.Drawing.Point(213, 162);
             this.TXT_CARACTERISTICAS.Multiline = true;
             this.TXT_CARACTERISTICAS.Name = "TXT_CARACTERISTICAS";
-            this.TXT_CARACTERISTICAS.Size = new System.Drawing.Size(856, 55);
+            this.TXT_CARACTERISTICAS.Size = new System.Drawing.Size(856, 30);
             this.TXT_CARACTERISTICAS.TabIndex = 98;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(61, 183);
+            this.label10.Location = new System.Drawing.Point(61, 162);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(146, 30);
             this.label10.TabIndex = 97;
@@ -193,7 +196,7 @@ namespace PROYECTO_ADADAT
             this.TXT_AMENIDADES.Location = new System.Drawing.Point(213, 126);
             this.TXT_AMENIDADES.Multiline = true;
             this.TXT_AMENIDADES.Name = "TXT_AMENIDADES";
-            this.TXT_AMENIDADES.Size = new System.Drawing.Size(856, 51);
+            this.TXT_AMENIDADES.Size = new System.Drawing.Size(856, 30);
             this.TXT_AMENIDADES.TabIndex = 96;
             // 
             // label12
@@ -206,12 +209,42 @@ namespace PROYECTO_ADADAT
             this.label12.Text = "Amenidades que estarán disponible\r\nen este tipo de habitaciones:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(356, 202);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 15);
+            this.label8.TabIndex = 101;
+            this.label8.Text = "$ MXN";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // TXT_PRECIO
+            // 
+            this.TXT_PRECIO.Location = new System.Drawing.Point(213, 199);
+            this.TXT_PRECIO.Name = "TXT_PRECIO";
+            this.TXT_PRECIO.Size = new System.Drawing.Size(137, 23);
+            this.TXT_PRECIO.TabIndex = 100;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(107, 202);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 30);
+            this.label5.TabIndex = 99;
+            this.label5.Text = "Precio por noche \r\nde la habitación:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // FORM_REGISTRO_HABITACIONESenHOTELES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1155, 561);
             this.ControlBox = false;
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.TXT_PRECIO);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.TXT_CARACTERISTICAS);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.TXT_AMENIDADES);
@@ -255,5 +288,8 @@ namespace PROYECTO_ADADAT
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox TXT_AMENIDADES;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox TXT_PRECIO;
+        private System.Windows.Forms.Label label5;
     }
 }
