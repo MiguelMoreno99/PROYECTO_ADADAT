@@ -29,6 +29,10 @@ namespace PROYECTO_ADADAT
             public static Form FormReporteVentas = new FORM_REPORTE_VENTAS();
             public static Form FormReporteClientes = new FORM_REPORTE_CLIENTE();
             public static Form FormReporteOcupacion = new FORM_REPORTE_OCUPACION();
+            public static string CorreoPersonaLogeada;
+            public static int IntentosOperador = 0;
+            public static string CorreoIntentos;
+
 
         public static Int64 DevolverFechaRegistro()
         {

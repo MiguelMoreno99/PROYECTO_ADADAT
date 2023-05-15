@@ -19,6 +19,7 @@ namespace PROYECTO_ADADAT
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FORM_MAIN());
+
         }
     }
 }

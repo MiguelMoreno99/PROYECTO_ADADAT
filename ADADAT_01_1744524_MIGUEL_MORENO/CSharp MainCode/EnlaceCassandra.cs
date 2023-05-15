@@ -7,6 +7,7 @@ using Cassandra;
 using Cassandra.Mapping;
 using System.Configuration;
 using System.Windows.Forms;
+using PROYECTO_ADADAT.CSharp_MainCode;
 
 namespace PROYECTO_ADADAT
 {
@@ -16,6 +17,7 @@ namespace PROYECTO_ADADAT
         static private string DbKeySpace { set; get; }
         static private Cluster _cluster;
         static private ISession _session;
+
 
         private static void Conectar()
         {
@@ -39,9 +41,9 @@ namespace PROYECTO_ADADAT
             try
             {
                 Conectar();
-                string query = ("INSERT INTO usuariosoperativos(id_operativo, correo_electronico, contrasena_actual, contrasena_anterior, contrasena_anteanterior, nombre_completo, numero_nomina, fecha_nacimiento, domicilio, telefono_casa, telefono_celular, inhabilitado, restablecer_contrasena, correo_admin, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                var statement = new SimpleStatement(query, 1, correo_electronico, contrasena_actual, contrasena_actual, contrasena_actual, nombre_completo, numero_nomina, fecha_nacimiento, domicilio, telefono_casa, telefono_celular, false, false, "admin@admin.com", VariablesGlobales.DevolverFechaRegistro());
-                 _session.Execute(statement);
+                string query = ("INSERT INTO usuariosoperativos(correo_electronico, contrasena_actual, contrasena_anterior, contrasena_anteanterior, nombre_completo, numero_nomina, fecha_nacimiento, domicilio, telefono_casa, telefono_celular, inhabilitado, restablecer_contrasena, correo_admin, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, correo_electronico, contrasena_actual, contrasena_actual, contrasena_actual, nombre_completo, numero_nomina, fecha_nacimiento, domicilio, telefono_casa, telefono_celular, false, false, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro());
+                _session.Execute(statement);
             }
             catch (FormatException error)
             {
@@ -49,8 +51,8 @@ namespace PROYECTO_ADADAT
             }
             finally
             {
-                    Desconectar();
-                    MessageBox.Show("LA INFORMACION SE CAPTURO CORRECTAMENTE", "FELICIDADES!!");
+                Desconectar();
+                MessageBox.Show("LA INFORMACION SE CAPTURO CORRECTAMENTE", "FELICIDADES!!");
             }
         }
 
@@ -60,7 +62,7 @@ namespace PROYECTO_ADADAT
             {
                 Conectar();
                 string query = ("INSERT INTO habitaciones(id_habitacion, nombre, nivel, nombre_nivel, numero_camas, tipo_cama, max_personas, correo_admin, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                var statement = new SimpleStatement(query, 1, nombre, nivel, nombre_nivel, numero_camas, tipo_cama, max_personas, "admin@admin.com", VariablesGlobales.DevolverFechaRegistro());
+                var statement = new SimpleStatement(query, 1, nombre, nivel, nombre_nivel, numero_camas, tipo_cama, max_personas, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro());
                 _session.Execute(statement);
             }
             catch (FormatException error)
@@ -80,7 +82,7 @@ namespace PROYECTO_ADADAT
             {
                 Conectar();
                 string query = ("INSERT INTO hoteles(id_hotel, nombre, fecha_inicio, ciudad, estado, pais, domicilio, numero_pisos, zona_turistica, servicios_adicionales, caracteristicas, habitaciones_en_hotel, correo_admin, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                var statement = new SimpleStatement(query, 1, nombre, fecha_inicio, ciudad, estado, pais, domicilio, numero_pisos, zona_turistica, servicios_adicionales, caracteristicas, habitaciones_en_hotel, "admin@admin.com", VariablesGlobales.DevolverFechaRegistro());
+                var statement = new SimpleStatement(query, 1, nombre, fecha_inicio, ciudad, estado, pais, domicilio, numero_pisos, zona_turistica, servicios_adicionales, caracteristicas, habitaciones_en_hotel, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro());
                 _session.Execute(statement);
             }
             catch (FormatException error)
@@ -100,7 +102,7 @@ namespace PROYECTO_ADADAT
             {
                 Conectar();
                 string query = ("INSERT INTO habitacionesenhoteles(id_habitacion_hotel, id_habitacion, nombre_habitacion, nivel_habitacion, nombre_nivel_habitacion, numero_camas_habitacion, tipo_cama_habitacion, max_personas_habitacion, precio_noche, numero, caracteristicas, amenidades, ocupada, personas_hospedadas) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                var statement = new SimpleStatement(query, 1, 1, nombre_habitacion, nivel_habitacion, nombre_nivel_habitacion, numero_camas_habitacion, tipo_cama_habitacion, max_personas_habitacion, precio_noche, numero, caracteristicas, amenidades, false,0);
+                var statement = new SimpleStatement(query, 1, 1, nombre_habitacion, nivel_habitacion, nombre_nivel_habitacion, numero_camas_habitacion, tipo_cama_habitacion, max_personas_habitacion, precio_noche, numero, caracteristicas, amenidades, false, 0);
                 _session.Execute(statement);
             }
             catch (FormatException error)
@@ -120,7 +122,7 @@ namespace PROYECTO_ADADAT
             {
                 Conectar();
                 string query = ("INSERT INTO clientes(id_cliente, nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento,id_reservacion, correo_operativo, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                var statement = new SimpleStatement(query, 1, nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento, null, "correo@admin.com", VariablesGlobales.DevolverFechaRegistro());
+                var statement = new SimpleStatement(query, 1, nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento, null, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro());
                 _session.Execute(statement);
             }
             catch (FormatException error)
@@ -140,7 +142,7 @@ namespace PROYECTO_ADADAT
             {
                 Conectar();
                 string query = ("INSERT INTO reservaciones(id_reservacion, reservacion_activa, id_hotel, id_habitacion_hotel, id_cliente, fecha_inicial, fecha_final, personas_hospedar, anticipo, checkin, checkout, fecha_checkout, servicios_utilizados, numero_servicios, descuento, total_hospedaje, total_servicios, total_pagar, correo_admin_cancelacion, fecha_cancelacion, correo_operativo, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                var statement = new SimpleStatement(query, id_reservacion, true, 1, 1, 1, fecha_inicial, fecha_final, personas_hospedar, anticipo, false, false, "", "","","", total_hospedaje, "","","","","correo@operativo.com",VariablesGlobales.DevolverFechaRegistro());
+                var statement = new SimpleStatement(query, id_reservacion, true, 1, 1, 1, fecha_inicial, fecha_final, personas_hospedar, anticipo, false, false, "", "", "", "", total_hospedaje, "", "", "", "", VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro());
                 _session.Execute(statement);
             }
             catch (FormatException error)
@@ -150,72 +152,29 @@ namespace PROYECTO_ADADAT
             finally
             {
                 Desconectar();
-                MessageBox.Show("LA INFORMACION DE LA RESERVACION SE CAPTURO CORRECTAMENTE, SU RESERVACION ES: "+ id_reservacion, "FELICIDADES!!");
+                MessageBox.Show("LA INFORMACION DE LA RESERVACION SE CAPTURO CORRECTAMENTE, SU RESERVACION ES: " + id_reservacion, "FELICIDADES!!");
             }
         }
 
-        //public IEnumerable<UsuariosAdministradores> Get_One(int dato)
-        //{
-        //    string query = "SELECT campo1, campo2 FROM ejemplo WHERE campo1 = ?;";
-        //    conectar();
-        //    IMapper mapper = new Mapper(_session);
-        //    IEnumerable<UsuariosAdministradores> users = mapper.Fetch<UsuariosAdministradores>(query, dato);
+        public static List<Operador> HacerListaOperadores()
+        {
+            string query = "SELECT correo_electronico, contrasena_actual, contrasena_anterior, contrasena_anteanterior, nombre_completo, numero_nomina, fecha_nacimiento, domicilio, telefono_casa, telefono_celular, inhabilitado, restablecer_contrasena, correo_admin, fecha_registro FROM usuariosoperativos;";
+            Conectar();
+            IMapper mapper = new Mapper(_session);
+            IEnumerable<Operador> users = mapper.Fetch<Operador>(query);
+            Desconectar();
+            return users.ToList();
+        }
 
-        //    desconectar();
-        //    return users.ToList();
-        //}
-
-        //public List<UsuariosAdministradores> Get_All()
-        //{
-        //    string query = "SELECT campo1, campo2 FROM ejemplo;";
-        //    conectar();
-
-        //    IMapper mapper = new Mapper(_session);
-        //    IEnumerable<UsuariosAdministradores> users = mapper.Fetch<UsuariosAdministradores>(query);
-
-        //    desconectar();
-        //    return users.ToList();
-
-        //}
-
-        //// Ejemplo de leer row x row
-        //public void GetOne()
-        //{
-        //    conectar();
-
-        //    string query ="SELECT campo1, campo2 FROM ejemplo;";
-
-        //    // Execute a query on a connection synchronously 
-        //    var rs = _session.Execute(query);
-
-        //    // Iterate through the RowSet 
-        //    foreach (var row in rs)
-        //    {
-        //        var value = row.GetValue<int>("campo1");
-        //        // Do something with the value 
-        //        var texto = row.GetValue<string>("campo2");
-        //        // Do something with the value 
-
-        //        MessageBox.Show(texto, value.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-        //        /*
-        //        RowSet rsUsers = session.Execute(qry);
-
-        //        ////////////////////////////////////////////////
-        //        var users = new List<UserModel>();
-        //        foreach (var userRow in rsUsers)
-        //        {
-        //            //users.Add(ReflectionTools.GetSingleEntryDynamicFromReader<UserModel>(userRow));
-        //        }
-
-        //        foreach (UserModel user in users)
-        //        {
-        //            Console.WriteLine("{0} {1} {2} {3} {4}", user.Id, user.FirstName, user.LastName, user.Country, user.IsActive);
-        //        }
-        //        */
-
-        //    }
-        //}
+        public static List<Administrador> HacerListaAdministradores()
+        {
+            string query = "SELECT correo_electronico, contrasena_actual FROM usuariosadministradores;";
+            Conectar();
+            IMapper mapper = new Mapper(_session);
+            IEnumerable<Administrador> users = mapper.Fetch<Administrador>(query);
+            Desconectar();
+            return users.ToList();
+        }
 
     }
 }
