@@ -58,6 +58,7 @@ namespace PROYECTO_ADADAT
             this.BTN_HABILITARUSUARIO.TabIndex = 88;
             this.BTN_HABILITARUSUARIO.Text = "HABILITAR USUARIO";
             this.BTN_HABILITARUSUARIO.UseVisualStyleBackColor = true;
+            this.BTN_HABILITARUSUARIO.Click += new System.EventHandler(this.BTN_HABILITARUSUARIO_Click);
             // 
             // BTN_REGRESAR
             // 

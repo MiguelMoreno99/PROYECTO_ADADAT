@@ -18,7 +18,7 @@ namespace PROYECTO_ADADAT
         static private string DbKeySpace { set; get; }
         static private Cluster _cluster;
         static private ISession _session;
-
+        //METODOS
         private static void Conectar()
         {
             DbServer = ConfigurationManager.AppSettings["Cluster"].ToString();
@@ -53,6 +53,66 @@ namespace PROYECTO_ADADAT
             {
                 Desconectar();
                 MessageBox.Show("LA INFORMACION SE CAPTURO CORRECTAMENTE", "FELICIDADES!!");
+            }
+        }
+
+        public static void DeshabiliatarOperador(string correo_electronico)
+        {
+            try
+            {
+                Conectar();
+                string query = ("UPDATE usuariosoperativos SET inhabilitado = true WHERE correo_electronico = ?;");
+                var statement = new SimpleStatement(query, correo_electronico);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("SU USUARIO QUEDO INHABILITADO", "CONTACTE CON SU ADMINISTRADOR");
+            }
+        }
+
+        public static void HabiliatarOperador(string correo_electronico, string contrasena_anteanterior, string contrasena_anterior, string contrasena_actual)
+        {
+            try
+            {
+                Conectar();
+                string query = ("UPDATE usuariosoperativos SET contrasena_anteanterior = ?, contrasena_anterior = ?, contrasena_actual = ?, inhabilitado = false, restablecer_contrasena = true WHERE correo_electronico = ?;");
+                var statement = new SimpleStatement(query, contrasena_anterior, contrasena_actual, correo_electronico, correo_electronico);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("SU USUARIO QUEDO HABILITADO CORRECTAMENTE Y LA CONTRASEÑA ES EL MISMO USUARIO!", "FELICIDADES!");
+            }
+        }
+
+        public static void CambiarContrasenaOperador(string correo_electronico, string contrasena_actual)
+        {
+            try
+            {
+                Conectar();
+                string query = ("UPDATE usuariosoperativos SET contrasena_actual = ?, restablecer_contrasena = false WHERE correo_electronico = ?;");
+                var statement = new SimpleStatement(query, contrasena_actual, correo_electronico);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("CAMBIO LA CONTRASEÑA TEMPORAL CORRECTAMENTE!", "FELICIDADES!");
             }
         }
 

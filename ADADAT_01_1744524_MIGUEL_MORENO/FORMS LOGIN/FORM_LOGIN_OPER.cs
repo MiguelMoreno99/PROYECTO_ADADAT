@@ -50,25 +50,49 @@ namespace PROYECTO_ADADAT
                     {
                         if (opCorreo.inhabilitado)
                         {
-                                throw new FormatException("USUARIO INHABILITADO! CONTACTE CON SU ADMINISTRADOR");
+                            throw new FormatException("USUARIO INHABILITADO! CONTACTE CON SU ADMINISTRADOR");
                         }
                         else if (opCorreo.contrasena_actual == TXT_CONTRASENA.Text)
                         {
-                            VariablesGlobales.FormContraRest.Show();
-                            VariablesGlobales.CorreoPersonaLogeada = TXT_USUARIO.Text;
-                            this.Hide();
+                            if (opCorreo.restablecer_contrasena)
+                            {
+                                VariablesGlobales.FormContraRest.Show();
+                                VariablesGlobales.CorreoPersonaLogeada = TXT_USUARIO.Text;
+                                VariablesGlobales.IntentosOperador = 0;
+                                VariablesGlobales.CorreoIntentos = "";
+                                this.Hide();
+                            }
+                            else
+                            {
+                                VariablesGlobales.FormMenuOper.Show();
+                                VariablesGlobales.CorreoPersonaLogeada = TXT_USUARIO.Text;
+                                VariablesGlobales.IntentosOperador = 0;
+                                VariablesGlobales.CorreoIntentos = "";
+                                this.Hide();
+                            }
                         }
                         else
                         {
-                            if (VariablesGlobales.CorreoIntentos == "")
+                            if (VariablesGlobales.IntentosOperador!=2)
                             {
-                                VariablesGlobales.CorreoIntentos = TXT_USUARIO.Text;
-                                VariablesGlobales.IntentosOperador++;
-                                throw new FormatException("CONTRASEÑA INCORRECTA, INTENTOS RESTANTES: " + (3 - (VariablesGlobales.IntentosOperador)));
+                                if ((VariablesGlobales.CorreoIntentos == "") || (VariablesGlobales.CorreoIntentos != TXT_USUARIO.Text))
+                                {
+                                    VariablesGlobales.CorreoIntentos = TXT_USUARIO.Text;
+                                    VariablesGlobales.IntentosOperador = 0;
+                                    VariablesGlobales.IntentosOperador++;
+                                    throw new FormatException("CONTRASEÑA INCORRECTA, INTENTOS RESTANTES: " + (3 - (VariablesGlobales.IntentosOperador)));
+                                }
+                                else if (VariablesGlobales.CorreoIntentos == TXT_USUARIO.Text)
+                                {
+                                    VariablesGlobales.IntentosOperador++;
+                                    throw new FormatException("CONTRASEÑA INCORRECTA, INTENTOS RESTANTES: " + (3 - (VariablesGlobales.IntentosOperador)));
+                                }
                             }
-                            VariablesGlobales.IntentosOperador++;
-                            throw new FormatException("CONTRASEÑA INCORRECTA, INTENTOS RESTANTES: "+ (3-(VariablesGlobales.IntentosOperador)));
-
+                            else
+                            {
+                                VariablesGlobales.IntentosOperador = 0;
+                                EnlaceCassandra.DeshabiliatarOperador(TXT_USUARIO.Text);
+                            }
                         }
                     }    
                     else

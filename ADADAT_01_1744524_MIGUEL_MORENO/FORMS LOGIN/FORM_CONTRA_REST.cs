@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PROYECTO_ADADAT.CSharp_MainCode;
 
 namespace PROYECTO_ADADAT
 {
@@ -30,8 +31,29 @@ namespace PROYECTO_ADADAT
 
         private void button1_Click(object sender, EventArgs e)
         {
-            VariablesGlobales.FormMenuOper.Show();
-            this.Hide();
+            try
+            {
+                Operador op = new();
+                List<Operador> listaOp = EnlaceCassandra.HacerListaOperadores();
+                op.correo_electronico = VariablesGlobales.CorreoPersonaLogeada;
+                op.contrasena_actual = TXT_CONTRASENA.Text;
+                Operador opCorreo = new();
+                opCorreo = listaOp.Find(op => op.correo_electronico == VariablesGlobales.CorreoPersonaLogeada);
+                if ((opCorreo.contrasena_actual == TXT_CONTRASENA.Text) || (opCorreo.contrasena_anterior == TXT_CONTRASENA.Text) || (opCorreo.contrasena_anteanterior == TXT_CONTRASENA.Text))
+                {
+                    throw new FormatException("NO PUEDE PONER LA MISMA CONTRASEÑA QUE LAS ULTIMAS 3 CONTRASEÑAS");
+                }
+                else
+                {
+                    EnlaceCassandra.CambiarContrasenaOperador(VariablesGlobales.CorreoPersonaLogeada, TXT_CONTRASENA.Text);
+                    VariablesGlobales.FormMenuOper.Show();
+                    this.Hide();
+                }
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR");
+            }
         }
     }
 }

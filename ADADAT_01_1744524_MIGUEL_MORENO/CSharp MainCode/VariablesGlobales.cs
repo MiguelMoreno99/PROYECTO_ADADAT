@@ -33,7 +33,7 @@ namespace PROYECTO_ADADAT
             public static string CorreoPersonaLogeada;
             public static int IntentosOperador = 0;
             public static string CorreoIntentos;
-
+        //METODOS
         public static Int64 DevolverFechaRegistro()
         {
             Int64 fecha_registro = ((DateTimeOffset.Now).ToUnixTimeMilliseconds()) - 21600000;
