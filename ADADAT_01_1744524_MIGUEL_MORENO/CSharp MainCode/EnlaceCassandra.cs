@@ -13,11 +13,11 @@ namespace PROYECTO_ADADAT
 {
     class EnlaceCassandra
     {
+        //VARIABLES
         static private string DbServer { set; get; }
         static private string DbKeySpace { set; get; }
         static private Cluster _cluster;
         static private ISession _session;
-
 
         private static void Conectar()
         {

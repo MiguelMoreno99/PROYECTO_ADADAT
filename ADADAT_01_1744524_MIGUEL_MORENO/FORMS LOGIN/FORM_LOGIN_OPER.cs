@@ -48,7 +48,11 @@ namespace PROYECTO_ADADAT
                     opCorreo = listaOp.Find(op => op.correo_electronico == TXT_USUARIO.Text);
                     if (opCorreo != null)
                     {
-                        if (opCorreo.contrasena_actual==TXT_CONTRASENA.Text)
+                        if (opCorreo.inhabilitado)
+                        {
+                                throw new FormatException("USUARIO INHABILITADO! CONTACTE CON SU ADMINISTRADOR");
+                        }
+                        else if (opCorreo.contrasena_actual == TXT_CONTRASENA.Text)
                         {
                             VariablesGlobales.FormContraRest.Show();
                             VariablesGlobales.CorreoPersonaLogeada = TXT_USUARIO.Text;
@@ -56,13 +60,17 @@ namespace PROYECTO_ADADAT
                         }
                         else
                         {
-                            if (true)
+                            if (VariablesGlobales.CorreoIntentos == "")
                             {
-
+                                VariablesGlobales.CorreoIntentos = TXT_USUARIO.Text;
+                                VariablesGlobales.IntentosOperador++;
+                                throw new FormatException("CONTRASEÑA INCORRECTA, INTENTOS RESTANTES: " + (3 - (VariablesGlobales.IntentosOperador)));
                             }
-                            throw new FormatException("CONTRASEÑA INCORRECTA");
+                            VariablesGlobales.IntentosOperador++;
+                            throw new FormatException("CONTRASEÑA INCORRECTA, INTENTOS RESTANTES: "+ (3-(VariablesGlobales.IntentosOperador)));
+
                         }
-                    }
+                    }    
                     else
                     {
                         throw new FormatException("VERIFIQUE LOS DATOS CAPTURADOS!");

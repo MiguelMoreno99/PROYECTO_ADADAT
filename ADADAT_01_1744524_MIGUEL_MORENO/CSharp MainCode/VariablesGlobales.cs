@@ -9,6 +9,7 @@ namespace PROYECTO_ADADAT
 {
     class VariablesGlobales
     {
+        //VARIABLES
             public static Form FormLoginOper = new FORM_LOGIN_OPER();
             public static Form FormLoginAdmin = new FORM_LOGIN_ADMIN();
             public static Form FormMain = new FORM_MAIN();
@@ -32,7 +33,6 @@ namespace PROYECTO_ADADAT
             public static string CorreoPersonaLogeada;
             public static int IntentosOperador = 0;
             public static string CorreoIntentos;
-
 
         public static Int64 DevolverFechaRegistro()
         {
