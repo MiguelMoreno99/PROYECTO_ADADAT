@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PROYECTO_ADADAT.CSharp_MainCode;
-//List<Operador> listaOp = EnlaceCassandra.HacerListaOperadores();
 
 
 namespace PROYECTO_ADADAT

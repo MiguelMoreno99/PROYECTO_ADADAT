@@ -217,10 +217,7 @@ namespace PROYECTO_ADADAT
             "9",
             "10",
             "11",
-            "12",
-            "13",
-            "14",
-            "15"});
+            "12"});
             this.CB_PERSONAS.Location = new System.Drawing.Point(524, 236);
             this.CB_PERSONAS.Name = "CB_PERSONAS";
             this.CB_PERSONAS.Size = new System.Drawing.Size(121, 23);
@@ -231,11 +228,11 @@ namespace PROYECTO_ADADAT
             this.CB_NIVEL.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_NIVEL.FormattingEnabled = true;
             this.CB_NIVEL.Items.AddRange(new object[] {
-            "HABITACION BASICA",
-            "HABITACION MEDIA",
-            "HABITACION PLUS",
-            "HABITACION DELUXE",
-            "HABITACION LUXURY"});
+            "01-HABITACION BASICA",
+            "02-HABITACION MEDIA",
+            "03-HABITACION PLUS",
+            "04-HABITACION DELUXE",
+            "05-HABITACION LUXURY"});
             this.CB_NIVEL.Location = new System.Drawing.Point(481, 87);
             this.CB_NIVEL.Name = "CB_NIVEL";
             this.CB_NIVEL.Size = new System.Drawing.Size(307, 23);

@@ -7,28 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PROYECTO_ADADAT.CSharp_MainCode;
+
 
 namespace PROYECTO_ADADAT
 {
     public partial class FORM_REGISTRO_HABITACIONES : Form
     {
-        public FORM_REGISTRO_HABITACIONES(string nombre, int nivel, string nombre_nivel, int numero_camas, string tipo_cama, int max_personas)
-        {
-            this.nombre = nombre;
-            this.nivel = nivel;
-            this.nombre_nivel = nombre_nivel;
-            this.numero_camas = numero_camas;
-            this.tipo_cama = tipo_cama;
-            this.max_personas = max_personas;
-        }
-
-        private string nombre { set; get; }
-        private int nivel { set; get; }
-        private string nombre_nivel { set; get; }
-        private int numero_camas { set; get; }
-        private string tipo_cama { set; get; }
-        private int max_personas { set; get; }
-
         public FORM_REGISTRO_HABITACIONES()
         {
             InitializeComponent();
@@ -49,13 +34,22 @@ namespace PROYECTO_ADADAT
         {
             try
             {
-                nombre = TXT_NOMBRE.Text;
-                nivel = (CB_NIVEL.SelectedIndex)+1;
-                nombre_nivel = CB_NIVEL.Text;
-                numero_camas = int.Parse(CB_NUMEROCAMAS.Text);
-                tipo_cama = TXT_TIPOCAMAS.Text;
-                max_personas = numero_camas = int.Parse(CB_PERSONAS.Text);
-                EnlaceCassandra.RegistrarHabitacion(nombre, nivel, nombre_nivel, numero_camas, tipo_cama, max_personas);
+                Habitacion hab = new();
+                List<Habitacion> listaHab = EnlaceCassandra.HacerListaHabitaciones();
+                hab.nombre = TXT_NOMBRE.Text;
+                hab.nivel = (CB_NIVEL.SelectedIndex) + 1;
+                hab.nombre_nivel = CB_NIVEL.Text;
+                hab.numero_camas = (CB_NUMEROCAMAS.SelectedIndex) + 1;
+                hab.tipo_cama = CB_NUMEROCAMAS.Text;
+                hab.max_personas = int.Parse(CB_PERSONAS.Text);
+                if (listaHab.Count > 0)
+                {
+                    Habitacion hab1 = new();
+                    hab1 = listaHab.Find(hab => hab.nombre == TXT_NOMBRE.Text);
+                    if (hab1 != null)
+                        throw new FormatException("YA HAY UNA HABITACION REGISTRADA CON ESE NOMBRE!");
+                }
+                EnlaceCassandra.RegistrarHabitacion(hab.nombre,hab.nivel,hab.nombre_nivel,hab.numero_camas,hab.tipo_cama,hab.max_personas);
             }
             catch (FormatException error)
             {

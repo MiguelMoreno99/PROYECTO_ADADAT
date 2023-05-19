@@ -8,7 +8,6 @@ namespace PROYECTO_ADADAT.CSharp_MainCode
 {
     public class Operador
     {
-        public int id_operativo { set; get; }
         public string correo_electronico { set; get; }
         public string contrasena_actual { set; get; }
         public string contrasena_anterior { set; get; }

@@ -35,12 +35,9 @@ namespace PROYECTO_ADADAT
             this.BTN_EDITAR = new System.Windows.Forms.Button();
             this.BTN_GUARDAR = new System.Windows.Forms.Button();
             this.BTN_REGRESAR = new System.Windows.Forms.Button();
-            this.CB_HABITACIONES = new System.Windows.Forms.ComboBox();
             this.TXT_DATOS = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TXT_CARACTERISTICAS = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -49,6 +46,14 @@ namespace PROYECTO_ADADAT
             this.label8 = new System.Windows.Forms.Label();
             this.TXT_PRECIO = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.LB_HABITACIONES = new System.Windows.Forms.ListBox();
+            this.BTN_ACTUALIZAR = new System.Windows.Forms.Button();
+            this.LB_HOTELES = new System.Windows.Forms.ListBox();
+            this.TXT_DATOS2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TXT_NUMERO = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // BTN_SALIR
@@ -101,23 +106,9 @@ namespace PROYECTO_ADADAT
             this.BTN_REGRESAR.UseVisualStyleBackColor = true;
             this.BTN_REGRESAR.Click += new System.EventHandler(this.BTN_REGRESAR_Click);
             // 
-            // CB_HABITACIONES
-            // 
-            this.CB_HABITACIONES.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_HABITACIONES.FormattingEnabled = true;
-            this.CB_HABITACIONES.Items.AddRange(new object[] {
-            "STANDART",
-            "MEDIUM",
-            "PREMIUM",
-            "PREMIUM PLUS"});
-            this.CB_HABITACIONES.Location = new System.Drawing.Point(183, 74);
-            this.CB_HABITACIONES.Name = "CB_HABITACIONES";
-            this.CB_HABITACIONES.Size = new System.Drawing.Size(263, 23);
-            this.CB_HABITACIONES.TabIndex = 74;
-            // 
             // TXT_DATOS
             // 
-            this.TXT_DATOS.Location = new System.Drawing.Point(631, 55);
+            this.TXT_DATOS.Location = new System.Drawing.Point(641, 143);
             this.TXT_DATOS.Multiline = true;
             this.TXT_DATOS.Name = "TXT_DATOS";
             this.TXT_DATOS.ReadOnly = true;
@@ -127,7 +118,7 @@ namespace PROYECTO_ADADAT
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(501, 55);
+            this.label11.Location = new System.Drawing.Point(511, 143);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(124, 30);
             this.label11.TabIndex = 68;
@@ -137,31 +128,12 @@ namespace PROYECTO_ADADAT
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 62);
+            this.label2.Location = new System.Drawing.Point(35, 151);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(152, 45);
             this.label2.TabIndex = 67;
             this.label2.Text = "Selecione el nombre de la\r\nhabitación que se agregará \r\nal hotel:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(-1, 233);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(1157, 15);
-            this.label22.TabIndex = 66;
-            this.label22.Text = resources.GetString("label22.Text");
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(273, 266);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(633, 21);
-            this.label17.TabIndex = 65;
-            this.label17.Text = "AQUÍ SE MUESTRAN LAS HABITACIONES DEL HOTEL INGRESADAS HASTA EL MOMENTO!";
             // 
             // label1
             // 
@@ -175,7 +147,7 @@ namespace PROYECTO_ADADAT
             // 
             // TXT_CARACTERISTICAS
             // 
-            this.TXT_CARACTERISTICAS.Location = new System.Drawing.Point(213, 162);
+            this.TXT_CARACTERISTICAS.Location = new System.Drawing.Point(223, 249);
             this.TXT_CARACTERISTICAS.Multiline = true;
             this.TXT_CARACTERISTICAS.Name = "TXT_CARACTERISTICAS";
             this.TXT_CARACTERISTICAS.Size = new System.Drawing.Size(856, 30);
@@ -184,7 +156,7 @@ namespace PROYECTO_ADADAT
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(61, 162);
+            this.label10.Location = new System.Drawing.Point(71, 249);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(146, 30);
             this.label10.TabIndex = 97;
@@ -193,7 +165,7 @@ namespace PROYECTO_ADADAT
             // 
             // TXT_AMENIDADES
             // 
-            this.TXT_AMENIDADES.Location = new System.Drawing.Point(213, 126);
+            this.TXT_AMENIDADES.Location = new System.Drawing.Point(223, 213);
             this.TXT_AMENIDADES.Multiline = true;
             this.TXT_AMENIDADES.Name = "TXT_AMENIDADES";
             this.TXT_AMENIDADES.Size = new System.Drawing.Size(856, 30);
@@ -202,7 +174,7 @@ namespace PROYECTO_ADADAT
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(12, 126);
+            this.label12.Location = new System.Drawing.Point(22, 213);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(195, 30);
             this.label12.TabIndex = 95;
@@ -212,7 +184,7 @@ namespace PROYECTO_ADADAT
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(356, 202);
+            this.label8.Location = new System.Drawing.Point(366, 289);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(43, 15);
             this.label8.TabIndex = 101;
@@ -221,7 +193,7 @@ namespace PROYECTO_ADADAT
             // 
             // TXT_PRECIO
             // 
-            this.TXT_PRECIO.Location = new System.Drawing.Point(213, 199);
+            this.TXT_PRECIO.Location = new System.Drawing.Point(223, 286);
             this.TXT_PRECIO.Name = "TXT_PRECIO";
             this.TXT_PRECIO.Size = new System.Drawing.Size(137, 23);
             this.TXT_PRECIO.TabIndex = 100;
@@ -229,12 +201,96 @@ namespace PROYECTO_ADADAT
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(107, 202);
+            this.label5.Location = new System.Drawing.Point(117, 289);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 30);
             this.label5.TabIndex = 99;
             this.label5.Text = "Precio por noche \r\nde la habitación:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LB_HABITACIONES
+            // 
+            this.LB_HABITACIONES.DisplayMember = "nombre";
+            this.LB_HABITACIONES.FormattingEnabled = true;
+            this.LB_HABITACIONES.ItemHeight = 15;
+            this.LB_HABITACIONES.Location = new System.Drawing.Point(193, 151);
+            this.LB_HABITACIONES.Name = "LB_HABITACIONES";
+            this.LB_HABITACIONES.Size = new System.Drawing.Size(312, 49);
+            this.LB_HABITACIONES.Sorted = true;
+            this.LB_HABITACIONES.TabIndex = 103;
+            this.LB_HABITACIONES.ValueMember = "nombre";
+            this.LB_HABITACIONES.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // BTN_ACTUALIZAR
+            // 
+            this.BTN_ACTUALIZAR.Location = new System.Drawing.Point(193, 125);
+            this.BTN_ACTUALIZAR.Name = "BTN_ACTUALIZAR";
+            this.BTN_ACTUALIZAR.Size = new System.Drawing.Size(312, 23);
+            this.BTN_ACTUALIZAR.TabIndex = 109;
+            this.BTN_ACTUALIZAR.Text = "ACTUALIZAR";
+            this.BTN_ACTUALIZAR.UseVisualStyleBackColor = true;
+            this.BTN_ACTUALIZAR.Click += new System.EventHandler(this.BTN_ACTUALIZAR_Click);
+            // 
+            // LB_HOTELES
+            // 
+            this.LB_HOTELES.DisplayMember = "nombre";
+            this.LB_HOTELES.FormattingEnabled = true;
+            this.LB_HOTELES.ItemHeight = 15;
+            this.LB_HOTELES.Location = new System.Drawing.Point(193, 74);
+            this.LB_HOTELES.Name = "LB_HOTELES";
+            this.LB_HOTELES.Size = new System.Drawing.Size(312, 49);
+            this.LB_HOTELES.Sorted = true;
+            this.LB_HOTELES.TabIndex = 108;
+            this.LB_HOTELES.ValueMember = "nombre";
+            this.LB_HOTELES.SelectedIndexChanged += new System.EventHandler(this.LB_HOTELES_SelectedIndexChanged);
+            // 
+            // TXT_DATOS2
+            // 
+            this.TXT_DATOS2.Location = new System.Drawing.Point(641, 66);
+            this.TXT_DATOS2.Multiline = true;
+            this.TXT_DATOS2.Name = "TXT_DATOS2";
+            this.TXT_DATOS2.ReadOnly = true;
+            this.TXT_DATOS2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TXT_DATOS2.Size = new System.Drawing.Size(438, 67);
+            this.TXT_DATOS2.TabIndex = 107;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(547, 67);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 30);
+            this.label3.TabIndex = 106;
+            this.label3.Text = "Datos del Hotel\r\nseleccionado:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label4.Location = new System.Drawing.Point(51, 74);
+            this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label4.Size = new System.Drawing.Size(136, 45);
+            this.label4.TabIndex = 105;
+            this.label4.Text = "Selecione el nombre del \r\nHotel al que le desea\r\nagregar habitaciones:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(519, 288);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(106, 15);
+            this.label6.TabIndex = 110;
+            this.label6.Text = "No. de Habitacion:";
+            // 
+            // TXT_NUMERO
+            // 
+            this.TXT_NUMERO.Location = new System.Drawing.Point(631, 285);
+            this.TXT_NUMERO.Name = "TXT_NUMERO";
+            this.TXT_NUMERO.Size = new System.Drawing.Size(144, 23);
+            this.TXT_NUMERO.TabIndex = 111;
             // 
             // FORM_REGISTRO_HABITACIONESenHOTELES
             // 
@@ -242,6 +298,14 @@ namespace PROYECTO_ADADAT
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1155, 561);
             this.ControlBox = false;
+            this.Controls.Add(this.TXT_NUMERO);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.BTN_ACTUALIZAR);
+            this.Controls.Add(this.LB_HOTELES);
+            this.Controls.Add(this.TXT_DATOS2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.LB_HABITACIONES);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.TXT_PRECIO);
             this.Controls.Add(this.label5);
@@ -254,17 +318,15 @@ namespace PROYECTO_ADADAT
             this.Controls.Add(this.BTN_EDITAR);
             this.Controls.Add(this.BTN_GUARDAR);
             this.Controls.Add(this.BTN_REGRESAR);
-            this.Controls.Add(this.CB_HABITACIONES);
             this.Controls.Add(this.TXT_DATOS);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.label17);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FORM_REGISTRO_HABITACIONESenHOTELES";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bienvenido Registro de Habitaciones en Hoteles!";
+            this.Load += new System.EventHandler(this.FORM_REGISTRO_HABITACIONESenHOTELES_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,12 +339,9 @@ namespace PROYECTO_ADADAT
         private System.Windows.Forms.Button BTN_EDITAR;
         private System.Windows.Forms.Button BTN_GUARDAR;
         private System.Windows.Forms.Button BTN_REGRESAR;
-        private System.Windows.Forms.ComboBox CB_HABITACIONES;
         private System.Windows.Forms.TextBox TXT_DATOS;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TXT_CARACTERISTICAS;
         private System.Windows.Forms.Label label10;
@@ -291,5 +350,13 @@ namespace PROYECTO_ADADAT
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox TXT_PRECIO;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ListBox LB_HABITACIONES;
+        private System.Windows.Forms.Button BTN_ACTUALIZAR;
+        private System.Windows.Forms.ListBox LB_HOTELES;
+        private System.Windows.Forms.TextBox TXT_DATOS2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox TXT_NUMERO;
     }
 }

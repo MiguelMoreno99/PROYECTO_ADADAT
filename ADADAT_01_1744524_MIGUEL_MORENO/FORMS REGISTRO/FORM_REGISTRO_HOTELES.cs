@@ -7,36 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PROYECTO_ADADAT.CSharp_MainCode;
+
 
 namespace PROYECTO_ADADAT
 {
     public partial class FORM_REGISTRO_HOTELES : Form
     {
-        public FORM_REGISTRO_HOTELES(string nombre, DateTime fecha_inicio, string ciudad, string estado, string pais, string domicilio, int numero_pisos, string zona_turistica, string servicios_adicionales, string caracteristicas)
-        {
-            this.nombre = nombre;
-            this.fecha_inicio = fecha_inicio;
-            this.ciudad = ciudad;
-            this.estado = estado;
-            this.pais = pais;
-            this.domicilio = domicilio;
-            this.numero_pisos = numero_pisos;
-            this.zona_turistica = zona_turistica;
-            this.servicios_adicionales = servicios_adicionales;
-            this.caracteristicas = caracteristicas;
-        }
-
-        private string nombre { set; get; }
-        private DateTime fecha_inicio { set; get; }
-        private string ciudad { set; get; }
-        private string estado { set; get; }
-        private string pais { set; get; }
-        private string domicilio { set; get; }
-        private int numero_pisos { set; get; }
-        private string zona_turistica { set; get; }
-        private string servicios_adicionales { set; get; }
-        private string caracteristicas { set; get; }
-
         public FORM_REGISTRO_HOTELES()
         {
             InitializeComponent();
@@ -63,23 +40,26 @@ namespace PROYECTO_ADADAT
         {
             try
             {
-                nombre = TXT_NOMBRE.Text;
-                fecha_inicio = (DTP_INICIOOPERACIONES.Value).Date;
-                ciudad = TXT_CIUDAD.Text;
-                estado = TXT_ESTADO.Text;
-                pais = TXT_PAIS.Text;
-                domicilio = TXT_DOMICILIO.Text;
-                numero_pisos = int.Parse(TXT_NUMEROPISOS.Text);
-                zona_turistica = TXT_ZONATURISTICA.Text;
-                servicios_adicionales = TXT_SERVICIOSADICIONALES.Text;
-                caracteristicas = TXT_CARACERISTICASHOTEL.Text;
-                List<int> habitaciones_en_hotel = new()
+                Hotel hot = new();
+                List<Hotel> listaHot = EnlaceCassandra.HacerListaHoteles();
+                hot.nombre = TXT_NOMBRE.Text;
+                hot.fecha_inicio = (DTP_INICIOOPERACIONES.Value).Date;
+                hot.ciudad = TXT_CIUDAD.Text;
+                hot.estado = TXT_ESTADO.Text;
+                hot.pais = TXT_PAIS.Text;
+                hot.domicilio = TXT_DOMICILIO.Text;
+                hot.numero_pisos = int.Parse(TXT_NUMEROPISOS.Text);
+                hot.zona_turistica = TXT_ZONATURISTICA.Text;
+                hot.servicios_adicionales = TXT_SERVICIOSADICIONALES.Text;
+                hot.caracteristicas = TXT_CARACERISTICASHOTEL.Text;
+                if (listaHot.Count > 0)
                 {
-                    1,
-                    4,
-                    6
-                };
-                EnlaceCassandra.RegistrarHotel(nombre, fecha_inicio, ciudad, estado, pais, domicilio, numero_pisos,zona_turistica,servicios_adicionales,caracteristicas,habitaciones_en_hotel);
+                    Hotel hot1 = new();
+                    hot1 = listaHot.Find(hot => hot.nombre == TXT_NOMBRE.Text);
+                    if (hot1 != null)
+                        throw new FormatException("YA HAY UN HOTEL REGISTRADO CON ESE NOMBRE!");
+                }
+                EnlaceCassandra.RegistrarHotel(hot.nombre, hot.fecha_inicio, hot.ciudad, hot.estado, hot.pais, hot.domicilio, hot.numero_pisos, hot.zona_turistica, hot.servicios_adicionales, hot.caracteristicas);
             }
             catch (FormatException error)
             {

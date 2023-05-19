@@ -49,7 +49,7 @@ namespace PROYECTO_ADADAT
                     {
                         if (opCorreo.inhabilitado)
                         {
-                            EnlaceCassandra.HabiliatarOperador(TXT_USUARIO.Text, opCorreo.contrasena_anteanterior, opCorreo.contrasena_anterior, opCorreo.contrasena_actual);
+                            EnlaceCassandra.HabiliatarOperador(TXT_USUARIO.Text, opCorreo.contrasena_anterior, opCorreo.contrasena_actual);
                         }
                         else
                         {
