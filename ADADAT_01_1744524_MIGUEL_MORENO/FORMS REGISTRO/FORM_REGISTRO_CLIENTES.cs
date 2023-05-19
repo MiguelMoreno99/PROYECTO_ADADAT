@@ -7,38 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PROYECTO_ADADAT.CSharp_MainCode;
+
 
 namespace PROYECTO_ADADAT
 {
     public partial class FORM_REGISTRO_CLIENTES : Form
     {
-        public FORM_REGISTRO_CLIENTES(string nombre, string apellido_paterno, string apellido_materno, string rfc, string domicilio, string correo_electronico, int telefono_casa, Int64 telefono_celular, string referencia, string estado_civil, DateTime fecha_nacimiento)
-        {
-            this.nombre = nombre;
-            this.apellido_paterno = apellido_paterno;
-            this.apellido_materno = apellido_materno;
-            this.rfc = rfc;
-            this.domicilio = domicilio;
-            this.correo_electronico = correo_electronico;
-            this.telefono_casa = telefono_casa;
-            this.telefono_celular = telefono_celular;
-            this.referencia = referencia;
-            this.estado_civil = estado_civil;
-            this.fecha_nacimiento = fecha_nacimiento;
-        }
-
-        private string nombre { set; get; }
-        private string apellido_paterno { set; get; }
-        private string apellido_materno { set; get; }
-        private string rfc { set; get; }
-        private string domicilio { set; get; }
-        private string correo_electronico { set; get; }
-        private int telefono_casa { set; get; }
-        private Int64 telefono_celular { set; get; }
-        private string referencia { set; get; }
-        private string estado_civil { set; get; }
-        private DateTime fecha_nacimiento { set; get; }
-
         public FORM_REGISTRO_CLIENTES()
         {
             InitializeComponent();
@@ -64,18 +39,27 @@ namespace PROYECTO_ADADAT
         {
             try
             {
-                nombre = TXT_NOMBRE.Text;
-                apellido_paterno = TXT_PATERNO.Text;
-                apellido_materno = TXT_MATERNO.Text;
-                rfc = TXT_RFC.Text;
-                domicilio = TXT_DOMICILIO.Text;
-                correo_electronico = TXT_CORREO.Text;
-                telefono_casa = int.Parse(TXT_TELEFONOCASA.Text);
-                telefono_celular = Int64.Parse(TXT_TELEFONOCELULAR.Text);
-                referencia = TXT_REFERENCIA.Text;
-                estado_civil = CB_ESTADOCIVIL.Text;
-                fecha_nacimiento = (DTP_FECHANACIMIENTO.Value).Date;
-                EnlaceCassandra.RegistrarCliente(nombre, apellido_paterno,apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento);
+                Cliente cl = new();
+                List<Cliente> listaCl = EnlaceCassandra.HacerListaClientes();
+                cl.nombre = TXT_NOMBRE.Text;
+                cl.apellido_paterno = TXT_PATERNO.Text;
+                cl.apellido_materno = TXT_MATERNO.Text;
+                cl.rfc = TXT_RFC.Text;
+                cl.domicilio = TXT_DOMICILIO.Text;
+                cl.correo_electronico = TXT_CORREO.Text;
+                cl.telefono_casa = int.Parse(TXT_TELEFONOCASA.Text);
+                cl.telefono_celular = Int64.Parse(TXT_TELEFONOCELULAR.Text);
+                cl.referencia = TXT_REFERENCIA.Text;
+                cl.estado_civil = CB_ESTADOCIVIL.Text;
+                cl.fecha_nacimiento = (DTP_FECHANACIMIENTO.Value).Date;
+                if (listaCl.Count > 0)
+                {
+                    Cliente cl1 = new();
+                    cl1 = listaCl.Find(cl1 => cl1.rfc == TXT_RFC.Text);
+                    if (cl1 != null)
+                        throw new FormatException("YA HAY UN CLIENTE REGISTRADO CON ESE RFC!");
+                }
+                EnlaceCassandra.RegistrarCliente(cl.nombre, cl.apellido_paterno, cl.apellido_materno, cl.rfc, cl.domicilio, cl.correo_electronico, cl.telefono_casa, cl.telefono_celular, cl.referencia, cl.estado_civil, cl.fecha_nacimiento);
             }
             catch (FormatException error)
             {

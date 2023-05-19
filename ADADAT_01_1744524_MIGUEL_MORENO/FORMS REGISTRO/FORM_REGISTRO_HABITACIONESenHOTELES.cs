@@ -26,7 +26,7 @@ namespace PROYECTO_ADADAT
 
         private void BTN_REGRESAR_Click(object sender, EventArgs e)
         {
-            VariablesGlobales.FormRegistoHoteles.Show();
+            VariablesGlobales.FormMenuAdmin.Show();
             this.Hide();
         }
 

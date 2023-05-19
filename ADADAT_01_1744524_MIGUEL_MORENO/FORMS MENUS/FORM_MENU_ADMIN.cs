@@ -80,5 +80,11 @@ namespace PROYECTO_ADADAT
         {
 
         }
+
+        private void rEGISTROHABITACIONESENHOTELESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VariablesGlobales.FormRegistoHabitacionesHoteles.Show();
+            this.Hide();
+        }
     }
 }

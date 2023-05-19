@@ -201,8 +201,8 @@ namespace PROYECTO_ADADAT
             try
             {
                 Conectar();
-                string query = ("INSERT INTO clientes(id_cliente, nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento,id_reservacion, correo_operativo, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                var statement = new SimpleStatement(query, 1, nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento, null, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro());
+                string query = ("INSERT INTO clientes(id_cliente, nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento, correo_operativo, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, Guid.NewGuid(), nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro());
                 _session.Execute(statement);
             }
             catch (FormatException error)
@@ -216,13 +216,13 @@ namespace PROYECTO_ADADAT
             }
         }
 
-        public static void RegistrarReservacion(Guid id_reservacion, DateTime fecha_inicial, DateTime fecha_final, int personas_hospedar, double anticipo, double total_hospedaje)
+        public static void RegistrarReservacion(Guid id_reservacion,Guid id_hotel, Guid id_habitacion_hotel, Guid id_cliente, List<Guid> id_reservaciones, DateTime fecha_inicial, DateTime fecha_final, int personas_hospedar, double anticipo, double total_hospedaje)
         {
             try
             {
                 Conectar();
-                string query = ("INSERT INTO reservaciones(id_reservacion, reservacion_activa, id_hotel, id_habitacion_hotel, id_cliente, fecha_inicial, fecha_final, personas_hospedar, anticipo, checkin, checkout, fecha_checkout, servicios_utilizados, numero_servicios, descuento, total_hospedaje, total_servicios, total_pagar, correo_admin_cancelacion, fecha_cancelacion, correo_operativo, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                var statement = new SimpleStatement(query, id_reservacion, true, 1, 1, 1, fecha_inicial, fecha_final, personas_hospedar, anticipo, false, false, "", "", "", "", total_hospedaje, "", "", "", "", VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro());
+                string query = ("INSERT INTO reservaciones(id_reservacion, id_hotel, id_habitacion_hotel, id_cliente, fecha_inicial, fecha_final, personas_hospedar, anticipo, total_hospedaje, correo_operativo, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, id_reservacion, id_hotel, id_habitacion_hotel, id_cliente, fecha_inicial, fecha_final, personas_hospedar, anticipo, total_hospedaje, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro());
                 _session.Execute(statement);
             }
             catch (FormatException error)
@@ -232,7 +232,27 @@ namespace PROYECTO_ADADAT
             finally
             {
                 Desconectar();
-                MessageBox.Show("LA INFORMACION DE LA RESERVACION SE CAPTURO CORRECTAMENTE, SU RESERVACION ES: " + id_reservacion, "FELICIDADES!!");
+                RegistrarGuidReservacionEnCliente(id_cliente, id_reservaciones, id_reservacion);
+            }
+        }
+
+        public static void RegistrarGuidReservacionEnCliente(Guid id_cliente, List<Guid> id_reservaciones, Guid id_reservacion)
+        {
+            try
+            {
+                Conectar();
+                string query = ("UPDATE clientes SET id_reservacion = ? WHERE id_cliente = ?;");
+                var statement = new SimpleStatement(query, id_reservaciones, id_cliente);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("SE CREO LA RESERVACION CORRECTAMENTE Y SE ASIGNO AL CLIENTE CORRECTAMENTE, SU RESERVACION ES: !" + id_reservacion, "FELICIDADES!");
             }
         }
 
@@ -282,6 +302,26 @@ namespace PROYECTO_ADADAT
             Conectar();
             IMapper mapper = new Mapper(_session);
             IEnumerable<HabitacionEnHotel> users = mapper.Fetch<HabitacionEnHotel>(query);
+            Desconectar();
+            return users.ToList();
+        }
+
+        public static List<Cliente> HacerListaClientes()
+        {
+            string query = "SELECT id_cliente, nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento, id_reservacion FROM clientes;";
+            Conectar();
+            IMapper mapper = new Mapper(_session);
+            IEnumerable<Cliente> users = mapper.Fetch<Cliente>(query);
+            Desconectar();
+            return users.ToList();
+        }
+
+        public static List<Reservacion> HacerListaReservaciones()
+        {
+            string query = "SELECT id_reservacion, reservacion_activa, id_hotel, id_habitacion_hotel, id_cliente, fecha_inicial, fecha_final, personas_hospedar, anticipo, checkin, checkout, fecha_checkout, servicios_utilizados, numero_servicios, descuento, total_hospedaje, total_servicios, total_pagar FROM reservaciones;";
+            Conectar();
+            IMapper mapper = new Mapper(_session);
+            IEnumerable<Reservacion> users = mapper.Fetch<Reservacion>(query);
             Desconectar();
             return users.ToList();
         }

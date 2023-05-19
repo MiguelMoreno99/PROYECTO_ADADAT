@@ -30,12 +30,6 @@ namespace PROYECTO_ADADAT
             Application.Exit();
         }
 
-        private void BTN_CARGARHABITACIONES_Click(object sender, EventArgs e)
-        {
-            VariablesGlobales.FormRegistoHabitacionesHoteles.Show();
-            this.Hide();
-        }
-
         private void BTN_GUARDAR_Click(object sender, EventArgs e)
         {
             try

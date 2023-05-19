@@ -47,6 +47,7 @@ namespace PROYECTO_ADADAT
             this.cERRARSESIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sALIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.rEGISTROHABITACIONESENHOTELESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -116,22 +117,23 @@ namespace PROYECTO_ADADAT
             // 
             this.hOTELESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rEGISTROHOTELESToolStripMenuItem,
-            this.rEGISTROHABITACIONESToolStripMenuItem});
+            this.rEGISTROHABITACIONESToolStripMenuItem,
+            this.rEGISTROHABITACIONESENHOTELESToolStripMenuItem});
             this.hOTELESToolStripMenuItem.Name = "hOTELESToolStripMenuItem";
-            this.hOTELESToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.hOTELESToolStripMenuItem.Text = "EDITAR";
+            this.hOTELESToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.hOTELESToolStripMenuItem.Text = "REGISTRO";
             // 
             // rEGISTROHOTELESToolStripMenuItem
             // 
             this.rEGISTROHOTELESToolStripMenuItem.Name = "rEGISTROHOTELESToolStripMenuItem";
-            this.rEGISTROHOTELESToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.rEGISTROHOTELESToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
             this.rEGISTROHOTELESToolStripMenuItem.Text = "REGISTRO HOTELES";
             this.rEGISTROHOTELESToolStripMenuItem.Click += new System.EventHandler(this.eDITARHOTELESToolStripMenuItem_Click);
             // 
             // rEGISTROHABITACIONESToolStripMenuItem
             // 
             this.rEGISTROHABITACIONESToolStripMenuItem.Name = "rEGISTROHABITACIONESToolStripMenuItem";
-            this.rEGISTROHABITACIONESToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.rEGISTROHABITACIONESToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
             this.rEGISTROHABITACIONESToolStripMenuItem.Text = "REGISTRO HABITACIONES";
             this.rEGISTROHABITACIONESToolStripMenuItem.Click += new System.EventHandler(this.rEGISTROHABITACIONESToolStripMenuItem_Click);
             // 
@@ -170,14 +172,14 @@ namespace PROYECTO_ADADAT
             // cERRARSESIONToolStripMenuItem
             // 
             this.cERRARSESIONToolStripMenuItem.Name = "cERRARSESIONToolStripMenuItem";
-            this.cERRARSESIONToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.cERRARSESIONToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cERRARSESIONToolStripMenuItem.Text = "CERRAR SESION";
             this.cERRARSESIONToolStripMenuItem.Click += new System.EventHandler(this.cERRARSESIONToolStripMenuItem_Click);
             // 
             // sALIRToolStripMenuItem
             // 
             this.sALIRToolStripMenuItem.Name = "sALIRToolStripMenuItem";
-            this.sALIRToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.sALIRToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sALIRToolStripMenuItem.Text = "SALIR";
             this.sALIRToolStripMenuItem.Click += new System.EventHandler(this.sALIRToolStripMenuItem_Click);
             // 
@@ -190,6 +192,13 @@ namespace PROYECTO_ADADAT
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            // 
+            // rEGISTROHABITACIONESENHOTELESToolStripMenuItem
+            // 
+            this.rEGISTROHABITACIONESENHOTELESToolStripMenuItem.Name = "rEGISTROHABITACIONESENHOTELESToolStripMenuItem";
+            this.rEGISTROHABITACIONESENHOTELESToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            this.rEGISTROHABITACIONESENHOTELESToolStripMenuItem.Text = "REGISTRO HABITACIONES EN HOTELES";
+            this.rEGISTROHABITACIONESENHOTELESToolStripMenuItem.Click += new System.EventHandler(this.rEGISTROHABITACIONESENHOTELESToolStripMenuItem_Click);
             // 
             // FORM_MENU_ADMIN
             // 
@@ -231,5 +240,6 @@ namespace PROYECTO_ADADAT
         private System.Windows.Forms.ToolStripMenuItem sALIRToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem aGREGAROPERADORESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rEGISTROHABITACIONESENHOTELESToolStripMenuItem;
     }
 }

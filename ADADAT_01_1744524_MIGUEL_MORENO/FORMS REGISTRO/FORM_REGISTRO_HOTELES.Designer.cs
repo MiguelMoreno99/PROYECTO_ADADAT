@@ -56,9 +56,6 @@ namespace PROYECTO_ADADAT
             this.BTN_GUARDAR = new System.Windows.Forms.Button();
             this.BTN_EDITAR = new System.Windows.Forms.Button();
             this.BTN_ELIMINAR = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.BTN_CARGARHABITACIONES = new System.Windows.Forms.Button();
-            this.label22 = new System.Windows.Forms.Label();
             this.BTN_SALIR = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -251,7 +248,7 @@ namespace PROYECTO_ADADAT
             // 
             // BTN_REGRESAR
             // 
-            this.BTN_REGRESAR.Location = new System.Drawing.Point(18, 514);
+            this.BTN_REGRESAR.Location = new System.Drawing.Point(18, 304);
             this.BTN_REGRESAR.Name = "BTN_REGRESAR";
             this.BTN_REGRESAR.Size = new System.Drawing.Size(71, 35);
             this.BTN_REGRESAR.TabIndex = 30;
@@ -261,7 +258,7 @@ namespace PROYECTO_ADADAT
             // 
             // BTN_GUARDAR
             // 
-            this.BTN_GUARDAR.Location = new System.Drawing.Point(95, 514);
+            this.BTN_GUARDAR.Location = new System.Drawing.Point(95, 304);
             this.BTN_GUARDAR.Name = "BTN_GUARDAR";
             this.BTN_GUARDAR.Size = new System.Drawing.Size(173, 35);
             this.BTN_GUARDAR.TabIndex = 31;
@@ -271,7 +268,7 @@ namespace PROYECTO_ADADAT
             // 
             // BTN_EDITAR
             // 
-            this.BTN_EDITAR.Location = new System.Drawing.Point(274, 514);
+            this.BTN_EDITAR.Location = new System.Drawing.Point(274, 304);
             this.BTN_EDITAR.Name = "BTN_EDITAR";
             this.BTN_EDITAR.Size = new System.Drawing.Size(173, 35);
             this.BTN_EDITAR.TabIndex = 32;
@@ -280,46 +277,16 @@ namespace PROYECTO_ADADAT
             // 
             // BTN_ELIMINAR
             // 
-            this.BTN_ELIMINAR.Location = new System.Drawing.Point(453, 514);
+            this.BTN_ELIMINAR.Location = new System.Drawing.Point(453, 304);
             this.BTN_ELIMINAR.Name = "BTN_ELIMINAR";
             this.BTN_ELIMINAR.Size = new System.Drawing.Size(173, 35);
             this.BTN_ELIMINAR.TabIndex = 33;
             this.BTN_ELIMINAR.Text = "ELIMINAR HOTEL";
             this.BTN_ELIMINAR.UseVisualStyleBackColor = true;
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(376, 353);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(516, 21);
-            this.label17.TabIndex = 34;
-            this.label17.Text = "AQUÍ SE MUESTRAN LOS HOTELES CAPTURADOS HASTA EL MOMENTO!";
-            // 
-            // BTN_CARGARHABITACIONES
-            // 
-            this.BTN_CARGARHABITACIONES.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BTN_CARGARHABITACIONES.Location = new System.Drawing.Point(25, 279);
-            this.BTN_CARGARHABITACIONES.Name = "BTN_CARGARHABITACIONES";
-            this.BTN_CARGARHABITACIONES.Size = new System.Drawing.Size(303, 56);
-            this.BTN_CARGARHABITACIONES.TabIndex = 45;
-            this.BTN_CARGARHABITACIONES.Text = "REGISTRAR HABITACIONES AL HOTEL";
-            this.BTN_CARGARHABITACIONES.UseVisualStyleBackColor = true;
-            this.BTN_CARGARHABITACIONES.Click += new System.EventHandler(this.BTN_CARGARHABITACIONES_Click);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(12, 338);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(1212, 15);
-            this.label22.TabIndex = 46;
-            this.label22.Text = resources.GetString("label22.Text");
-            // 
             // BTN_SALIR
             // 
-            this.BTN_SALIR.Location = new System.Drawing.Point(1093, 514);
+            this.BTN_SALIR.Location = new System.Drawing.Point(1093, 304);
             this.BTN_SALIR.Name = "BTN_SALIR";
             this.BTN_SALIR.Size = new System.Drawing.Size(148, 35);
             this.BTN_SALIR.TabIndex = 47;
@@ -331,12 +298,9 @@ namespace PROYECTO_ADADAT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1253, 561);
+            this.ClientSize = new System.Drawing.Size(1253, 360);
             this.ControlBox = false;
             this.Controls.Add(this.BTN_SALIR);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.BTN_CARGARHABITACIONES);
-            this.Controls.Add(this.label17);
             this.Controls.Add(this.BTN_ELIMINAR);
             this.Controls.Add(this.BTN_EDITAR);
             this.Controls.Add(this.BTN_GUARDAR);
@@ -400,9 +364,6 @@ namespace PROYECTO_ADADAT
         private System.Windows.Forms.Button BTN_GUARDAR;
         private System.Windows.Forms.Button BTN_EDITAR;
         private System.Windows.Forms.Button BTN_ELIMINAR;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button BTN_CARGARHABITACIONES;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button BTN_SALIR;
     }
 }

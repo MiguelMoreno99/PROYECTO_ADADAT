@@ -58,7 +58,7 @@ namespace PROYECTO_ADADAT
             // 
             // BTN_SALIR
             // 
-            this.BTN_SALIR.Location = new System.Drawing.Point(995, 514);
+            this.BTN_SALIR.Location = new System.Drawing.Point(982, 344);
             this.BTN_SALIR.Name = "BTN_SALIR";
             this.BTN_SALIR.Size = new System.Drawing.Size(148, 35);
             this.BTN_SALIR.TabIndex = 79;
@@ -68,7 +68,7 @@ namespace PROYECTO_ADADAT
             // 
             // BTN_ELIMINAR
             // 
-            this.BTN_ELIMINAR.Location = new System.Drawing.Point(452, 514);
+            this.BTN_ELIMINAR.Location = new System.Drawing.Point(439, 344);
             this.BTN_ELIMINAR.Name = "BTN_ELIMINAR";
             this.BTN_ELIMINAR.Size = new System.Drawing.Size(173, 35);
             this.BTN_ELIMINAR.TabIndex = 78;
@@ -78,7 +78,7 @@ namespace PROYECTO_ADADAT
             // 
             // BTN_EDITAR
             // 
-            this.BTN_EDITAR.Location = new System.Drawing.Point(273, 514);
+            this.BTN_EDITAR.Location = new System.Drawing.Point(260, 344);
             this.BTN_EDITAR.Name = "BTN_EDITAR";
             this.BTN_EDITAR.Size = new System.Drawing.Size(173, 35);
             this.BTN_EDITAR.TabIndex = 77;
@@ -88,7 +88,7 @@ namespace PROYECTO_ADADAT
             // 
             // BTN_GUARDAR
             // 
-            this.BTN_GUARDAR.Location = new System.Drawing.Point(94, 514);
+            this.BTN_GUARDAR.Location = new System.Drawing.Point(81, 344);
             this.BTN_GUARDAR.Name = "BTN_GUARDAR";
             this.BTN_GUARDAR.Size = new System.Drawing.Size(173, 35);
             this.BTN_GUARDAR.TabIndex = 76;
@@ -98,7 +98,7 @@ namespace PROYECTO_ADADAT
             // 
             // BTN_REGRESAR
             // 
-            this.BTN_REGRESAR.Location = new System.Drawing.Point(17, 514);
+            this.BTN_REGRESAR.Location = new System.Drawing.Point(4, 344);
             this.BTN_REGRESAR.Name = "BTN_REGRESAR";
             this.BTN_REGRESAR.Size = new System.Drawing.Size(71, 35);
             this.BTN_REGRESAR.TabIndex = 75;
@@ -296,7 +296,7 @@ namespace PROYECTO_ADADAT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 561);
+            this.ClientSize = new System.Drawing.Size(1155, 397);
             this.ControlBox = false;
             this.Controls.Add(this.TXT_NUMERO);
             this.Controls.Add(this.label6);
