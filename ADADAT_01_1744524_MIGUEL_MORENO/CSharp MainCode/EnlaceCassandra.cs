@@ -252,7 +252,7 @@ namespace PROYECTO_ADADAT
             finally
             {
                 Desconectar();
-                MessageBox.Show("SE CREO LA RESERVACION CORRECTAMENTE Y SE ASIGNO AL CLIENTE CORRECTAMENTE, SU RESERVACION ES: !" + id_reservacion, "FELICIDADES!");
+                MessageBox.Show("SE CREO LA RESERVACION CORRECTAMENTE Y SE ASIGNO AL CLIENTE CORRECTAMENTE, SU RESERVACION ES: " + id_reservacion, "FELICIDADES!");
             }
         }
 

@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PROYECTO_ADADAT.CSharp_MainCode;
 
-
 namespace PROYECTO_ADADAT
 {
     public partial class FORM_REGISTRO_HABITACIONESenHOTELES : Form
@@ -59,7 +58,7 @@ namespace PROYECTO_ADADAT
                 {
                     HabitacionEnHotel habhot1 = new();
                     List<HabitacionEnHotel> listaHabHot1 = EnlaceCassandra.HacerListaHabitacionesEnHoteles();
-                    habhot1 = listaHabHot1.Find(habhot1 => habhot1.numero == int.Parse(TXT_NUMERO.Text));
+                    habhot1 = listaHabHot1.Find(habhot1 => habhot1.numero == int.Parse(HabitacionHotel));
                     if (habhot1 != null)
                         throw new FormatException("YA HAY UNA HABITACION REGISTRADA CON ESE NUMERO DE HABITACION!");
                 }
