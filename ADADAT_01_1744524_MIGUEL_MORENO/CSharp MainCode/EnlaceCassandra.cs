@@ -221,8 +221,8 @@ namespace PROYECTO_ADADAT
             try
             {
                 Conectar();
-                string query = ("INSERT INTO reservaciones(id_reservacion, id_hotel, id_habitacion_hotel, id_cliente, fecha_inicial, fecha_final, personas_hospedar, anticipo, total_hospedaje, correo_operativo, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                var statement = new SimpleStatement(query, id_reservacion, id_hotel, id_habitacion_hotel, id_cliente, fecha_inicial, fecha_final, personas_hospedar, anticipo, total_hospedaje, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro());
+                string query = ("INSERT INTO reservaciones(id_reservacion, reservacion_activa, id_hotel, id_habitacion_hotel, id_cliente, fecha_inicial, fecha_final, personas_hospedar, anticipo, checkin, checkout, total_hospedaje, correo_operativo, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, id_reservacion, true, id_hotel, id_habitacion_hotel, id_cliente, fecha_inicial, fecha_final, personas_hospedar, anticipo, false, false, total_hospedaje, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro());
                 _session.Execute(statement);
             }
             catch (FormatException error)
@@ -253,6 +253,46 @@ namespace PROYECTO_ADADAT
             {
                 Desconectar();
                 MessageBox.Show("SE CREO LA RESERVACION CORRECTAMENTE Y SE ASIGNO AL CLIENTE CORRECTAMENTE, SU RESERVACION ES: " + id_reservacion, "FELICIDADES!");
+            }
+        }
+
+        public static void CancelarReservacion(Guid id_reservacion)
+        {
+            try
+            {
+                Conectar();
+                string query = ("UPDATE reservaciones SET reservacion_activa = ?, correo_admin_cancelacion = ?, fecha_cancelacion = ? WHERE id_reservacion = ?;");
+                var statement = new SimpleStatement(query, false, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro(), id_reservacion) ;
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("LA RESERVACION SE CANCELO CORRECTAMENTE!", "HECHO");
+            }
+        }
+
+        public static void CheckIn(Guid id_reservacion)
+        {
+            try
+            {
+                Conectar();
+                string query = ("UPDATE reservaciones SET checkin = ? WHERE id_reservacion = ?;");
+                var statement = new SimpleStatement(query, true, id_reservacion);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("SE REALIZO EL CHECKIN CORRECTAMENTE!", "HECHO");
             }
         }
 

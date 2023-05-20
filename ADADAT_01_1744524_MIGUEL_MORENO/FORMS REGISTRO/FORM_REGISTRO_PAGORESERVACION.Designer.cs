@@ -312,7 +312,7 @@ namespace PROYECTO_ADADAT
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new System.Drawing.Point(154, 445);
+            label16.Location = new System.Drawing.Point(154, 449);
             label16.Name = "label16";
             label16.Size = new System.Drawing.Size(237, 15);
             label16.TabIndex = 121;
