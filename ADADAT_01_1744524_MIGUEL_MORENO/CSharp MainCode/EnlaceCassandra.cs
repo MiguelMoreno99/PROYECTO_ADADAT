@@ -252,7 +252,7 @@ namespace PROYECTO_ADADAT
             finally
             {
                 Desconectar();
-                MessageBox.Show("SE CREO LA RESERVACION CORRECTAMENTE Y SE ASIGNO AL CLIENTE CORRECTAMENTE, SU RESERVACION ES: " + id_reservacion, "FELICIDADES!");
+                MessageBox.Show("SE CREO LA RESERVACION Y SE ASIGNO AL CLIENTE CORRECTAMENTE, SU RESERVACION ES: " + id_reservacion + Environment.NewLine + Environment.NewLine + "El medio de pago para el anticipo puede ser: Tarjeta de crédito o débito, transferencia electrónica bancaria, COBRE 200 $ Pesos del Anticipo", "FELICIDADES!");
             }
         }
 
@@ -276,7 +276,7 @@ namespace PROYECTO_ADADAT
             }
         }
 
-        public static void CheckIn(Guid id_reservacion)
+        public static void CheckIn(Guid id_reservacion, Guid id_habitacion_hotel)
         {
             try
             {
@@ -292,7 +292,27 @@ namespace PROYECTO_ADADAT
             finally
             {
                 Desconectar();
-                MessageBox.Show("SE REALIZO EL CHECKIN CORRECTAMENTE!", "HECHO");
+                OcuparHabitacion(id_habitacion_hotel);
+            }
+        }
+
+        public static void OcuparHabitacion(Guid id_habitacion_hotel)
+        {
+            try
+            {
+                Conectar();
+                string query = ("UPDATE habitacionesenhoteles SET ocupada = ? WHERE id_habitacion_hotel = ?;");
+                var statement = new SimpleStatement(query, true, id_habitacion_hotel);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("SE OCUPO LA HABITACION Y SE REALIZO EL CHECKIN CORRECTAMENTE!", "HECHO");
             }
         }
 

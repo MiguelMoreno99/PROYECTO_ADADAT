@@ -38,7 +38,7 @@ namespace PROYECTO_ADADAT
         {
             try
             {
-                if (TXT_RFC.Text != "" && TXT_CIUDAD.Text != "" && CB_HOTELESDISPONIBLES.Text != "" && CB_HABITACIONESDISPONIBLES.Text != "" && CB_NUMEROPERSONAS.Text != "" && (TXT_DIAS.Text != ""  && int.Parse(TXT_DIAS.Text) > 0 ))
+                if (TXT_RFC.Text != "" && TXT_CIUDAD.Text != "" && CB_HOTELESDISPONIBLES.Text != "" && CB_HABITACIONESDISPONIBLES.Text != "" && CB_NUMEROPERSONAS.Text != "" && (TXT_DIAS.Text != "" && int.Parse(TXT_DIAS.Text) > 0))
                 {
                     HabitacionEnHotel habhot = new();
                     Cliente cl = new();

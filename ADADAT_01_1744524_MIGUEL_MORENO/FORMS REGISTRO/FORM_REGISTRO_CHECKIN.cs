@@ -59,7 +59,10 @@ namespace PROYECTO_ADADAT
                             }
                             else
                             {
-                                EnlaceCassandra.CheckIn(res.id_reservacion);
+                                HabitacionEnHotel habhot = new();
+                                List<HabitacionEnHotel> listaHabHot = EnlaceCassandra.HacerListaHabitacionesEnHoteles();
+                                habhot = listaHabHot.Find(habhot => habhot.id_habitacion_hotel == res.id_habitacion_hotel);
+                                EnlaceCassandra.CheckIn(res.id_reservacion, habhot.id_habitacion_hotel);
                             }
                         }
                     }

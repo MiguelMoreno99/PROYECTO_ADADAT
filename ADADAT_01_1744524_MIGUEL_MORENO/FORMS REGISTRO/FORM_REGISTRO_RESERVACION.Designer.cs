@@ -248,7 +248,7 @@ namespace PROYECTO_ADADAT
             TXT_PRECIONOCHE.ReadOnly = true;
             TXT_PRECIONOCHE.Size = new System.Drawing.Size(129, 23);
             TXT_PRECIONOCHE.TabIndex = 92;
-            TXT_PRECIONOCHE.Text = "500.35";
+            TXT_PRECIONOCHE.Text = "0";
             TXT_PRECIONOCHE.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // TXT_ANTICIPO
@@ -258,7 +258,7 @@ namespace PROYECTO_ADADAT
             TXT_ANTICIPO.ReadOnly = true;
             TXT_ANTICIPO.Size = new System.Drawing.Size(129, 23);
             TXT_ANTICIPO.TabIndex = 93;
-            TXT_ANTICIPO.Text = "200.00";
+            TXT_ANTICIPO.Text = "200";
             TXT_ANTICIPO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // CB_NUMEROPERSONAS
