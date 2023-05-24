@@ -276,7 +276,7 @@ namespace PROYECTO_ADADAT
             }
         }
 
-        public static void CheckIn(Guid id_reservacion, Guid id_habitacion_hotel)
+        public static void CheckIn(Guid id_reservacion, Guid id_habitacion_hotel, int personas_hospedadas)
         {
             try
             {
@@ -292,17 +292,17 @@ namespace PROYECTO_ADADAT
             finally
             {
                 Desconectar();
-                OcuparHabitacion(id_habitacion_hotel);
+                OcuparHabitacion(id_habitacion_hotel, personas_hospedadas);
             }
         }
 
-        public static void OcuparHabitacion(Guid id_habitacion_hotel)
+        public static void OcuparHabitacion(Guid id_habitacion_hotel, int personas_hospedadas)
         {
             try
             {
                 Conectar();
-                string query = ("UPDATE habitacionesenhoteles SET ocupada = ? WHERE id_habitacion_hotel = ?;");
-                var statement = new SimpleStatement(query, true, id_habitacion_hotel);
+                string query = ("UPDATE habitacionesenhoteles SET ocupada = ?, personas_hospedadas = ? WHERE id_habitacion_hotel = ?;");
+                var statement = new SimpleStatement(query, true, personas_hospedadas, id_habitacion_hotel);
                 _session.Execute(statement);
             }
             catch (FormatException error)
