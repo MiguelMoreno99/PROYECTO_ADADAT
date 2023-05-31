@@ -49,11 +49,13 @@ namespace PROYECTO_ADADAT
                         {
                             throw new FormatException("ESTA RESERVACION ESTA CANCELADA!");
                         }
+                        if (res.checkin)
+                        {
+                            throw new FormatException("ESTA RESERVACION YA SE LE HIZO EL CHECK IN!");
+                        }
                         else
                         {
-
-                            DateTime fechaHoy = DateTime.Now;
-                            if ((res.fecha_inicial).Date != (fechaHoy).Date)
+                            if ((res.fecha_inicial).Date != VariablesGlobales.FechaCheckInOut)
                             {
                                 throw new FormatException("TODAVIA NO ES LA FECHA PARA EL CHECKIN!");
                             }

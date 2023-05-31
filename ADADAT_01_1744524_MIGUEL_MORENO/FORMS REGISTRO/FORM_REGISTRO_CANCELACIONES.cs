@@ -52,7 +52,17 @@ namespace PROYECTO_ADADAT
                         }
                         else
                         {
-                            EnlaceCassandra.CancelarReservacion(res.id_reservacion);
+                            TimeSpan diasParaCheckIn = res.fecha_inicial.Date - VariablesGlobales.FechaCheckInOut.Date;
+                            if (diasParaCheckIn.Days < 3 )
+                            {
+                                EnlaceCassandra.CancelarReservacion(res.id_reservacion, res.id_habitacion_hotel);
+                                MessageBox.Show("LA CANCELACION NO APLICA PARA UNA DEVOLUCION DEL ANTICIPO", "SIN DEVOLUCION");
+                            }
+                            else if (diasParaCheckIn.Days >= 3)
+                            {
+                                EnlaceCassandra.CancelarReservacion(res.id_reservacion, res.id_habitacion_hotel);
+                                MessageBox.Show("LA CANCELACION APLICA PARA LA DEVOLUCION DEL ANTICIPO" + Environment.NewLine + "REGRESAR $200 PESOS DEL ANTICIPO", "DEVOLUCION");
+                            }
                         }
                     }
                     else

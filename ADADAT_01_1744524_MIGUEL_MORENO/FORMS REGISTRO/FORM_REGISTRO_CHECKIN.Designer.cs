@@ -30,88 +30,89 @@ namespace PROYECTO_ADADAT
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FORM_REGISTRO_CHECKIN));
-            BTN_SALIR = new System.Windows.Forms.Button();
-            BTN_HACERCHECKIN = new System.Windows.Forms.Button();
-            BTN_REGRESAR = new System.Windows.Forms.Button();
-            label1 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
-            TXT_RESERVACION = new System.Windows.Forms.TextBox();
-            SuspendLayout();
+            this.BTN_SALIR = new System.Windows.Forms.Button();
+            this.BTN_HACERCHECKIN = new System.Windows.Forms.Button();
+            this.BTN_REGRESAR = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TXT_RESERVACION = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
             // 
             // BTN_SALIR
             // 
-            BTN_SALIR.Location = new System.Drawing.Point(392, 122);
-            BTN_SALIR.Name = "BTN_SALIR";
-            BTN_SALIR.Size = new System.Drawing.Size(148, 35);
-            BTN_SALIR.TabIndex = 85;
-            BTN_SALIR.Text = "SALIR";
-            BTN_SALIR.UseVisualStyleBackColor = true;
-            BTN_SALIR.Click += BTN_SALIR_Click;
+            this.BTN_SALIR.Location = new System.Drawing.Point(392, 122);
+            this.BTN_SALIR.Name = "BTN_SALIR";
+            this.BTN_SALIR.Size = new System.Drawing.Size(148, 35);
+            this.BTN_SALIR.TabIndex = 85;
+            this.BTN_SALIR.Text = "SALIR";
+            this.BTN_SALIR.UseVisualStyleBackColor = true;
+            this.BTN_SALIR.Click += new System.EventHandler(this.BTN_SALIR_Click);
             // 
             // BTN_HACERCHECKIN
             // 
-            BTN_HACERCHECKIN.Location = new System.Drawing.Point(165, 122);
-            BTN_HACERCHECKIN.Name = "BTN_HACERCHECKIN";
-            BTN_HACERCHECKIN.Size = new System.Drawing.Size(173, 35);
-            BTN_HACERCHECKIN.TabIndex = 84;
-            BTN_HACERCHECKIN.Text = "HACER EL CHECK IN";
-            BTN_HACERCHECKIN.UseVisualStyleBackColor = true;
-            BTN_HACERCHECKIN.Click += BTN_HACERCHECKIN_Click;
+            this.BTN_HACERCHECKIN.Location = new System.Drawing.Point(165, 122);
+            this.BTN_HACERCHECKIN.Name = "BTN_HACERCHECKIN";
+            this.BTN_HACERCHECKIN.Size = new System.Drawing.Size(173, 35);
+            this.BTN_HACERCHECKIN.TabIndex = 84;
+            this.BTN_HACERCHECKIN.Text = "HACER EL CHECK IN";
+            this.BTN_HACERCHECKIN.UseVisualStyleBackColor = true;
+            this.BTN_HACERCHECKIN.Click += new System.EventHandler(this.BTN_HACERCHECKIN_Click);
             // 
             // BTN_REGRESAR
             // 
-            BTN_REGRESAR.Location = new System.Drawing.Point(12, 122);
-            BTN_REGRESAR.Name = "BTN_REGRESAR";
-            BTN_REGRESAR.Size = new System.Drawing.Size(71, 35);
-            BTN_REGRESAR.TabIndex = 83;
-            BTN_REGRESAR.Text = "REGRESAR";
-            BTN_REGRESAR.UseVisualStyleBackColor = true;
-            BTN_REGRESAR.Click += BTN_REGRESAR_Click;
+            this.BTN_REGRESAR.Location = new System.Drawing.Point(12, 122);
+            this.BTN_REGRESAR.Name = "BTN_REGRESAR";
+            this.BTN_REGRESAR.Size = new System.Drawing.Size(71, 35);
+            this.BTN_REGRESAR.TabIndex = 83;
+            this.BTN_REGRESAR.Text = "REGRESAR";
+            this.BTN_REGRESAR.UseVisualStyleBackColor = true;
+            this.BTN_REGRESAR.Click += new System.EventHandler(this.BTN_REGRESAR_Click);
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(141, 9);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(304, 21);
-            label1.TabIndex = 80;
-            label1.Text = "ESTE ES EL APARTADO PARA EL CHECK IN!";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(141, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(304, 21);
+            this.label1.TabIndex = 80;
+            this.label1.Text = "ESTE ES EL APARTADO PARA EL CHECK IN!";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(29, 64);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(191, 15);
-            label2.TabIndex = 86;
-            label2.Text = "Ingrese el codigo de la reservación:";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(29, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(191, 15);
+            this.label2.TabIndex = 86;
+            this.label2.Text = "Ingrese el codigo de la reservación:";
             // 
             // TXT_RESERVACION
             // 
-            TXT_RESERVACION.Location = new System.Drawing.Point(226, 61);
-            TXT_RESERVACION.Name = "TXT_RESERVACION";
-            TXT_RESERVACION.Size = new System.Drawing.Size(314, 23);
-            TXT_RESERVACION.TabIndex = 87;
+            this.TXT_RESERVACION.Location = new System.Drawing.Point(226, 61);
+            this.TXT_RESERVACION.Name = "TXT_RESERVACION";
+            this.TXT_RESERVACION.Size = new System.Drawing.Size(314, 23);
+            this.TXT_RESERVACION.TabIndex = 87;
             // 
             // FORM_REGISTRO_CHECKIN
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(556, 169);
-            ControlBox = false;
-            Controls.Add(TXT_RESERVACION);
-            Controls.Add(label2);
-            Controls.Add(BTN_SALIR);
-            Controls.Add(BTN_HACERCHECKIN);
-            Controls.Add(BTN_REGRESAR);
-            Controls.Add(label1);
-            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
-            Name = "FORM_REGISTRO_CHECKIN";
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "Bienvenido al Check In de las Reservaciones!";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(556, 169);
+            this.ControlBox = false;
+            this.Controls.Add(this.TXT_RESERVACION);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.BTN_SALIR);
+            this.Controls.Add(this.BTN_HACERCHECKIN);
+            this.Controls.Add(this.BTN_REGRESAR);
+            this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "FORM_REGISTRO_CHECKIN";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Bienvenido al Check In de las Reservaciones!";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

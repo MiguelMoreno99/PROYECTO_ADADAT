@@ -256,7 +256,7 @@ namespace PROYECTO_ADADAT
             }
         }
 
-        public static void CancelarReservacion(Guid id_reservacion)
+        public static void CancelarReservacion(Guid id_reservacion, Guid id_habitacion_hotel)
         {
             try
             {
@@ -272,7 +272,47 @@ namespace PROYECTO_ADADAT
             finally
             {
                 Desconectar();
-                MessageBox.Show("LA RESERVACION SE CANCELO CORRECTAMENTE!", "HECHO");
+                DesocuparHabitacionEnHotel(id_habitacion_hotel, id_reservacion);
+            }
+        }
+
+        public static void CancelarReservacionAutomatica(Guid id_reservacion, Guid id_habitacion_hotel)
+        {
+            try
+            {
+                Conectar();
+                string query = ("UPDATE reservaciones SET reservacion_activa = ?, correo_admin_cancelacion = ?, fecha_cancelacion = ? WHERE id_reservacion = ?;");
+                var statement = new SimpleStatement(query, false, "CANCELACION AUTOMATICA", VariablesGlobales.DevolverFechaRegistro(), id_reservacion);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                DesocuparHabitacionEnHotel(id_habitacion_hotel, id_reservacion);
+            }
+        }
+
+        public static void DesocuparHabitacionEnHotel(Guid id_habitacion_hotel, Guid id_reservacion)
+        {
+            try
+            {
+                Conectar();
+                string query = ("UPDATE habitacionesenhoteles SET ocupada = ?, personas_hospedadas = ? WHERE id_habitacion_hotel = ?;");
+                var statement = new SimpleStatement(query, false, 0, id_habitacion_hotel);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("LA RESERVACION: " + id_reservacion + " SE CANCELÓ Y SE DESOCUPÓ LA HABITACION EN EL HOTEL!", "HECHO");
             }
         }
 

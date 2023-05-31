@@ -30,13 +30,14 @@ namespace PROYECTO_ADADAT
 
         private void BTN_ADMIN_Click(object sender, EventArgs e)
         {
+            VariablesGlobales.FechaCheckInOut = DTP_FECHASISTEMA.Value.Date;
             VariablesGlobales.FormLoginAdmin.Show();
             this.Hide();
         }
 
         private void BTN_OPER_Click(object sender, EventArgs e)
         {
-            
+            VariablesGlobales.FechaCheckInOut = DTP_FECHASISTEMA.Value.Date;
             VariablesGlobales.FormLoginOper.Show();
             this.Hide();
         }

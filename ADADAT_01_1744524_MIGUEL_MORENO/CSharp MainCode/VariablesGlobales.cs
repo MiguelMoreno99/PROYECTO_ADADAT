@@ -33,6 +33,8 @@ namespace PROYECTO_ADADAT
             public static string CorreoPersonaLogeada;
             public static int IntentosOperador = 0;
             public static string CorreoIntentos;
+            public static DateTime FechaCheckInOut;
+
         //METODOS
         public static Int64 DevolverFechaRegistro()
         {
