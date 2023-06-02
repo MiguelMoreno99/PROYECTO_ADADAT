@@ -43,6 +43,7 @@ namespace PROYECTO_ADADAT
                     HabitacionEnHotel habhot = new();
                     Cliente cl = new();
                     Hotel hot = new();
+                    Reservacion res = new();
                     List<HabitacionEnHotel> listaHabHot = EnlaceCassandra.HacerListaHabitacionesEnHoteles();
                     List<Cliente> listaCl = EnlaceCassandra.HacerListaClientes();
                     List<Hotel> listaHot = EnlaceCassandra.HacerListaHoteles();
@@ -55,15 +56,58 @@ namespace PROYECTO_ADADAT
                         {
                             throw new FormatException("EL NUMERO DE PERSONAS A HOSPEDAR ES MAYOR AL MAXIMO POR HABITACION!");
                         }
-                        Reservacion res = new();
-                        res.id_reservacion = Guid.NewGuid();
-                        cl.id_reservacion.Add(res.id_reservacion);
-                        res.fecha_inicial = (DTP_FECHAINICIAL.Value).Date;
-                        res.fecha_final = (DTP_FECHAFINAL.Value).Date;
-                        res.personas_hospedar = int.Parse(CB_NUMEROPERSONAS.Text);
-                        res.anticipo = double.Parse(TXT_ANTICIPO.Text);
-                        res.total_hospedaje = (habhot.precio_noche) * int.Parse(TXT_DIAS.Text);
-                        EnlaceCassandra.RegistrarReservacion(res.id_reservacion, hot.id_hotel, habhot.id_habitacion_hotel, cl.id_cliente, cl.id_reservacion, res.fecha_inicial, res.fecha_final, res.personas_hospedar, res.anticipo, res.total_hospedaje);
+                        List<Reservacion> listaRes = EnlaceCassandra.HacerListaReservaciones();
+                        if (listaRes.Count == 0)
+                        {
+                            res = new();
+                            res.id_reservacion = Guid.NewGuid();
+                            cl.id_reservacion.Add(res.id_reservacion);
+                            res.fecha_inicial = (DTP_FECHAINICIAL.Value).Date;
+                            res.fecha_final = (DTP_FECHAFINAL.Value).Date;
+                            res.personas_hospedar = int.Parse(CB_NUMEROPERSONAS.Text);
+                            res.anticipo = double.Parse(TXT_ANTICIPO.Text);
+                            res.total_hospedaje = (habhot.precio_noche) * int.Parse(TXT_DIAS.Text);
+                            EnlaceCassandra.RegistrarReservacion(res.id_reservacion, hot.id_hotel, habhot.id_habitacion_hotel, cl.id_cliente, cl.id_reservacion, res.fecha_inicial, res.fecha_final, res.personas_hospedar, res.anticipo, res.total_hospedaje, habhot.numero);
+                        }
+                        else
+                        {
+                            res = new();
+                            listaRes = listaRes.FindAll(res => res.id_habitacion_hotel == Guid.Parse(CB_HABITACIONESDISPONIBLES.Text));
+                            if (listaRes.Count == 0)
+                            {
+                                res = new();
+                                res.id_reservacion = Guid.NewGuid();
+                                cl.id_reservacion.Add(res.id_reservacion);
+                                res.fecha_inicial = (DTP_FECHAINICIAL.Value).Date;
+                                res.fecha_final = (DTP_FECHAFINAL.Value).Date;
+                                res.personas_hospedar = int.Parse(CB_NUMEROPERSONAS.Text);
+                                res.anticipo = double.Parse(TXT_ANTICIPO.Text);
+                                res.total_hospedaje = (habhot.precio_noche) * int.Parse(TXT_DIAS.Text);
+                                EnlaceCassandra.RegistrarReservacion(res.id_reservacion, hot.id_hotel, habhot.id_habitacion_hotel, cl.id_cliente, cl.id_reservacion, res.fecha_inicial, res.fecha_final, res.personas_hospedar, res.anticipo, res.total_hospedaje, habhot.numero);
+                            }
+                            else
+                            {
+                                for (int i = 0; i < listaRes.Count; i++)
+                                {
+                                    if ((listaRes[i].fecha_final.Date < DTP_FECHAINICIAL.Value.Date) || (listaRes[i].fecha_inicial > DTP_FECHAFINAL.Value.Date))
+                                    {
+                                    }
+                                    else
+                                    {
+                                        throw new FormatException("LAS FECHAS SOLICITADAS SE EMPALMAN CON LA RESERVACION: " + listaRes[i].id_reservacion + Environment.NewLine + Environment.NewLine + "CON LAS SIGUIENTES FECHAS: " + listaRes[i].fecha_inicial.Date + " - " + listaRes[i].fecha_final.Date);
+                                    }
+                                }
+                                res = new();
+                                res.id_reservacion = Guid.NewGuid();
+                                cl.id_reservacion.Add(res.id_reservacion);
+                                res.fecha_inicial = (DTP_FECHAINICIAL.Value).Date;
+                                res.fecha_final = (DTP_FECHAFINAL.Value).Date;
+                                res.personas_hospedar = int.Parse(CB_NUMEROPERSONAS.Text);
+                                res.anticipo = double.Parse(TXT_ANTICIPO.Text);
+                                res.total_hospedaje = (habhot.precio_noche) * int.Parse(TXT_DIAS.Text);
+                                EnlaceCassandra.RegistrarReservacion(res.id_reservacion, hot.id_hotel, habhot.id_habitacion_hotel, cl.id_cliente, cl.id_reservacion, res.fecha_inicial, res.fecha_final, res.personas_hospedar, res.anticipo, res.total_hospedaje, habhot.numero);
+                            }
+                        }
                     }
                     else
                     {
@@ -72,7 +116,7 @@ namespace PROYECTO_ADADAT
                 }
                 else
                 {
-                    throw new FormatException("PRIMERO INGRESE TODA LA INFORMACION PARA CREAR LA RESERVACION!");
+                    throw new FormatException("PRIMERO INGRESE TODA LA INFORMACION CORRECTAMENTE PARA CREAR LA RESERVACION!");
                 }
 
             }

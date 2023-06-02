@@ -41,8 +41,8 @@ namespace PROYECTO_ADADAT
             try
             {
                 Conectar();
-                string query = ("INSERT INTO usuariosoperativos(correo_electronico, contrasena_actual, contrasena_anterior, contrasena_anteanterior, nombre_completo, numero_nomina, fecha_nacimiento, domicilio, telefono_casa, telefono_celular, inhabilitado, restablecer_contrasena, correo_admin, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                var statement = new SimpleStatement(query, correo_electronico, contrasena_actual, contrasena_actual, contrasena_actual, nombre_completo, numero_nomina, fecha_nacimiento, domicilio, telefono_casa, telefono_celular, false, false, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro());
+                string query = ("INSERT INTO usuariosoperativos(correo_electronico, contrasena_actual, contrasena_anterior, contrasena_anteanterior, nombre_completo, numero_nomina, fecha_nacimiento, domicilio, telefono_casa, telefono_celular, inhabilitado, restablecer_contrasena, correo_admin, fecha_registro, usuarioopeliminado) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, correo_electronico, contrasena_actual, contrasena_actual, contrasena_actual, nombre_completo, numero_nomina, fecha_nacimiento, domicilio, telefono_casa, telefono_celular, false, false, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro(), false);
                 _session.Execute(statement);
             }
             catch (FormatException error)
@@ -53,6 +53,26 @@ namespace PROYECTO_ADADAT
             {
                 Desconectar();
                 MessageBox.Show("LA INFORMACION SE CAPTURO CORRECTAMENTE", "FELICIDADES!!");
+            }
+        }
+
+        public static void EditarOperador(string correo_electronico, string contrasena_actual, string nombre_completo, Int64 numero_nomina, DateTime fecha_nacimiento, string domicilio, int telefono_casa, Int64 telefono_celular)
+        {
+            try
+            {
+                Conectar();
+                string query = ("INSERT INTO usuariosoperativos(correo_electronico, nombre_completo, numero_nomina, fecha_nacimiento, domicilio, telefono_casa, telefono_celular) values(?, ?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, correo_electronico, nombre_completo, numero_nomina, fecha_nacimiento, domicilio, telefono_casa, telefono_celular);
+                _session.Execute(statement);    
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("LA INFORMACION DEL OPERADOR SE EDITO CORRECTAMENTE", "FELICIDADES!!");
             }
         }
 
@@ -73,6 +93,26 @@ namespace PROYECTO_ADADAT
             {
                 Desconectar();
                 MessageBox.Show("SU USUARIO QUEDO INHABILITADO", "CONTACTE CON SU ADMINISTRADOR");
+            }
+        }
+
+        public static void EliminarOperador(string correo_electronico)
+        {
+            try
+            {
+                Conectar();
+                string query = ("UPDATE usuariosoperativos SET usuarioopeliminado = true WHERE correo_electronico = ?;");
+                var statement = new SimpleStatement(query, correo_electronico);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("EL USUARIO QUEDO ELIMINADO DE MANERA CORRECTA", "HECHO");
             }
         }
 
@@ -121,8 +161,8 @@ namespace PROYECTO_ADADAT
             try
             {
                 Conectar();
-                string query = ("INSERT INTO habitaciones(nombre, nivel, nombre_nivel, numero_camas, tipo_cama, max_personas, correo_admin, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?)");
-                var statement = new SimpleStatement(query, nombre, nivel, nombre_nivel, numero_camas, tipo_cama, max_personas, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro());
+                string query = ("INSERT INTO habitaciones(nombre, nivel, nombre_nivel, numero_camas, tipo_cama, max_personas, correo_admin, fecha_registro, habitacioneliminada) values(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, nombre, nivel, nombre_nivel, numero_camas, tipo_cama, max_personas, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro(), false);
                 _session.Execute(statement);
             }
             catch (FormatException error)
@@ -136,13 +176,53 @@ namespace PROYECTO_ADADAT
             }
         }
 
+        public static void EditarHabitacion(string nombre, int nivel, string nombre_nivel, int numero_camas, string tipo_cama, int max_personas)
+        {
+            try
+            {
+                Conectar();
+                string query = ("INSERT INTO habitaciones(nombre, nivel, nombre_nivel, numero_camas, tipo_cama, max_personas) values(?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, nombre, nivel, nombre_nivel, numero_camas, tipo_cama, max_personas);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("LA INFORMACION DE LA HABITACION SE EDITO CORRECTAMENTE", "FELICIDADES!!");
+            }
+        }
+
+        public static void EliminarHabitacion(string nombre)
+        {
+            try
+            {
+                Conectar();
+                string query = ("UPDATE habitaciones SET habitacioneliminada = true WHERE nombre = ?;");
+                var statement = new SimpleStatement(query, nombre);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("LA HABITACION QUEDO ELIMINADA DE MANERA CORRECTA", "HECHO");
+            }
+        }
+
         public static void RegistrarHotel(string nombre, DateTime fecha_inicio, string ciudad, string estado, string pais, string domicilio, int numero_pisos, string zona_turistica, string servicios_adicionales, string caracteristicas)
         {
             try
             {
                 Conectar();
-                string query = ("INSERT INTO hoteles(id_hotel, nombre, fecha_inicio, ciudad, estado, pais, domicilio, numero_pisos, zona_turistica, servicios_adicionales, caracteristicas, correo_admin, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                var statement = new SimpleStatement(query, Guid.NewGuid(), nombre, fecha_inicio, ciudad, estado, pais, domicilio, numero_pisos, zona_turistica, servicios_adicionales, caracteristicas, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro());
+                string query = ("INSERT INTO hoteles(id_hotel, nombre, fecha_inicio, ciudad, estado, pais, domicilio, numero_pisos, zona_turistica, servicios_adicionales, caracteristicas, correo_admin, fecha_registro, hoteleliminado) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, Guid.NewGuid(), nombre, fecha_inicio, ciudad, estado, pais, domicilio, numero_pisos, zona_turistica, servicios_adicionales, caracteristicas, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro(), false);
                 _session.Execute(statement);
             }
             catch (FormatException error)
@@ -156,13 +236,33 @@ namespace PROYECTO_ADADAT
             }
         }
 
+        public static void EditarHotel(Guid id_hotel, DateTime fecha_inicio, string ciudad, string estado, string pais, string domicilio, int numero_pisos, string zona_turistica, string servicios_adicionales, string caracteristicas)
+        {
+            try
+            {
+                Conectar();
+                string query = ("INSERT INTO hoteles(id_hotel, fecha_inicio, ciudad, estado, pais, domicilio, numero_pisos, zona_turistica, servicios_adicionales, caracteristicas) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, id_hotel, fecha_inicio, ciudad, estado, pais, domicilio, numero_pisos, zona_turistica, servicios_adicionales, caracteristicas);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("LA INFORMACION DEL HOTEL SE EDITO CORRECTAMENTE", "FELICIDADES!!");
+            }
+        }
+
         public static void RegistrarHabitacionEnHotel(Guid id_habitacion_hotel, string nombre_habitacion, int nivel_habitacion, string nombre_nivel_habitacion, int numero_camas_habitacion, string tipo_cama_habitacion, int max_personas_habitacion, double precio_noche, int numero, string caracteristicas, string amenidades, string nombre, List<Guid> habitaciones_en_hotel)
         {
             try
             {
                 Conectar();
-                string query = ("INSERT INTO habitacionesenhoteles(id_habitacion_hotel, nombre_habitacion, nivel_habitacion, nombre_nivel_habitacion, numero_camas_habitacion, tipo_cama_habitacion, max_personas_habitacion, precio_noche, numero, caracteristicas, amenidades, ocupada, personas_hospedadas) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                var statement = new SimpleStatement(query, id_habitacion_hotel, nombre_habitacion, nivel_habitacion, nombre_nivel_habitacion, numero_camas_habitacion, tipo_cama_habitacion, max_personas_habitacion, precio_noche, numero, caracteristicas, amenidades, false, 0);
+                string query = ("INSERT INTO habitacionesenhoteles(id_habitacion_hotel, nombre_habitacion, nivel_habitacion, nombre_nivel_habitacion, numero_camas_habitacion, tipo_cama_habitacion, max_personas_habitacion, precio_noche, numero, caracteristicas, amenidades, ocupada, personas_hospedadas, habitacionenhoteleliminada) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, id_habitacion_hotel, nombre_habitacion, nivel_habitacion, nombre_nivel_habitacion, numero_camas_habitacion, tipo_cama_habitacion, max_personas_habitacion, precio_noche, numero, caracteristicas, amenidades, false, 0, false);
                 _session.Execute(statement);
             }
             catch (FormatException error)
@@ -196,13 +296,53 @@ namespace PROYECTO_ADADAT
             }
         }
 
+        public static void EditarHabitacionEnHotel(Guid id_habitacion_hotel, string nombre_habitacion, int nivel_habitacion, string nombre_nivel_habitacion, int numero_camas_habitacion, string tipo_cama_habitacion, int max_personas_habitacion, double precio_noche, int numero, string caracteristicas, string amenidades, string nombre, List<Guid> habitaciones_en_hotel)
+        {
+            try
+            {
+                Conectar();
+                string query = ("INSERT INTO habitacionesenhoteles(id_habitacion_hotel, nombre_habitacion, nivel_habitacion, nombre_nivel_habitacion, numero_camas_habitacion, tipo_cama_habitacion, max_personas_habitacion, precio_noche, numero, caracteristicas, amenidades) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, id_habitacion_hotel, nombre_habitacion, nivel_habitacion, nombre_nivel_habitacion, numero_camas_habitacion, tipo_cama_habitacion, max_personas_habitacion, precio_noche, numero, caracteristicas, amenidades);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("LA INFORMACION DE LA HABITACION EN HOTEL SE EDITO CORRECTAMENTE", "FELICIDADES!!");
+            }
+        }
+
+        public static void EliminarHabitacionEnHotel(Guid id_habitacion_hotel)
+        {
+            try
+            {
+                Conectar();
+                string query = ("UPDATE habitacionesenhoteles SET habitacionenhoteleliminada = true WHERE id_habitacion_hotel = ?;");
+                var statement = new SimpleStatement(query, id_habitacion_hotel);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("SE ELIMINO LA HABITACION EN HOTEL CORRECTAMENTE!", "FELICIDADES!");
+            }
+        }
+
         public static void RegistrarCliente(string nombre, string apellido_paterno, string apellido_materno, string rfc, string domicilio, string correo_electronico, int telefono_casa, Int64 telefono_celular, string referencia, string estado_civil, DateTime fecha_nacimiento)
         {
             try
             {
                 Conectar();
-                string query = ("INSERT INTO clientes(id_cliente, nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento, correo_operativo, fecha_registro) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                var statement = new SimpleStatement(query, Guid.NewGuid(), nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro());
+                string query = ("INSERT INTO clientes(id_cliente, nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento, correo_operativo, fecha_registro, clienteeliminado) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, Guid.NewGuid(), nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento, VariablesGlobales.CorreoPersonaLogeada, VariablesGlobales.DevolverFechaRegistro(), false);
                 _session.Execute(statement);
             }
             catch (FormatException error)
@@ -216,7 +356,47 @@ namespace PROYECTO_ADADAT
             }
         }
 
-        public static void RegistrarReservacion(Guid id_reservacion,Guid id_hotel, Guid id_habitacion_hotel, Guid id_cliente, List<Guid> id_reservaciones, DateTime fecha_inicial, DateTime fecha_final, int personas_hospedar, double anticipo, double total_hospedaje)
+        public static void EliminarCliente(Guid id_cliente)
+        {
+            try
+            {
+                Conectar();
+                string query = ("UPDATE clientes SET clienteeliminado = true WHERE id_cliente = ?;");
+                var statement = new SimpleStatement(query, id_cliente);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("SE ELIMINO EL CLIENTE CORRECTAMENTE!", "HECHO!");
+            }
+        }
+
+        public static void EditarCliente(Guid id_cliente, string nombre, string apellido_paterno, string apellido_materno, string rfc, string domicilio, string correo_electronico, int telefono_casa, Int64 telefono_celular, string referencia, string estado_civil, DateTime fecha_nacimiento)
+        {
+            try
+            {
+                Conectar();
+                string query = ("INSERT INTO clientes(id_cliente, nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, id_cliente, nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("LA INFORMACION DEL CLIENTE SE EDITO CORRECTAMENTE", "FELICIDADES!!");
+            }
+        }
+
+        public static void RegistrarReservacion(Guid id_reservacion,Guid id_hotel, Guid id_habitacion_hotel, Guid id_cliente, List<Guid> id_reservaciones, DateTime fecha_inicial, DateTime fecha_final, int personas_hospedar, double anticipo, double total_hospedaje, int numero)
         {
             try
             {
@@ -232,11 +412,31 @@ namespace PROYECTO_ADADAT
             finally
             {
                 Desconectar();
-                RegistrarGuidReservacionEnCliente(id_cliente, id_reservaciones, id_reservacion);
+                RegistrarGuidReservacionEnCliente(id_cliente, id_reservaciones, id_reservacion, numero);
             }
         }
 
-        public static void RegistrarGuidReservacionEnCliente(Guid id_cliente, List<Guid> id_reservaciones, Guid id_reservacion)
+        public static void EditarReservacion(Guid id_reservacion, Guid id_hotel, Guid id_habitacion_hotel, Guid id_cliente, List<Guid> id_reservaciones, DateTime fecha_inicial, DateTime fecha_final, int personas_hospedar, double anticipo, double total_hospedaje, int numero)
+        {
+            try
+            {
+                Conectar();
+                string query = ("INSERT INTO reservaciones(id_reservacion, fecha_inicial, fecha_final, personas_hospedar) values(?, ?, ?)");
+                var statement = new SimpleStatement(query, id_reservacion, fecha_inicial, fecha_final, personas_hospedar);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("LA INFORMACION DE LA RESERVACION SE EDITO CORRECTAMENTE", "FELICIDADES!!");
+            }
+        }
+
+        public static void RegistrarGuidReservacionEnCliente(Guid id_cliente, List<Guid> id_reservaciones, Guid id_reservacion, int numero)
         {
             try
             {
@@ -252,7 +452,7 @@ namespace PROYECTO_ADADAT
             finally
             {
                 Desconectar();
-                MessageBox.Show("SE CREO LA RESERVACION Y SE ASIGNO AL CLIENTE CORRECTAMENTE, SU RESERVACION ES: " + id_reservacion + Environment.NewLine + Environment.NewLine + "El medio de pago para el anticipo puede ser: Tarjeta de crédito o débito, transferencia electrónica bancaria, COBRE 200 $ Pesos del Anticipo", "FELICIDADES!");
+                MessageBox.Show("SE CREO LA RESERVACION Y SE ASIGNO AL CLIENTE CORRECTAMENTE, SU RESERVACION ES: " + id_reservacion + Environment.NewLine + Environment.NewLine + "El medio de pago para el anticipo puede ser: Tarjeta de crédito o débito, transferencia electrónica bancaria, COBRE 200 $ Pesos del Anticipo" + id_reservacion + Environment.NewLine + Environment.NewLine + "Su numero de Habitacion es: " + numero , "FELICIDADES!");
             }
         }
 
@@ -358,7 +558,7 @@ namespace PROYECTO_ADADAT
 
         public static List<Operador> HacerListaOperadores()
         {
-            string query = "SELECT correo_electronico, contrasena_actual, contrasena_anterior, contrasena_anteanterior, nombre_completo, numero_nomina, fecha_nacimiento, domicilio, telefono_casa, telefono_celular, inhabilitado, restablecer_contrasena, correo_admin, fecha_registro FROM usuariosoperativos;";
+            string query = "SELECT correo_electronico, contrasena_actual, contrasena_anterior, contrasena_anteanterior, nombre_completo, numero_nomina, fecha_nacimiento, domicilio, telefono_casa, telefono_celular, inhabilitado, restablecer_contrasena, correo_admin, fecha_registro FROM usuariosoperativos WHERE usuarioopeliminado = false ALLOW FILTERING;";
             Conectar();
             IMapper mapper = new Mapper(_session);
             IEnumerable<Operador> users = mapper.Fetch<Operador>(query);
@@ -378,7 +578,7 @@ namespace PROYECTO_ADADAT
 
         public static List<Habitacion> HacerListaHabitaciones()
         {
-            string query = "SELECT nombre, nivel, nombre_nivel, numero_camas, tipo_cama, max_personas, correo_admin, fecha_registro FROM habitaciones;";
+            string query = "SELECT nombre, nivel, nombre_nivel, numero_camas, tipo_cama, max_personas, correo_admin, fecha_registro FROM habitaciones WHERE habitacioneliminada = false ALLOW FILTERING;";
             Conectar();
             IMapper mapper = new Mapper(_session);
             IEnumerable<Habitacion> users = mapper.Fetch<Habitacion>(query);
@@ -388,7 +588,7 @@ namespace PROYECTO_ADADAT
 
         public static List<Hotel> HacerListaHoteles()
         {
-            string query = "SELECT id_hotel, nombre, fecha_inicio, ciudad, estado, pais, domicilio, numero_pisos, zona_turistica, servicios_adicionales, caracteristicas, habitaciones_en_hotel, correo_admin, fecha_registro FROM hoteles;";
+            string query = "SELECT id_hotel, nombre, fecha_inicio, ciudad, estado, pais, domicilio, numero_pisos, zona_turistica, servicios_adicionales, caracteristicas, habitaciones_en_hotel, correo_admin, fecha_registro FROM hoteles WHERE hoteleliminado = false ALLOW FILTERING;";
             Conectar();
             IMapper mapper = new Mapper(_session);
             IEnumerable<Hotel> users = mapper.Fetch<Hotel>(query);
@@ -398,7 +598,7 @@ namespace PROYECTO_ADADAT
 
         public static List<HabitacionEnHotel> HacerListaHabitacionesEnHoteles()
         {
-            string query = "SELECT id_habitacion_hotel, nombre_habitacion, nivel_habitacion, nombre_nivel_habitacion, numero_camas_habitacion, tipo_cama_habitacion, max_personas_habitacion, precio_noche, numero, caracteristicas, amenidades, ocupada, personas_hospedadas FROM habitacionesenhoteles;";
+            string query = "SELECT id_habitacion_hotel, nombre_habitacion, nivel_habitacion, nombre_nivel_habitacion, numero_camas_habitacion, tipo_cama_habitacion, max_personas_habitacion, precio_noche, numero, caracteristicas, amenidades, ocupada, personas_hospedadas FROM habitacionesenhoteles WHERE habitacionenhoteleliminada = false ALLOW FILTERING;";
             Conectar();
             IMapper mapper = new Mapper(_session);
             IEnumerable<HabitacionEnHotel> users = mapper.Fetch<HabitacionEnHotel>(query);
@@ -408,7 +608,7 @@ namespace PROYECTO_ADADAT
 
         public static List<Cliente> HacerListaClientes()
         {
-            string query = "SELECT id_cliente, nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento, id_reservacion FROM clientes;";
+            string query = "SELECT id_cliente, nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento, id_reservacion FROM clientes WHERE clienteeliminado = false ALLOW FILTERING;";
             Conectar();
             IMapper mapper = new Mapper(_session);
             IEnumerable<Cliente> users = mapper.Fetch<Cliente>(query);
@@ -418,7 +618,7 @@ namespace PROYECTO_ADADAT
 
         public static List<Reservacion> HacerListaReservaciones()
         {
-            string query = "SELECT id_reservacion, reservacion_activa, id_hotel, id_habitacion_hotel, id_cliente, fecha_inicial, fecha_final, personas_hospedar, anticipo, checkin, checkout, fecha_checkout, servicios_utilizados, numero_servicios, descuento, total_hospedaje, total_servicios, total_pagar FROM reservaciones;";
+            string query = "SELECT id_reservacion, reservacion_activa, id_hotel, id_habitacion_hotel, id_cliente, fecha_inicial, fecha_final, personas_hospedar, anticipo, checkin, checkout, fecha_checkout, servicios_utilizados, numero_servicios, descuento, total_hospedaje, total_servicios, total_pagar FROM reservaciones WHERE reservacion_activa = true ALLOW FILTERING;";
             Conectar();
             IMapper mapper = new Mapper(_session);
             IEnumerable<Reservacion> users = mapper.Fetch<Reservacion>(query);
