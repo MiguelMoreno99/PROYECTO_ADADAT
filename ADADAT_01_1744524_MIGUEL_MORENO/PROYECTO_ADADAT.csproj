@@ -13,6 +13,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="FORMS GESTION\FORM_GESTION_HABITACIONES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS GESTION\FORM_GESTION_HABITACIONESenHOTELES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS GESTION\FORM_GESTION_HOTELES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS GESTION\FORM_GESTION_RESERVACIONES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS GESTION\FORM_GESTION_HABITACIONESenHOTELES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FORMS GESTION\FORM_GESTION_USUARIOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

@@ -49,7 +49,7 @@ namespace PROYECTO_ADADAT
                     if (hab1 != null)
                         throw new FormatException("YA HAY UNA HABITACION REGISTRADA CON ESE NOMBRE!");
                 }
-                EnlaceCassandra.RegistrarHabitacion(hab.nombre,hab.nivel,hab.nombre_nivel,hab.numero_camas,hab.tipo_cama,hab.max_personas);
+                EnlaceCassandra.RegistrarHabitacion(hab.nombre, hab.nivel, hab.nombre_nivel, hab.numero_camas, hab.tipo_cama, hab.max_personas);
             }
             catch (FormatException error)
             {

@@ -66,5 +66,11 @@ namespace PROYECTO_ADADAT
                 MessageBox.Show(error.Message, "ERROR VERIFIQUE LOS DATOS CAPTURADOS");
             }
         }
+
+        private void BTN_GESTION_Click(object sender, EventArgs e)
+        {
+            VariablesGlobales.FormGestionClientes.Show();
+            this.Hide();
+        }
     }
 }

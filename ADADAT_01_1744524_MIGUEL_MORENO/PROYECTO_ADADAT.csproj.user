@@ -61,5 +61,8 @@
     <Compile Update="FORMS REPORTE\FORM_REPORTE_VENTAS.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FORMS GESTION\FORM_GESTION_CLIENTES.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

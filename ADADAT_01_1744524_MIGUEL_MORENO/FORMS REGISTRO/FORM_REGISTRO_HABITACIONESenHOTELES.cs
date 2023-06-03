@@ -49,7 +49,7 @@ namespace PROYECTO_ADADAT
                 habhot.max_personas_habitacion = hab.max_personas;
                 habhot.precio_noche = double.Parse(TXT_PRECIO.Text);
                 string HabitacionHotel = TXT_NUMERO.Text + ((LB_HOTELES.SelectedIndex + 1).ToString());
-                habhot.numero = int.Parse(HabitacionHotel) ;
+                habhot.numero = int.Parse(HabitacionHotel);
                 habhot.caracteristicas = TXT_CARACTERISTICAS.Text;
                 habhot.amenidades = TXT_AMENIDADES.Text;
                 habhot.id_habitacion_hotel = Guid.NewGuid();
@@ -62,7 +62,7 @@ namespace PROYECTO_ADADAT
                     if (habhot1 != null)
                         throw new FormatException("YA HAY UNA HABITACION REGISTRADA CON ESE NUMERO DE HABITACION!");
                 }
-                EnlaceCassandra.RegistrarHabitacionEnHotel(habhot.id_habitacion_hotel, habhot.nombre_habitacion, habhot.nivel_habitacion, habhot.nombre_nivel_habitacion, habhot.numero_camas_habitacion, habhot.tipo_cama_habitacion, habhot.max_personas_habitacion, habhot.precio_noche, habhot.numero, habhot.caracteristicas, habhot.amenidades,hot.nombre,hot.habitaciones_en_hotel);
+                EnlaceCassandra.RegistrarHabitacionEnHotel(habhot.id_habitacion_hotel, habhot.nombre_habitacion, habhot.nivel_habitacion, habhot.nombre_nivel_habitacion, habhot.numero_camas_habitacion, habhot.tipo_cama_habitacion, habhot.max_personas_habitacion, habhot.precio_noche, habhot.numero, habhot.caracteristicas, habhot.amenidades, hot.nombre, hot.habitaciones_en_hotel);
             }
             catch (FormatException error)
             {
@@ -85,7 +85,7 @@ namespace PROYECTO_ADADAT
             Habitacion hab = new();
             List<Habitacion> listaHab = EnlaceCassandra.HacerListaHabitaciones();
             hab = listaHab.Find(hab => hab.nombre == LB_HABITACIONES.Text);
-            string infoHab = "Nivel Habitacion: " + hab.nombre_nivel + Environment.NewLine +"Numero Camas: " + hab.numero_camas + Environment.NewLine + "Tipo Camas: " + hab.tipo_cama + Environment.NewLine  + "Maximo de Personas: " + hab.max_personas;
+            string infoHab = "Nivel Habitacion: " + hab.nombre_nivel + Environment.NewLine + "Numero Camas: " + hab.numero_camas + Environment.NewLine + "Tipo Camas: " + hab.tipo_cama + Environment.NewLine + "Maximo de Personas: " + hab.max_personas;
             TXT_DATOS.Text = infoHab;
         }
 
@@ -110,7 +110,7 @@ namespace PROYECTO_ADADAT
             Hotel hot = new();
             List<Hotel> listaHot = EnlaceCassandra.HacerListaHoteles();
             hot = listaHot.Find(hot => hot.nombre == LB_HOTELES.Text);
-            string infoHot = "Fecha Inicio: " + hot.fecha_inicio + Environment.NewLine + "Ciudad: " + hot.ciudad + Environment.NewLine + "Estado: " + hot.estado + Environment.NewLine + "Pais: " + hot.pais 
+            string infoHot = "Fecha Inicio: " + hot.fecha_inicio + Environment.NewLine + "Ciudad: " + hot.ciudad + Environment.NewLine + "Estado: " + hot.estado + Environment.NewLine + "Pais: " + hot.pais
              + Environment.NewLine + "Domicilio: " + hot.domicilio + Environment.NewLine + "No. Pisos: " + hot.numero_pisos + Environment.NewLine + "Zona Turistica: " + hot.zona_turistica
              + Environment.NewLine + "Servicios Adicionales: " + hot.servicios_adicionales + Environment.NewLine + "Caracteristicas: " + hot.caracteristicas;
             TXT_DATOS2.Text = infoHot;

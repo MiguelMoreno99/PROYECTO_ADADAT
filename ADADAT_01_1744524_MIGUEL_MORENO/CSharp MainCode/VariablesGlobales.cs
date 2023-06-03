@@ -30,7 +30,13 @@ namespace PROYECTO_ADADAT
             public static Form FormReporteVentas = new FORM_REPORTE_VENTAS();
             public static Form FormReporteClientes = new FORM_REPORTE_CLIENTE();
             public static Form FormReporteOcupacion = new FORM_REPORTE_OCUPACION();
-            public static string CorreoPersonaLogeada;
+            public static Form FormGestionClientes = new FORM_GESTION_CLIENTES();
+            public static Form FormGestionUsuarios = new FORM_GESTION_USUARIOS();
+            public static Form FormGestionHabitaciones = new FORM_GESTION_HABITACIONES();
+            public static Form FormGestionHoteles = new FORM_GESTION_HOTELES();
+            public static Form FormGestionHabitacionesHoteles = new FORM_GESTION_HABITACIONESenHOTELES();
+            public static Form FormGestionReservaciones = new FORM_GESTION_RESERVACIONES();
+        public static string CorreoPersonaLogeada;
             public static int IntentosOperador = 0;
             public static string CorreoIntentos;
             public static DateTime FechaCheckInOut;

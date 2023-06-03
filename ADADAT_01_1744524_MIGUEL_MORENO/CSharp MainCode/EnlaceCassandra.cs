@@ -56,7 +56,7 @@ namespace PROYECTO_ADADAT
             }
         }
 
-        public static void EditarOperador(string correo_electronico, string contrasena_actual, string nombre_completo, Int64 numero_nomina, DateTime fecha_nacimiento, string domicilio, int telefono_casa, Int64 telefono_celular)
+        public static void EditarOperador(string correo_electronico, string nombre_completo, Int64 numero_nomina, DateTime fecha_nacimiento, string domicilio, int telefono_casa, Int64 telefono_celular)
         {
             try
             {
@@ -236,13 +236,13 @@ namespace PROYECTO_ADADAT
             }
         }
 
-        public static void EditarHotel(Guid id_hotel, DateTime fecha_inicio, string ciudad, string estado, string pais, string domicilio, int numero_pisos, string zona_turistica, string servicios_adicionales, string caracteristicas)
+        public static void EditarHotel(string nombre, string ciudad, string estado, string pais, string domicilio, int numero_pisos, string zona_turistica, string servicios_adicionales, string caracteristicas)
         {
             try
             {
                 Conectar();
-                string query = ("INSERT INTO hoteles(id_hotel, fecha_inicio, ciudad, estado, pais, domicilio, numero_pisos, zona_turistica, servicios_adicionales, caracteristicas) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                var statement = new SimpleStatement(query, id_hotel, fecha_inicio, ciudad, estado, pais, domicilio, numero_pisos, zona_turistica, servicios_adicionales, caracteristicas);
+                string query = ("INSERT INTO hoteles(nombre, ciudad, estado, pais, domicilio, numero_pisos, zona_turistica, servicios_adicionales, caracteristicas) values(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, nombre, ciudad, estado, pais, domicilio, numero_pisos, zona_turistica, servicios_adicionales, caracteristicas);
                 _session.Execute(statement);
             }
             catch (FormatException error)
@@ -253,6 +253,26 @@ namespace PROYECTO_ADADAT
             {
                 Desconectar();
                 MessageBox.Show("LA INFORMACION DEL HOTEL SE EDITO CORRECTAMENTE", "FELICIDADES!!");
+            }
+        }
+
+        public static void EliminarHotel(string nombre)
+        {
+            try
+            {
+                Conectar();
+                string query = ("UPDATE hoteles SET hoteleliminado = true WHERE nombre = ?;");
+                var statement = new SimpleStatement(query, nombre);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("EL HOTEL QUEDO ELIMINADO DE MANERA CORRECTA", "HECHO");
             }
         }
 
@@ -296,13 +316,13 @@ namespace PROYECTO_ADADAT
             }
         }
 
-        public static void EditarHabitacionEnHotel(Guid id_habitacion_hotel, string nombre_habitacion, int nivel_habitacion, string nombre_nivel_habitacion, int numero_camas_habitacion, string tipo_cama_habitacion, int max_personas_habitacion, double precio_noche, int numero, string caracteristicas, string amenidades, string nombre, List<Guid> habitaciones_en_hotel)
+        public static void EditarHabitacionEnHotel(Guid id_habitacion_hotel, double precio_noche, string caracteristicas, string amenidades)
         {
             try
             {
                 Conectar();
-                string query = ("INSERT INTO habitacionesenhoteles(id_habitacion_hotel, nombre_habitacion, nivel_habitacion, nombre_nivel_habitacion, numero_camas_habitacion, tipo_cama_habitacion, max_personas_habitacion, precio_noche, numero, caracteristicas, amenidades) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                var statement = new SimpleStatement(query, id_habitacion_hotel, nombre_habitacion, nivel_habitacion, nombre_nivel_habitacion, numero_camas_habitacion, tipo_cama_habitacion, max_personas_habitacion, precio_noche, numero, caracteristicas, amenidades);
+                string query = ("INSERT INTO habitacionesenhoteles(id_habitacion_hotel, precio_noche, caracteristicas, amenidades) values(?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, id_habitacion_hotel, precio_noche, caracteristicas, amenidades);
                 _session.Execute(statement);
             }
             catch (FormatException error)
@@ -376,13 +396,13 @@ namespace PROYECTO_ADADAT
             }
         }
 
-        public static void EditarCliente(Guid id_cliente, string nombre, string apellido_paterno, string apellido_materno, string rfc, string domicilio, string correo_electronico, int telefono_casa, Int64 telefono_celular, string referencia, string estado_civil, DateTime fecha_nacimiento)
+        public static void EditarCliente(Guid id_cliente, string nombre, string apellido_paterno, string apellido_materno, string domicilio, string correo_electronico, int telefono_casa, Int64 telefono_celular, string referencia, string estado_civil, DateTime fecha_nacimiento)
         {
             try
             {
                 Conectar();
-                string query = ("INSERT INTO clientes(id_cliente, nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                var statement = new SimpleStatement(query, id_cliente, nombre, apellido_paterno, apellido_materno, rfc, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento);
+                string query = ("INSERT INTO clientes(id_cliente, nombre, apellido_paterno, apellido_materno, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, id_cliente, nombre, apellido_paterno, apellido_materno, domicilio, correo_electronico, telefono_casa, telefono_celular, referencia, estado_civil, fecha_nacimiento);
                 _session.Execute(statement);
             }
             catch (FormatException error)
@@ -416,13 +436,13 @@ namespace PROYECTO_ADADAT
             }
         }
 
-        public static void EditarReservacion(Guid id_reservacion, Guid id_hotel, Guid id_habitacion_hotel, Guid id_cliente, List<Guid> id_reservaciones, DateTime fecha_inicial, DateTime fecha_final, int personas_hospedar, double anticipo, double total_hospedaje, int numero)
+        public static void EditarReservacion(Guid id_reservacion, DateTime fecha_inicial, DateTime fecha_final, int personas_hospedar, double total_hospedaje)
         {
             try
             {
                 Conectar();
-                string query = ("INSERT INTO reservaciones(id_reservacion, fecha_inicial, fecha_final, personas_hospedar) values(?, ?, ?)");
-                var statement = new SimpleStatement(query, id_reservacion, fecha_inicial, fecha_final, personas_hospedar);
+                string query = ("INSERT INTO reservaciones(id_reservacion, fecha_inicial, fecha_final, personas_hospedar, total_hospedaje) values(?, ?, ?, ?, ?)");
+                var statement = new SimpleStatement(query, id_reservacion, fecha_inicial, fecha_final, personas_hospedar, total_hospedaje);
                 _session.Execute(statement);
             }
             catch (FormatException error)
@@ -452,7 +472,7 @@ namespace PROYECTO_ADADAT
             finally
             {
                 Desconectar();
-                MessageBox.Show("SE CREO LA RESERVACION Y SE ASIGNO AL CLIENTE CORRECTAMENTE, SU RESERVACION ES: " + id_reservacion + Environment.NewLine + Environment.NewLine + "El medio de pago para el anticipo puede ser: Tarjeta de crédito o débito, transferencia electrónica bancaria, COBRE 200 $ Pesos del Anticipo" + id_reservacion + Environment.NewLine + Environment.NewLine + "Su numero de Habitacion es: " + numero , "FELICIDADES!");
+                MessageBox.Show("SE CREO LA RESERVACION Y SE ASIGNO AL CLIENTE CORRECTAMENTE, SU RESERVACION ES: " + id_reservacion + Environment.NewLine + Environment.NewLine + "El medio de pago para el anticipo puede ser: Tarjeta de crédito o débito, transferencia electrónica bancaria, COBRE 200 $ Pesos del Anticipo" + Environment.NewLine + Environment.NewLine + "Su numero de Habitacion es: " + numero , "FELICIDADES!");
             }
         }
 

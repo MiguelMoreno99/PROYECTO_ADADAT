@@ -86,5 +86,41 @@ namespace PROYECTO_ADADAT
             VariablesGlobales.FormRegistoHabitacionesHoteles.Show();
             this.Hide();
         }
+
+        private void uSUARIOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VariablesGlobales.FormGestionUsuarios.Show();
+            this.Hide();
+        }
+
+        private void cLIENTESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VariablesGlobales.FormGestionClientes.Show();
+            this.Hide();
+        }
+
+        private void hABITACIONESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VariablesGlobales.FormGestionHabitaciones.Show();
+            this.Hide();
+        }
+
+        private void hOTELESToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            VariablesGlobales.FormGestionHoteles.Show();
+            this.Hide();
+        }
+
+        private void hABITACIONESENHOTELESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VariablesGlobales.FormGestionHabitacionesHoteles.Show();
+            this.Hide();
+        }
+
+        private void rESERVACIONESToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            VariablesGlobales.FormGestionReservaciones.Show();
+            this.Hide();
+        }
     }
 }

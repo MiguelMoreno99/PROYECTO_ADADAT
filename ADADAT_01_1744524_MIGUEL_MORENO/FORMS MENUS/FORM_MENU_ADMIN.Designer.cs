@@ -30,195 +30,234 @@ namespace PROYECTO_ADADAT
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FORM_MENU_ADMIN));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.rEPORTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEPORTEDEOCUPACIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEPORTEDEVENTASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEPORTEHISTORIALDECLIENTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rESERVACIONESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cANCELARRESERVACIONESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hOTELESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEGISTROHOTELESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEGISTROHABITACIONESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oPERADORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oPERADORESINHABILITADOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aGREGAROPERADORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sISTEMAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cERRARSESIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sALIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.rEGISTROHABITACIONESENHOTELESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            menuStrip1 = new System.Windows.Forms.MenuStrip();
+            rEPORTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            rEPORTEDEOCUPACIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            rEPORTEDEVENTASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            rEPORTEHISTORIALDECLIENTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            rESERVACIONESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            cANCELARRESERVACIONESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            hOTELESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            rEGISTROHOTELESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            rEGISTROHABITACIONESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            rEGISTROHABITACIONESENHOTELESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            gESTIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            uSUARIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            cLIENTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            hABITACIONESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            hOTELESToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            hABITACIONESENHOTELESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            oPERADORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            oPERADORESINHABILITADOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            aGREGAROPERADORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            sISTEMAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            cERRARSESIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            sALIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            rESERVACIONESToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rEPORTESToolStripMenuItem,
-            this.rESERVACIONESToolStripMenuItem,
-            this.hOTELESToolStripMenuItem,
-            this.oPERADORESToolStripMenuItem,
-            this.sISTEMAToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { rEPORTESToolStripMenuItem, rESERVACIONESToolStripMenuItem, hOTELESToolStripMenuItem, gESTIONToolStripMenuItem, oPERADORESToolStripMenuItem, sISTEMAToolStripMenuItem });
+            menuStrip1.Location = new System.Drawing.Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new System.Drawing.Size(800, 24);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
             // 
             // rEPORTESToolStripMenuItem
             // 
-            this.rEPORTESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rEPORTEDEOCUPACIONToolStripMenuItem,
-            this.rEPORTEDEVENTASToolStripMenuItem,
-            this.rEPORTEHISTORIALDECLIENTESToolStripMenuItem});
-            this.rEPORTESToolStripMenuItem.Name = "rEPORTESToolStripMenuItem";
-            this.rEPORTESToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.rEPORTESToolStripMenuItem.Text = "REPORTES";
+            rEPORTESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { rEPORTEDEOCUPACIONToolStripMenuItem, rEPORTEDEVENTASToolStripMenuItem, rEPORTEHISTORIALDECLIENTESToolStripMenuItem });
+            rEPORTESToolStripMenuItem.Name = "rEPORTESToolStripMenuItem";
+            rEPORTESToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            rEPORTESToolStripMenuItem.Text = "REPORTES";
             // 
             // rEPORTEDEOCUPACIONToolStripMenuItem
             // 
-            this.rEPORTEDEOCUPACIONToolStripMenuItem.Name = "rEPORTEDEOCUPACIONToolStripMenuItem";
-            this.rEPORTEDEOCUPACIONToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
-            this.rEPORTEDEOCUPACIONToolStripMenuItem.Text = "REPORTE DE OCUPACION";
-            this.rEPORTEDEOCUPACIONToolStripMenuItem.Click += new System.EventHandler(this.rEPORTEDEOCUPACIONToolStripMenuItem_Click);
+            rEPORTEDEOCUPACIONToolStripMenuItem.Name = "rEPORTEDEOCUPACIONToolStripMenuItem";
+            rEPORTEDEOCUPACIONToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            rEPORTEDEOCUPACIONToolStripMenuItem.Text = "REPORTE DE OCUPACION";
+            rEPORTEDEOCUPACIONToolStripMenuItem.Click += rEPORTEDEOCUPACIONToolStripMenuItem_Click;
             // 
             // rEPORTEDEVENTASToolStripMenuItem
             // 
-            this.rEPORTEDEVENTASToolStripMenuItem.Name = "rEPORTEDEVENTASToolStripMenuItem";
-            this.rEPORTEDEVENTASToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
-            this.rEPORTEDEVENTASToolStripMenuItem.Text = "REPORTE DE VENTAS";
-            this.rEPORTEDEVENTASToolStripMenuItem.Click += new System.EventHandler(this.rEPORTEDEVENTASToolStripMenuItem_Click);
+            rEPORTEDEVENTASToolStripMenuItem.Name = "rEPORTEDEVENTASToolStripMenuItem";
+            rEPORTEDEVENTASToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            rEPORTEDEVENTASToolStripMenuItem.Text = "REPORTE DE VENTAS";
+            rEPORTEDEVENTASToolStripMenuItem.Click += rEPORTEDEVENTASToolStripMenuItem_Click;
             // 
             // rEPORTEHISTORIALDECLIENTESToolStripMenuItem
             // 
-            this.rEPORTEHISTORIALDECLIENTESToolStripMenuItem.Name = "rEPORTEHISTORIALDECLIENTESToolStripMenuItem";
-            this.rEPORTEHISTORIALDECLIENTESToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
-            this.rEPORTEHISTORIALDECLIENTESToolStripMenuItem.Text = "REPORTE HISTORIAL DE CLIENTES";
-            this.rEPORTEHISTORIALDECLIENTESToolStripMenuItem.Click += new System.EventHandler(this.rEPORTEHISTORIALDECLIENTESToolStripMenuItem_Click);
+            rEPORTEHISTORIALDECLIENTESToolStripMenuItem.Name = "rEPORTEHISTORIALDECLIENTESToolStripMenuItem";
+            rEPORTEHISTORIALDECLIENTESToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            rEPORTEHISTORIALDECLIENTESToolStripMenuItem.Text = "REPORTE HISTORIAL DE CLIENTES";
+            rEPORTEHISTORIALDECLIENTESToolStripMenuItem.Click += rEPORTEHISTORIALDECLIENTESToolStripMenuItem_Click;
             // 
             // rESERVACIONESToolStripMenuItem
             // 
-            this.rESERVACIONESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cANCELARRESERVACIONESToolStripMenuItem});
-            this.rESERVACIONESToolStripMenuItem.Name = "rESERVACIONESToolStripMenuItem";
-            this.rESERVACIONESToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
-            this.rESERVACIONESToolStripMenuItem.Text = "RESERVACIONES";
-            this.rESERVACIONESToolStripMenuItem.Click += new System.EventHandler(this.rESERVACIONESToolStripMenuItem_Click);
+            rESERVACIONESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { cANCELARRESERVACIONESToolStripMenuItem });
+            rESERVACIONESToolStripMenuItem.Name = "rESERVACIONESToolStripMenuItem";
+            rESERVACIONESToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
+            rESERVACIONESToolStripMenuItem.Text = "RESERVACIONES";
+            rESERVACIONESToolStripMenuItem.Click += rESERVACIONESToolStripMenuItem_Click;
             // 
             // cANCELARRESERVACIONESToolStripMenuItem
             // 
-            this.cANCELARRESERVACIONESToolStripMenuItem.Name = "cANCELARRESERVACIONESToolStripMenuItem";
-            this.cANCELARRESERVACIONESToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.cANCELARRESERVACIONESToolStripMenuItem.Text = "CANCELAR RESERVACIONES";
-            this.cANCELARRESERVACIONESToolStripMenuItem.Click += new System.EventHandler(this.cANCELARRESERVACIONESToolStripMenuItem_Click);
+            cANCELARRESERVACIONESToolStripMenuItem.Name = "cANCELARRESERVACIONESToolStripMenuItem";
+            cANCELARRESERVACIONESToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            cANCELARRESERVACIONESToolStripMenuItem.Text = "CANCELAR RESERVACIONES";
+            cANCELARRESERVACIONESToolStripMenuItem.Click += cANCELARRESERVACIONESToolStripMenuItem_Click;
             // 
             // hOTELESToolStripMenuItem
             // 
-            this.hOTELESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rEGISTROHOTELESToolStripMenuItem,
-            this.rEGISTROHABITACIONESToolStripMenuItem,
-            this.rEGISTROHABITACIONESENHOTELESToolStripMenuItem});
-            this.hOTELESToolStripMenuItem.Name = "hOTELESToolStripMenuItem";
-            this.hOTELESToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.hOTELESToolStripMenuItem.Text = "REGISTRO";
+            hOTELESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { rEGISTROHOTELESToolStripMenuItem, rEGISTROHABITACIONESToolStripMenuItem, rEGISTROHABITACIONESENHOTELESToolStripMenuItem });
+            hOTELESToolStripMenuItem.Name = "hOTELESToolStripMenuItem";
+            hOTELESToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            hOTELESToolStripMenuItem.Text = "REGISTRO";
             // 
             // rEGISTROHOTELESToolStripMenuItem
             // 
-            this.rEGISTROHOTELESToolStripMenuItem.Name = "rEGISTROHOTELESToolStripMenuItem";
-            this.rEGISTROHOTELESToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
-            this.rEGISTROHOTELESToolStripMenuItem.Text = "REGISTRO HOTELES";
-            this.rEGISTROHOTELESToolStripMenuItem.Click += new System.EventHandler(this.eDITARHOTELESToolStripMenuItem_Click);
+            rEGISTROHOTELESToolStripMenuItem.Name = "rEGISTROHOTELESToolStripMenuItem";
+            rEGISTROHOTELESToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            rEGISTROHOTELESToolStripMenuItem.Text = "REGISTRO HOTELES";
+            rEGISTROHOTELESToolStripMenuItem.Click += eDITARHOTELESToolStripMenuItem_Click;
             // 
             // rEGISTROHABITACIONESToolStripMenuItem
             // 
-            this.rEGISTROHABITACIONESToolStripMenuItem.Name = "rEGISTROHABITACIONESToolStripMenuItem";
-            this.rEGISTROHABITACIONESToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
-            this.rEGISTROHABITACIONESToolStripMenuItem.Text = "REGISTRO HABITACIONES";
-            this.rEGISTROHABITACIONESToolStripMenuItem.Click += new System.EventHandler(this.rEGISTROHABITACIONESToolStripMenuItem_Click);
-            // 
-            // oPERADORESToolStripMenuItem
-            // 
-            this.oPERADORESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.oPERADORESINHABILITADOSToolStripMenuItem,
-            this.aGREGAROPERADORESToolStripMenuItem});
-            this.oPERADORESToolStripMenuItem.Name = "oPERADORESToolStripMenuItem";
-            this.oPERADORESToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
-            this.oPERADORESToolStripMenuItem.Text = "OPERADORES";
-            // 
-            // oPERADORESINHABILITADOSToolStripMenuItem
-            // 
-            this.oPERADORESINHABILITADOSToolStripMenuItem.Name = "oPERADORESINHABILITADOSToolStripMenuItem";
-            this.oPERADORESINHABILITADOSToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
-            this.oPERADORESINHABILITADOSToolStripMenuItem.Text = "OPERADORES INHABILITADOS";
-            this.oPERADORESINHABILITADOSToolStripMenuItem.Click += new System.EventHandler(this.uSUARIOSINHABILITADOSToolStripMenuItem_Click);
-            // 
-            // aGREGAROPERADORESToolStripMenuItem
-            // 
-            this.aGREGAROPERADORESToolStripMenuItem.Name = "aGREGAROPERADORESToolStripMenuItem";
-            this.aGREGAROPERADORESToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
-            this.aGREGAROPERADORESToolStripMenuItem.Text = "AGREGAR OPERADORES";
-            this.aGREGAROPERADORESToolStripMenuItem.Click += new System.EventHandler(this.aGREGARUSUARIOSToolStripMenuItem_Click);
-            // 
-            // sISTEMAToolStripMenuItem
-            // 
-            this.sISTEMAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cERRARSESIONToolStripMenuItem,
-            this.sALIRToolStripMenuItem});
-            this.sISTEMAToolStripMenuItem.Name = "sISTEMAToolStripMenuItem";
-            this.sISTEMAToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.sISTEMAToolStripMenuItem.Text = "SISTEMA";
-            // 
-            // cERRARSESIONToolStripMenuItem
-            // 
-            this.cERRARSESIONToolStripMenuItem.Name = "cERRARSESIONToolStripMenuItem";
-            this.cERRARSESIONToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cERRARSESIONToolStripMenuItem.Text = "CERRAR SESION";
-            this.cERRARSESIONToolStripMenuItem.Click += new System.EventHandler(this.cERRARSESIONToolStripMenuItem_Click);
-            // 
-            // sALIRToolStripMenuItem
-            // 
-            this.sALIRToolStripMenuItem.Name = "sALIRToolStripMenuItem";
-            this.sALIRToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sALIRToolStripMenuItem.Text = "SALIR";
-            this.sALIRToolStripMenuItem.Click += new System.EventHandler(this.sALIRToolStripMenuItem_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(385, 125);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(403, 313);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            rEGISTROHABITACIONESToolStripMenuItem.Name = "rEGISTROHABITACIONESToolStripMenuItem";
+            rEGISTROHABITACIONESToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            rEGISTROHABITACIONESToolStripMenuItem.Text = "REGISTRO HABITACIONES";
+            rEGISTROHABITACIONESToolStripMenuItem.Click += rEGISTROHABITACIONESToolStripMenuItem_Click;
             // 
             // rEGISTROHABITACIONESENHOTELESToolStripMenuItem
             // 
-            this.rEGISTROHABITACIONESENHOTELESToolStripMenuItem.Name = "rEGISTROHABITACIONESENHOTELESToolStripMenuItem";
-            this.rEGISTROHABITACIONESENHOTELESToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
-            this.rEGISTROHABITACIONESENHOTELESToolStripMenuItem.Text = "REGISTRO HABITACIONES EN HOTELES";
-            this.rEGISTROHABITACIONESENHOTELESToolStripMenuItem.Click += new System.EventHandler(this.rEGISTROHABITACIONESENHOTELESToolStripMenuItem_Click);
+            rEGISTROHABITACIONESENHOTELESToolStripMenuItem.Name = "rEGISTROHABITACIONESENHOTELESToolStripMenuItem";
+            rEGISTROHABITACIONESENHOTELESToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            rEGISTROHABITACIONESENHOTELESToolStripMenuItem.Text = "REGISTRO HABITACIONES EN HOTELES";
+            rEGISTROHABITACIONESENHOTELESToolStripMenuItem.Click += rEGISTROHABITACIONESENHOTELESToolStripMenuItem_Click;
+            // 
+            // gESTIONToolStripMenuItem
+            // 
+            gESTIONToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { uSUARIOSToolStripMenuItem, cLIENTESToolStripMenuItem, hABITACIONESToolStripMenuItem, hOTELESToolStripMenuItem1, hABITACIONESENHOTELESToolStripMenuItem, rESERVACIONESToolStripMenuItem1 });
+            gESTIONToolStripMenuItem.Name = "gESTIONToolStripMenuItem";
+            gESTIONToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            gESTIONToolStripMenuItem.Text = "GESTION";
+            // 
+            // uSUARIOSToolStripMenuItem
+            // 
+            uSUARIOSToolStripMenuItem.Name = "uSUARIOSToolStripMenuItem";
+            uSUARIOSToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            uSUARIOSToolStripMenuItem.Text = "USUARIOS";
+            uSUARIOSToolStripMenuItem.Click += uSUARIOSToolStripMenuItem_Click;
+            // 
+            // cLIENTESToolStripMenuItem
+            // 
+            cLIENTESToolStripMenuItem.Name = "cLIENTESToolStripMenuItem";
+            cLIENTESToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            cLIENTESToolStripMenuItem.Text = "CLIENTES";
+            cLIENTESToolStripMenuItem.Click += cLIENTESToolStripMenuItem_Click;
+            // 
+            // hABITACIONESToolStripMenuItem
+            // 
+            hABITACIONESToolStripMenuItem.Name = "hABITACIONESToolStripMenuItem";
+            hABITACIONESToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            hABITACIONESToolStripMenuItem.Text = "HABITACIONES";
+            hABITACIONESToolStripMenuItem.Click += hABITACIONESToolStripMenuItem_Click;
+            // 
+            // hOTELESToolStripMenuItem1
+            // 
+            hOTELESToolStripMenuItem1.Name = "hOTELESToolStripMenuItem1";
+            hOTELESToolStripMenuItem1.Size = new System.Drawing.Size(223, 22);
+            hOTELESToolStripMenuItem1.Text = "HOTELES";
+            hOTELESToolStripMenuItem1.Click += hOTELESToolStripMenuItem1_Click;
+            // 
+            // hABITACIONESENHOTELESToolStripMenuItem
+            // 
+            hABITACIONESENHOTELESToolStripMenuItem.Name = "hABITACIONESENHOTELESToolStripMenuItem";
+            hABITACIONESENHOTELESToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            hABITACIONESENHOTELESToolStripMenuItem.Text = "HABITACIONES EN HOTELES";
+            hABITACIONESENHOTELESToolStripMenuItem.Click += hABITACIONESENHOTELESToolStripMenuItem_Click;
+            // 
+            // oPERADORESToolStripMenuItem
+            // 
+            oPERADORESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { oPERADORESINHABILITADOSToolStripMenuItem, aGREGAROPERADORESToolStripMenuItem });
+            oPERADORESToolStripMenuItem.Name = "oPERADORESToolStripMenuItem";
+            oPERADORESToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            oPERADORESToolStripMenuItem.Text = "OPERADORES";
+            // 
+            // oPERADORESINHABILITADOSToolStripMenuItem
+            // 
+            oPERADORESINHABILITADOSToolStripMenuItem.Name = "oPERADORESINHABILITADOSToolStripMenuItem";
+            oPERADORESINHABILITADOSToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            oPERADORESINHABILITADOSToolStripMenuItem.Text = "OPERADORES INHABILITADOS";
+            oPERADORESINHABILITADOSToolStripMenuItem.Click += uSUARIOSINHABILITADOSToolStripMenuItem_Click;
+            // 
+            // aGREGAROPERADORESToolStripMenuItem
+            // 
+            aGREGAROPERADORESToolStripMenuItem.Name = "aGREGAROPERADORESToolStripMenuItem";
+            aGREGAROPERADORESToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            aGREGAROPERADORESToolStripMenuItem.Text = "AGREGAR OPERADORES";
+            aGREGAROPERADORESToolStripMenuItem.Click += aGREGARUSUARIOSToolStripMenuItem_Click;
+            // 
+            // sISTEMAToolStripMenuItem
+            // 
+            sISTEMAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { cERRARSESIONToolStripMenuItem, sALIRToolStripMenuItem });
+            sISTEMAToolStripMenuItem.Name = "sISTEMAToolStripMenuItem";
+            sISTEMAToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            sISTEMAToolStripMenuItem.Text = "SISTEMA";
+            // 
+            // cERRARSESIONToolStripMenuItem
+            // 
+            cERRARSESIONToolStripMenuItem.Name = "cERRARSESIONToolStripMenuItem";
+            cERRARSESIONToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            cERRARSESIONToolStripMenuItem.Text = "CERRAR SESION";
+            cERRARSESIONToolStripMenuItem.Click += cERRARSESIONToolStripMenuItem_Click;
+            // 
+            // sALIRToolStripMenuItem
+            // 
+            sALIRToolStripMenuItem.Name = "sALIRToolStripMenuItem";
+            sALIRToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            sALIRToolStripMenuItem.Text = "SALIR";
+            sALIRToolStripMenuItem.Click += sALIRToolStripMenuItem_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new System.Drawing.Point(385, 125);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(403, 313);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
+            // rESERVACIONESToolStripMenuItem1
+            // 
+            rESERVACIONESToolStripMenuItem1.Name = "rESERVACIONESToolStripMenuItem1";
+            rESERVACIONESToolStripMenuItem1.Size = new System.Drawing.Size(223, 22);
+            rESERVACIONESToolStripMenuItem1.Text = "RESERVACIONES";
+            rESERVACIONESToolStripMenuItem1.Click += rESERVACIONESToolStripMenuItem1_Click;
             // 
             // FORM_MENU_ADMIN
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.ControlBox = false;
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.menuStrip1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "FORM_MENU_ADMIN";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bienvenido al Menu, Administrador!";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(800, 450);
+            ControlBox = false;
+            Controls.Add(pictureBox1);
+            Controls.Add(menuStrip1);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            MainMenuStrip = menuStrip1;
+            Name = "FORM_MENU_ADMIN";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Bienvenido al Menu, Administrador!";
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -241,5 +280,12 @@ namespace PROYECTO_ADADAT
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem aGREGAROPERADORESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rEGISTROHABITACIONESENHOTELESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gESTIONToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uSUARIOSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cLIENTESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hABITACIONESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hOTELESToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem hABITACIONESENHOTELESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rESERVACIONESToolStripMenuItem1;
     }
 }
