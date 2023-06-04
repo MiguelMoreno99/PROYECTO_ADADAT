@@ -57,6 +57,10 @@ namespace PROYECTO_ADADAT
                         HabitacionEnHotel habitacionEnHotel1 = new();
                         Guid guid = Cliente1.id_reservacion[r];
                         Reservacion1 = ListaReservaciones.Find(Reservacion1 => Reservacion1.id_reservacion == guid);
+                        if (Reservacion1 == null)
+                        {
+                            continue;
+                        }
                         Hotel1 = ListaHoteles.Find(Hotel1=> Hotel1.id_hotel == Reservacion1.id_hotel);
                         habitacionEnHotel1 = ListaHabitacionesEnHoteles.Find(habitacionEnHotel1 => habitacionEnHotel1.id_habitacion_hotel == Reservacion1.id_habitacion_hotel);
                         ListViewItem HistoriaCliente = new();

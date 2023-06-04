@@ -47,7 +47,6 @@ namespace PROYECTO_ADADAT
             TXT_SERVICIOSADICIONALES = new System.Windows.Forms.TextBox();
             TXT_SERVICIOSUTILIZADOS = new System.Windows.Forms.TextBox();
             CB_NUMEROSERVICIOSUTILIZADOS = new System.Windows.Forms.ComboBox();
-            TXT_DESCUENTO = new System.Windows.Forms.TextBox();
             BTN_EXTENDERESTANCIA = new System.Windows.Forms.Button();
             TXT_COSTOHOTEL = new System.Windows.Forms.TextBox();
             TXT_COSTOSERVICIOSADICIONALES = new System.Windows.Forms.TextBox();
@@ -61,6 +60,8 @@ namespace PROYECTO_ADADAT
             label17 = new System.Windows.Forms.Label();
             TXT_TOTALPAGAR = new System.Windows.Forms.TextBox();
             label18 = new System.Windows.Forms.Label();
+            button1 = new System.Windows.Forms.Button();
+            CB_DESCUENTO = new System.Windows.Forms.ComboBox();
             SuspendLayout();
             // 
             // BTN_SALIR
@@ -106,7 +107,7 @@ namespace PROYECTO_ADADAT
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(54, 76);
+            label2.Location = new System.Drawing.Point(53, 120);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(143, 45);
             label2.TabIndex = 98;
@@ -198,7 +199,7 @@ namespace PROYECTO_ADADAT
             // 
             // TXT_SERVICIOSADICIONALES
             // 
-            TXT_SERVICIOSADICIONALES.Location = new System.Drawing.Point(203, 76);
+            TXT_SERVICIOSADICIONALES.Location = new System.Drawing.Point(202, 120);
             TXT_SERVICIOSADICIONALES.Multiline = true;
             TXT_SERVICIOSADICIONALES.Name = "TXT_SERVICIOSADICIONALES";
             TXT_SERVICIOSADICIONALES.ReadOnly = true;
@@ -222,13 +223,7 @@ namespace PROYECTO_ADADAT
             CB_NUMEROSERVICIOSUTILIZADOS.Name = "CB_NUMEROSERVICIOSUTILIZADOS";
             CB_NUMEROSERVICIOSUTILIZADOS.Size = new System.Drawing.Size(102, 23);
             CB_NUMEROSERVICIOSUTILIZADOS.TabIndex = 110;
-            // 
-            // TXT_DESCUENTO
-            // 
-            TXT_DESCUENTO.Location = new System.Drawing.Point(487, 287);
-            TXT_DESCUENTO.Name = "TXT_DESCUENTO";
-            TXT_DESCUENTO.Size = new System.Drawing.Size(100, 23);
-            TXT_DESCUENTO.TabIndex = 111;
+            CB_NUMEROSERVICIOSUTILIZADOS.SelectedIndexChanged += CB_NUMEROSERVICIOSUTILIZADOS_SelectedIndexChanged;
             // 
             // BTN_EXTENDERESTANCIA
             // 
@@ -248,6 +243,9 @@ namespace PROYECTO_ADADAT
             TXT_COSTOHOTEL.ReadOnly = true;
             TXT_COSTOHOTEL.Size = new System.Drawing.Size(134, 23);
             TXT_COSTOHOTEL.TabIndex = 113;
+            TXT_COSTOHOTEL.Text = "0";
+            TXT_COSTOHOTEL.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            TXT_COSTOHOTEL.TextChanged += TXT_COSTOHOTEL_TextChanged;
             // 
             // TXT_COSTOSERVICIOSADICIONALES
             // 
@@ -256,6 +254,9 @@ namespace PROYECTO_ADADAT
             TXT_COSTOSERVICIOSADICIONALES.ReadOnly = true;
             TXT_COSTOSERVICIOSADICIONALES.Size = new System.Drawing.Size(134, 23);
             TXT_COSTOSERVICIOSADICIONALES.TabIndex = 114;
+            TXT_COSTOSERVICIOSADICIONALES.Text = "0";
+            TXT_COSTOSERVICIOSADICIONALES.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            TXT_COSTOSERVICIOSADICIONALES.TextChanged += TXT_COSTOSERVICIOSADICIONALES_TextChanged;
             // 
             // TXT_ANTICIPO
             // 
@@ -264,6 +265,9 @@ namespace PROYECTO_ADADAT
             TXT_ANTICIPO.ReadOnly = true;
             TXT_ANTICIPO.Size = new System.Drawing.Size(134, 23);
             TXT_ANTICIPO.TabIndex = 115;
+            TXT_ANTICIPO.Text = "0";
+            TXT_ANTICIPO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            TXT_ANTICIPO.TextChanged += TXT_ANTICIPO_TextChanged;
             // 
             // TXT_DESCUENTODADO
             // 
@@ -272,6 +276,9 @@ namespace PROYECTO_ADADAT
             TXT_DESCUENTODADO.ReadOnly = true;
             TXT_DESCUENTODADO.Size = new System.Drawing.Size(134, 23);
             TXT_DESCUENTODADO.TabIndex = 116;
+            TXT_DESCUENTODADO.Text = "0";
+            TXT_DESCUENTODADO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            TXT_DESCUENTODADO.TextChanged += TXT_DESCUENTODADO_TextChanged;
             // 
             // label12
             // 
@@ -334,6 +341,8 @@ namespace PROYECTO_ADADAT
             TXT_TOTALPAGAR.ReadOnly = true;
             TXT_TOTALPAGAR.Size = new System.Drawing.Size(134, 23);
             TXT_TOTALPAGAR.TabIndex = 123;
+            TXT_TOTALPAGAR.Text = "0";
+            TXT_TOTALPAGAR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label18
             // 
@@ -344,12 +353,35 @@ namespace PROYECTO_ADADAT
             label18.TabIndex = 124;
             label18.Text = "$";
             // 
+            // button1
+            // 
+            button1.Location = new System.Drawing.Point(180, 46);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(331, 49);
+            button1.TabIndex = 125;
+            button1.Text = "CARGAR INFORMACION";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
+            // 
+            // CB_DESCUENTO
+            // 
+            CB_DESCUENTO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            CB_DESCUENTO.FormattingEnabled = true;
+            CB_DESCUENTO.Items.AddRange(new object[] { "0", "5", "10", "15" });
+            CB_DESCUENTO.Location = new System.Drawing.Point(497, 287);
+            CB_DESCUENTO.Name = "CB_DESCUENTO";
+            CB_DESCUENTO.Size = new System.Drawing.Size(90, 23);
+            CB_DESCUENTO.TabIndex = 126;
+            CB_DESCUENTO.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
             // FORM_REGISTRO_PAGORESERVACION
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(655, 561);
             ControlBox = false;
+            Controls.Add(CB_DESCUENTO);
+            Controls.Add(button1);
             Controls.Add(label18);
             Controls.Add(TXT_TOTALPAGAR);
             Controls.Add(label17);
@@ -363,7 +395,6 @@ namespace PROYECTO_ADADAT
             Controls.Add(TXT_COSTOSERVICIOSADICIONALES);
             Controls.Add(TXT_COSTOHOTEL);
             Controls.Add(BTN_EXTENDERESTANCIA);
-            Controls.Add(TXT_DESCUENTO);
             Controls.Add(CB_NUMEROSERVICIOSUTILIZADOS);
             Controls.Add(TXT_SERVICIOSUTILIZADOS);
             Controls.Add(TXT_SERVICIOSADICIONALES);
@@ -409,7 +440,6 @@ namespace PROYECTO_ADADAT
         private System.Windows.Forms.TextBox TXT_SERVICIOSADICIONALES;
         private System.Windows.Forms.TextBox TXT_SERVICIOSUTILIZADOS;
         private System.Windows.Forms.ComboBox CB_NUMEROSERVICIOSUTILIZADOS;
-        private System.Windows.Forms.TextBox TXT_DESCUENTO;
         private System.Windows.Forms.Button BTN_EXTENDERESTANCIA;
         private System.Windows.Forms.TextBox TXT_COSTOHOTEL;
         private System.Windows.Forms.TextBox TXT_COSTOSERVICIOSADICIONALES;
@@ -423,5 +453,7 @@ namespace PROYECTO_ADADAT
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox TXT_TOTALPAGAR;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox CB_DESCUENTO;
     }
 }

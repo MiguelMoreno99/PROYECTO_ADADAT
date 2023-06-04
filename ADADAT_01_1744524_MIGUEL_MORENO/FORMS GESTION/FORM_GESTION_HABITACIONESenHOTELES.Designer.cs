@@ -119,6 +119,7 @@
             LB_HOTELES.Sorted = true;
             LB_HOTELES.TabIndex = 156;
             LB_HOTELES.ValueMember = "nombre";
+            LB_HOTELES.SelectedIndexChanged += LB_HOTELES_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -143,6 +144,7 @@
             LB_HABITACIONES.Sorted = true;
             LB_HABITACIONES.TabIndex = 152;
             LB_HABITACIONES.ValueMember = "nombre";
+            LB_HABITACIONES.SelectedIndexChanged += LB_HABITACIONES_SelectedIndexChanged;
             // 
             // label8
             // 

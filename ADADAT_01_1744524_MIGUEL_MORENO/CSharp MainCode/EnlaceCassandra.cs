@@ -536,6 +536,26 @@ namespace PROYECTO_ADADAT
             }
         }
 
+        public static void DesocuparHabitacionEnHotelCheckOut(Guid id_habitacion_hotel, Guid id_reservacion)
+        {
+            try
+            {
+                Conectar();
+                string query = ("UPDATE habitacionesenhoteles SET ocupada = ?, personas_hospedadas = ? WHERE id_habitacion_hotel = ?;");
+                var statement = new SimpleStatement(query, false, 0, id_habitacion_hotel);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                MessageBox.Show("LA RESERVACION: " + id_reservacion + " SE LE HIZO EL CHECKOUT CORRECTAMENTE Y SE DESOCUPÓ LA HABITACION EN EL HOTEL!", "HECHO");
+            }
+        }
+
         public static void CheckIn(Guid id_reservacion, Guid id_habitacion_hotel, int personas_hospedadas)
         {
             try
@@ -553,6 +573,46 @@ namespace PROYECTO_ADADAT
             {
                 Desconectar();
                 OcuparHabitacion(id_habitacion_hotel, personas_hospedadas);
+            }
+        }
+
+        public static void CheckOut(Guid id_reservacion, Guid id_habitacion_hotel, DateTime fecha_checkout)
+        {
+            try
+            {
+                Conectar();
+                string query = ("UPDATE reservaciones SET checkout = ?, fecha_checkout = ? WHERE id_reservacion = ?;");
+                var statement = new SimpleStatement(query, true, fecha_checkout, id_reservacion);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                DesocuparHabitacionEnHotelCheckOut(id_habitacion_hotel, id_reservacion);
+            }
+        }
+
+        public static void CheckOutFactura(Guid id_reservacion, string servicios_utilizados, int numero_servicios, int descuento, double total_servicios, double total_pagar)
+        {
+            try
+            {
+                Conectar();
+                string query = ("UPDATE reservaciones SET servicios_utilizados = ?, numero_servicios = ?, descuento = ?, total_servicios = ?, total_pagar = ? WHERE id_reservacion = ?;");
+                var statement = new SimpleStatement(query, servicios_utilizados, numero_servicios,  descuento, total_servicios, total_pagar, id_reservacion);
+                _session.Execute(statement);
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR CASSANDRA");
+            }
+            finally
+            {
+                Desconectar();
+                 MessageBox.Show("HACER EL COBRO DE : " + total_pagar + " PESOS ", "SE GENERO LA FACTURA CORRECTAMENTE!!");
             }
         }
 

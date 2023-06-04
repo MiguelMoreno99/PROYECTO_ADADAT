@@ -30,135 +30,110 @@ namespace PROYECTO_ADADAT
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FORM_REGISTRO_CHECKOUT));
-            this.TXT_RESERVACION = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.BTN_SALIR = new System.Windows.Forms.Button();
-            this.BTN_HACERCHECKOUT = new System.Windows.Forms.Button();
-            this.BTN_REGRESAR = new System.Windows.Forms.Button();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.DTP_FECHACHECKOUT = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            TXT_RESERVACION = new System.Windows.Forms.TextBox();
+            label2 = new System.Windows.Forms.Label();
+            BTN_SALIR = new System.Windows.Forms.Button();
+            BTN_HACERCHECKOUT = new System.Windows.Forms.Button();
+            BTN_REGRESAR = new System.Windows.Forms.Button();
+            label1 = new System.Windows.Forms.Label();
+            DTP_FECHACHECKOUT = new System.Windows.Forms.DateTimePicker();
+            label3 = new System.Windows.Forms.Label();
+            SuspendLayout();
             // 
             // TXT_RESERVACION
             // 
-            this.TXT_RESERVACION.Location = new System.Drawing.Point(372, 81);
-            this.TXT_RESERVACION.Name = "TXT_RESERVACION";
-            this.TXT_RESERVACION.Size = new System.Drawing.Size(177, 23);
-            this.TXT_RESERVACION.TabIndex = 95;
+            TXT_RESERVACION.Location = new System.Drawing.Point(209, 80);
+            TXT_RESERVACION.Name = "TXT_RESERVACION";
+            TXT_RESERVACION.Size = new System.Drawing.Size(274, 23);
+            TXT_RESERVACION.TabIndex = 95;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(175, 84);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(191, 15);
-            this.label2.TabIndex = 94;
-            this.label2.Text = "Ingrese el codigo de la reservación:";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(12, 82);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(191, 15);
+            label2.TabIndex = 94;
+            label2.Text = "Ingrese el codigo de la reservación:";
             // 
             // BTN_SALIR
             // 
-            this.BTN_SALIR.Location = new System.Drawing.Point(556, 480);
-            this.BTN_SALIR.Name = "BTN_SALIR";
-            this.BTN_SALIR.Size = new System.Drawing.Size(148, 35);
-            this.BTN_SALIR.TabIndex = 93;
-            this.BTN_SALIR.Text = "SALIR";
-            this.BTN_SALIR.UseVisualStyleBackColor = true;
-            this.BTN_SALIR.Click += new System.EventHandler(this.BTN_SALIR_Click);
+            BTN_SALIR.Location = new System.Drawing.Point(335, 170);
+            BTN_SALIR.Name = "BTN_SALIR";
+            BTN_SALIR.Size = new System.Drawing.Size(148, 35);
+            BTN_SALIR.TabIndex = 93;
+            BTN_SALIR.Text = "SALIR";
+            BTN_SALIR.UseVisualStyleBackColor = true;
+            BTN_SALIR.Click += BTN_SALIR_Click;
             // 
             // BTN_HACERCHECKOUT
             // 
-            this.BTN_HACERCHECKOUT.Location = new System.Drawing.Point(175, 480);
-            this.BTN_HACERCHECKOUT.Name = "BTN_HACERCHECKOUT";
-            this.BTN_HACERCHECKOUT.Size = new System.Drawing.Size(204, 35);
-            this.BTN_HACERCHECKOUT.TabIndex = 92;
-            this.BTN_HACERCHECKOUT.Text = "HACER EL CHECK OUT Y COBRAR";
-            this.BTN_HACERCHECKOUT.UseVisualStyleBackColor = true;
-            this.BTN_HACERCHECKOUT.Click += new System.EventHandler(this.BTN_GUARDAR_Click);
+            BTN_HACERCHECKOUT.Location = new System.Drawing.Point(111, 170);
+            BTN_HACERCHECKOUT.Name = "BTN_HACERCHECKOUT";
+            BTN_HACERCHECKOUT.Size = new System.Drawing.Size(204, 35);
+            BTN_HACERCHECKOUT.TabIndex = 92;
+            BTN_HACERCHECKOUT.Text = "HACER EL CHECK OUT Y COBRAR";
+            BTN_HACERCHECKOUT.UseVisualStyleBackColor = true;
+            BTN_HACERCHECKOUT.Click += BTN_GUARDAR_Click;
             // 
             // BTN_REGRESAR
             // 
-            this.BTN_REGRESAR.Location = new System.Drawing.Point(12, 480);
-            this.BTN_REGRESAR.Name = "BTN_REGRESAR";
-            this.BTN_REGRESAR.Size = new System.Drawing.Size(71, 35);
-            this.BTN_REGRESAR.TabIndex = 91;
-            this.BTN_REGRESAR.Text = "REGRESAR";
-            this.BTN_REGRESAR.UseVisualStyleBackColor = true;
-            this.BTN_REGRESAR.Click += new System.EventHandler(this.BTN_REGRESAR_Click);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(10, 139);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(697, 15);
-            this.label22.TabIndex = 90;
-            this.label22.Text = "_________________________________________________________________________________" +
-    "_________________________________________________________";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(150, 174);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(423, 21);
-            this.label17.TabIndex = 89;
-            this.label17.Text = "AQUÍ SE MUESTRAN LAS RESERVACIONES CON CHECK IN!";
+            BTN_REGRESAR.Location = new System.Drawing.Point(12, 170);
+            BTN_REGRESAR.Name = "BTN_REGRESAR";
+            BTN_REGRESAR.Size = new System.Drawing.Size(71, 35);
+            BTN_REGRESAR.TabIndex = 91;
+            BTN_REGRESAR.Text = "REGRESAR";
+            BTN_REGRESAR.UseVisualStyleBackColor = true;
+            BTN_REGRESAR.Click += BTN_REGRESAR_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(209, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(319, 21);
-            this.label1.TabIndex = 88;
-            this.label1.Text = "ESTE ES EL APARTADO PARA EL CHECK OUT!";
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(111, 21);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(319, 21);
+            label1.TabIndex = 88;
+            label1.Text = "ESTE ES EL APARTADO PARA EL CHECK OUT!";
             // 
             // DTP_FECHACHECKOUT
             // 
-            this.DTP_FECHACHECKOUT.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTP_FECHACHECKOUT.Location = new System.Drawing.Point(372, 111);
-            this.DTP_FECHACHECKOUT.Name = "DTP_FECHACHECKOUT";
-            this.DTP_FECHACHECKOUT.Size = new System.Drawing.Size(115, 23);
-            this.DTP_FECHACHECKOUT.TabIndex = 96;
+            DTP_FECHACHECKOUT.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            DTP_FECHACHECKOUT.Location = new System.Drawing.Point(292, 115);
+            DTP_FECHACHECKOUT.Name = "DTP_FECHACHECKOUT";
+            DTP_FECHACHECKOUT.Size = new System.Drawing.Size(115, 23);
+            DTP_FECHACHECKOUT.TabIndex = 96;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(191, 117);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 15);
-            this.label3.TabIndex = 97;
-            this.label3.Text = "Ingrese la fecha del check out:";
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(111, 121);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(166, 15);
+            label3.TabIndex = 97;
+            label3.Text = "Ingrese la fecha del check out:";
             // 
             // FORM_REGISTRO_CHECKOUT
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 529);
-            this.ControlBox = false;
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.DTP_FECHACHECKOUT);
-            this.Controls.Add(this.TXT_RESERVACION);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.BTN_SALIR);
-            this.Controls.Add(this.BTN_HACERCHECKOUT);
-            this.Controls.Add(this.BTN_REGRESAR);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.label17);
-            this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FORM_REGISTRO_CHECKOUT";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bienvenido al Check Out de las Reservaciones!";
-            this.Load += new System.EventHandler(this.FORM_REGISTRO_CHECKOUT_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(515, 217);
+            ControlBox = false;
+            Controls.Add(label3);
+            Controls.Add(DTP_FECHACHECKOUT);
+            Controls.Add(TXT_RESERVACION);
+            Controls.Add(label2);
+            Controls.Add(BTN_SALIR);
+            Controls.Add(BTN_HACERCHECKOUT);
+            Controls.Add(BTN_REGRESAR);
+            Controls.Add(label1);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            Name = "FORM_REGISTRO_CHECKOUT";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Bienvenido al Check Out de las Reservaciones!";
+            Load += FORM_REGISTRO_CHECKOUT_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -168,8 +143,6 @@ namespace PROYECTO_ADADAT
         private System.Windows.Forms.Button BTN_SALIR;
         private System.Windows.Forms.Button BTN_HACERCHECKOUT;
         private System.Windows.Forms.Button BTN_REGRESAR;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker DTP_FECHACHECKOUT;
         private System.Windows.Forms.Label label3;
