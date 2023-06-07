@@ -56,6 +56,11 @@ namespace PROYECTO_ADADAT
                 Op.telefono_casa = int.Parse(TXTB_TELCASA.Text);
                 Op.telefono_celular = long.Parse(TXTB_TELCEL.Text);
                 EnlaceCassandra.EditarOperador(Op.correo_electronico, Op.nombre_completo, Op.numero_nomina, Op.fecha_nacimiento, Op.domicilio, Op.telefono_casa, Op.telefono_celular);
+                TXTB_DOMICILIO.Text = "";
+                TXTB_NOMBRE.Text = "";
+                TXTB_NOMINA.Text = "";
+                TXTB_TELCASA.Text = "";
+                TXTB_TELCEL.Text = "";
             }
             catch (FormatException error)
             {
@@ -70,6 +75,11 @@ namespace PROYECTO_ADADAT
                 EnlaceCassandra.EliminarOperador(LB_CORREO.Text);
                 List<Operador> listaOp = EnlaceCassandra.HacerListaOperadores();
                 LB_CORREO.DataSource = listaOp;
+                TXTB_DOMICILIO.Text = "";
+                TXTB_NOMBRE.Text = "";
+                TXTB_NOMINA.Text = "";
+                TXTB_TELCASA.Text = "";
+                TXTB_TELCEL.Text = "";
             }
             catch (FormatException error)
             {

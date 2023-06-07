@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PROYECTO_ADADAT.CSharp_MainCode;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace PROYECTO_ADADAT
 {
@@ -31,7 +32,7 @@ namespace PROYECTO_ADADAT
 
         private void BTN_SALIR_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
 
         private void BTN_COBRAR_Click(object sender, EventArgs e)
@@ -68,6 +69,13 @@ namespace PROYECTO_ADADAT
                             res.anticipo = double.Parse(TXT_ANTICIPO.Text);
                             res.total_hospedaje = (habhot.precio_noche) * int.Parse(TXT_DIAS.Text);
                             EnlaceCassandra.RegistrarReservacion(res.id_reservacion, hot.id_hotel, habhot.id_habitacion_hotel, cl.id_cliente, cl.id_reservacion, res.fecha_inicial, res.fecha_final, res.personas_hospedar, res.anticipo, res.total_hospedaje, habhot.numero);
+                            TXT_CARACTERISTICAHOTEL.Text = "";
+                            TXT_CARACTERISTICASHABITACION.Text = "";
+                            TXT_CIUDAD.Text = "";
+                            TXT_DIAS.Text = "";
+                            TXT_NOMBRE.Text = "";
+                            TXT_PRECIONOCHE.Text = "0";
+                            TXT_RFC.Text = "";
                         }
                         else
                         {
@@ -89,7 +97,7 @@ namespace PROYECTO_ADADAT
                             {
                                 for (int i = 0; i < listaRes.Count; i++)
                                 {
-                                    if ((listaRes[i].fecha_final.Date < DTP_FECHAINICIAL.Value.Date) || (listaRes[i].fecha_inicial > DTP_FECHAFINAL.Value.Date))
+                                    if ((listaRes[i].fecha_final.Date < DTP_FECHAINICIAL.Value.Date) || (listaRes[i].fecha_inicial > DTP_FECHAFINAL.Value.Date) || listaRes[i].checkout)
                                     {
                                     }
                                     else

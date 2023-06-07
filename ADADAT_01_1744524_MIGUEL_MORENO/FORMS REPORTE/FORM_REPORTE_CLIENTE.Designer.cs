@@ -33,15 +33,12 @@ namespace PROYECTO_ADADAT
             System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Reporte Clientes", System.Windows.Forms.HorizontalAlignment.Center);
             BTN_REGRESAR = new System.Windows.Forms.Button();
             BTN_SALIR = new System.Windows.Forms.Button();
-            BTN_FILTROANO = new System.Windows.Forms.Button();
             BTN_FILTRORFC = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
-            TXT_FILTRO = new System.Windows.Forms.TextBox();
+            TXT_FILTRORFC = new System.Windows.Forms.TextBox();
             label2 = new System.Windows.Forms.Label();
             label22 = new System.Windows.Forms.Label();
             label17 = new System.Windows.Forms.Label();
-            textBox1 = new System.Windows.Forms.TextBox();
-            label3 = new System.Windows.Forms.Label();
             LV_HISTORIALCLIENTE = new System.Windows.Forms.ListView();
             COL_RFC = new System.Windows.Forms.ColumnHeader();
             COL_ANIO = new System.Windows.Forms.ColumnHeader();
@@ -83,23 +80,15 @@ namespace PROYECTO_ADADAT
             BTN_SALIR.UseVisualStyleBackColor = true;
             BTN_SALIR.Click += BTN_SALIR_Click;
             // 
-            // BTN_FILTROANO
-            // 
-            BTN_FILTROANO.Location = new System.Drawing.Point(986, 32);
-            BTN_FILTROANO.Name = "BTN_FILTROANO";
-            BTN_FILTROANO.Size = new System.Drawing.Size(75, 23);
-            BTN_FILTROANO.TabIndex = 12;
-            BTN_FILTROANO.Text = "AÑO";
-            BTN_FILTROANO.UseVisualStyleBackColor = true;
-            // 
             // BTN_FILTRORFC
             // 
-            BTN_FILTRORFC.Location = new System.Drawing.Point(416, 32);
+            BTN_FILTRORFC.Location = new System.Drawing.Point(742, 32);
             BTN_FILTRORFC.Name = "BTN_FILTRORFC";
             BTN_FILTRORFC.Size = new System.Drawing.Size(75, 23);
             BTN_FILTRORFC.TabIndex = 11;
             BTN_FILTRORFC.Text = "RFC";
             BTN_FILTRORFC.UseVisualStyleBackColor = true;
+            BTN_FILTRORFC.Click += BTN_FILTRORFC_Click;
             // 
             // label1
             // 
@@ -110,17 +99,17 @@ namespace PROYECTO_ADADAT
             label1.TabIndex = 10;
             label1.Text = "Filtrar por:";
             // 
-            // TXT_FILTRO
+            // TXT_FILTRORFC
             // 
-            TXT_FILTRO.Location = new System.Drawing.Point(136, 32);
-            TXT_FILTRO.Name = "TXT_FILTRO";
-            TXT_FILTRO.Size = new System.Drawing.Size(274, 23);
-            TXT_FILTRO.TabIndex = 87;
+            TXT_FILTRORFC.Location = new System.Drawing.Point(462, 32);
+            TXT_FILTRORFC.Name = "TXT_FILTRORFC";
+            TXT_FILTRORFC.Size = new System.Drawing.Size(274, 23);
+            TXT_FILTRORFC.TabIndex = 87;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(15, 35);
+            label2.Location = new System.Drawing.Point(341, 35);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(115, 15);
             label2.TabIndex = 86;
@@ -144,22 +133,6 @@ namespace PROYECTO_ADADAT
             label17.Size = new System.Drawing.Size(329, 21);
             label17.TabIndex = 84;
             label17.Text = "AQUÍ SE MUESTRA EL REPORTE DE CLIENTES!";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new System.Drawing.Point(706, 32);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(274, 23);
-            textBox1.TabIndex = 89;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(581, 36);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(119, 15);
-            label3.TabIndex = 88;
-            label3.Text = "Ingrese un Anio aqui:";
             // 
             // LV_HISTORIALCLIENTE
             // 
@@ -284,13 +257,10 @@ namespace PROYECTO_ADADAT
             ControlBox = false;
             Controls.Add(BTN_ACTUALIZAR);
             Controls.Add(LV_HISTORIALCLIENTE);
-            Controls.Add(textBox1);
-            Controls.Add(label3);
-            Controls.Add(TXT_FILTRO);
+            Controls.Add(TXT_FILTRORFC);
             Controls.Add(label2);
             Controls.Add(label22);
             Controls.Add(label17);
-            Controls.Add(BTN_FILTROANO);
             Controls.Add(BTN_FILTRORFC);
             Controls.Add(label1);
             Controls.Add(BTN_SALIR);
@@ -308,15 +278,12 @@ namespace PROYECTO_ADADAT
 
         private System.Windows.Forms.Button BTN_REGRESAR;
         private System.Windows.Forms.Button BTN_SALIR;
-        private System.Windows.Forms.Button BTN_FILTROANO;
         private System.Windows.Forms.Button BTN_FILTRORFC;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox TXT_FILTRO;
+        private System.Windows.Forms.TextBox TXT_FILTRORFC;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListView LV_HISTORIALCLIENTE;
         private System.Windows.Forms.ColumnHeader COL_RFC;
         private System.Windows.Forms.ColumnHeader COL_ANIO;

@@ -67,6 +67,9 @@ namespace PROYECTO_ADADAT
                 HabHot.amenidades = TXT_AMENIDADES.Text;
                 HabHot.precio_noche = double.Parse(TXT_PRECIO.Text);
                 EnlaceCassandra.EditarHabitacionEnHotel(HabHot.id_habitacion_hotel, HabHot.precio_noche, HabHot.caracteristicas, HabHot.amenidades);
+                TXT_AMENIDADES.Text = "";
+                TXT_CARACTERISTICAS.Text = "";
+                TXT_PRECIO.Text = "";
             }
             catch (FormatException error)
             {
@@ -84,6 +87,9 @@ namespace PROYECTO_ADADAT
                 EnlaceCassandra.EliminarHabitacionEnHotel(HabHot.id_habitacion_hotel);
                 List<Hotel> listaHot = EnlaceCassandra.HacerListaHoteles();
                 LB_HOTELES.DataSource = listaHot;
+                TXT_PRECIO.Text = "";
+                TXT_CARACTERISTICAS.Text = "";
+                TXT_AMENIDADES.Text = "";
             }
             catch (FormatException error)
             {

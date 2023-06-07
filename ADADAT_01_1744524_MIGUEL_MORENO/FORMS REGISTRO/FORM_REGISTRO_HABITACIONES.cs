@@ -40,7 +40,7 @@ namespace PROYECTO_ADADAT
                 hab.nivel = (CB_NIVEL.SelectedIndex) + 1;
                 hab.nombre_nivel = CB_NIVEL.Text;
                 hab.numero_camas = (CB_NUMEROCAMAS.SelectedIndex) + 1;
-                hab.tipo_cama = CB_NUMEROCAMAS.Text;
+                hab.tipo_cama = TXT_TIPOCAMAS.Text;
                 hab.max_personas = int.Parse(CB_PERSONAS.Text);
                 if (listaHab.Count > 0)
                 {
@@ -50,6 +50,8 @@ namespace PROYECTO_ADADAT
                         throw new FormatException("YA HAY UNA HABITACION REGISTRADA CON ESE NOMBRE!");
                 }
                 EnlaceCassandra.RegistrarHabitacion(hab.nombre, hab.nivel, hab.nombre_nivel, hab.numero_camas, hab.tipo_cama, hab.max_personas);
+                TXT_NOMBRE.Text = "";
+                TXT_TIPOCAMAS.Text = "";
             }
             catch (FormatException error)
             {

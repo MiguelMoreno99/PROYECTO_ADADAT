@@ -50,9 +50,6 @@ namespace PROYECTO_ADADAT
                     {
                         if (adCorreo.contrasena_actual == TXT_CONTRASEÑA.Text)
                         {
-                            VariablesGlobales.FormMenuAdmin.Show();
-                            VariablesGlobales.CorreoPersonaLogeada = TXT_USUARIO.Text;
-                            this.Hide();
                             Reservacion res = new();
                             List<Reservacion> listaRes = EnlaceCassandra.HacerListaReservaciones();
                             if (listaRes.Count > 0)
@@ -60,12 +57,17 @@ namespace PROYECTO_ADADAT
                                 for (int i = 0; i < listaRes.Count; i++)
                                 {
                                     TimeSpan DifDias = listaRes[i].fecha_inicial.Date - VariablesGlobales.FechaCheckInOut.Date;
-                                    if (DifDias.Days < 0 && listaRes[i].reservacion_activa)
+                                    if (DifDias.Days < 0 && listaRes[i].reservacion_activa && !listaRes[i].checkin)
                                     {
                                         EnlaceCassandra.CancelarReservacionAutomatica(listaRes[i].id_reservacion, listaRes[i].id_habitacion_hotel);
                                     }
                                 }
                             }
+                            VariablesGlobales.FormMenuAdmin.Show();
+                            VariablesGlobales.CorreoPersonaLogeada = TXT_USUARIO.Text;
+                            this.Hide();
+                            TXT_CONTRASEÑA.Text = "";
+                            TXT_USUARIO.Text = "";
                         }
                         else
                         {

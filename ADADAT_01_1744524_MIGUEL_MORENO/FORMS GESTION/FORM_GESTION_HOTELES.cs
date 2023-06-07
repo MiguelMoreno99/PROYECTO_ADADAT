@@ -71,6 +71,14 @@ namespace PROYECTO_ADADAT
                 Hot.servicios_adicionales = TXT_SERVICIOSADICIONALES.Text;
                 Hot.caracteristicas = TXT_CARACERISTICASHOTEL.Text;
                 EnlaceCassandra.EditarHotel(Hot.nombre, Hot.ciudad, Hot.estado, Hot.pais, Hot.domicilio, Hot.numero_pisos, Hot.zona_turistica, Hot.servicios_adicionales, Hot.caracteristicas);
+                TXT_CARACERISTICASHOTEL.Text = "";
+                TXT_CIUDAD.Text = "";
+                TXT_DOMICILIO.Text = "";
+                TXT_ESTADO.Text = "";
+                TXT_NUMEROPISOS.Text = "";
+                TXT_PAIS.Text = "";
+                TXT_SERVICIOSADICIONALES.Text = "";
+                TXT_ZONATURISTICA.Text = "";
             }
             catch (FormatException error)
             {
@@ -85,6 +93,14 @@ namespace PROYECTO_ADADAT
                 EnlaceCassandra.EliminarHotel(LB_NOMBRE_HOTEL.Text);
                 List<Hotel> listaHot = EnlaceCassandra.HacerListaHoteles();
                 LB_NOMBRE_HOTEL.DataSource = listaHot;
+                TXT_CARACERISTICASHOTEL.Text = "";
+                TXT_CIUDAD.Text = "";
+                TXT_DOMICILIO.Text = "";
+                TXT_ESTADO.Text = "";
+                TXT_NUMEROPISOS.Text = "";
+                TXT_PAIS.Text = "";
+                TXT_SERVICIOSADICIONALES.Text = "";
+                TXT_ZONATURISTICA.Text = "";
             }
             catch (FormatException error)
             {

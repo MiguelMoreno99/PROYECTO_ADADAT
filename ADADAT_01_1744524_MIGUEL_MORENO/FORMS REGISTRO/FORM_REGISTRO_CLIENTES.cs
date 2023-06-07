@@ -60,6 +60,15 @@ namespace PROYECTO_ADADAT
                         throw new FormatException("YA HAY UN CLIENTE REGISTRADO CON ESE RFC!");
                 }
                 EnlaceCassandra.RegistrarCliente(cl.nombre, cl.apellido_paterno, cl.apellido_materno, cl.rfc, cl.domicilio, cl.correo_electronico, cl.telefono_casa, cl.telefono_celular, cl.referencia, cl.estado_civil, cl.fecha_nacimiento);
+                TXT_CORREO.Text = "";
+                TXT_DOMICILIO.Text = "";
+                TXT_MATERNO.Text = "";
+                TXT_NOMBRE.Text = "";
+                TXT_PATERNO.Text = "";
+                TXT_REFERENCIA.Text = "";
+                TXT_RFC.Text = "";
+                TXT_TELEFONOCASA.Text = "";
+                TXT_TELEFONOCELULAR.Text = "";
             }
             catch (FormatException error)
             {

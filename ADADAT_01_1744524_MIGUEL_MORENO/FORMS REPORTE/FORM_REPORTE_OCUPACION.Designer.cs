@@ -29,23 +29,33 @@ namespace PROYECTO_ADADAT
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Reporte Clientes", System.Windows.Forms.HorizontalAlignment.Center);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Reporte Clientes", System.Windows.Forms.HorizontalAlignment.Center);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FORM_REPORTE_OCUPACION));
             BTN_SALIR = new System.Windows.Forms.Button();
             BTN_REGRESAR = new System.Windows.Forms.Button();
-            BTN_FILTROHOTEL = new System.Windows.Forms.Button();
-            BTN_FILTROCIUDAD = new System.Windows.Forms.Button();
-            BTN_FILTROANO = new System.Windows.Forms.Button();
-            BTN_FILTROPAIS = new System.Windows.Forms.Button();
-            label1 = new System.Windows.Forms.Label();
-            label22 = new System.Windows.Forms.Label();
             label17 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
-            TXT_FILTRO = new System.Windows.Forms.TextBox();
+            BTN_ACTUALIZAR = new System.Windows.Forms.Button();
+            LV_OCUPACION = new System.Windows.Forms.ListView();
+            COL_PAIS = new System.Windows.Forms.ColumnHeader();
+            COL_ANIO = new System.Windows.Forms.ColumnHeader();
+            COL_CIUDAD = new System.Windows.Forms.ColumnHeader();
+            COL_NOMBRE_HOTEL = new System.Windows.Forms.ColumnHeader();
+            COL_ANIOMES = new System.Windows.Forms.ColumnHeader();
+            COL_TIPO_HABITACION = new System.Windows.Forms.ColumnHeader();
+            COL_CANTIDAD_HABITACIONES = new System.Windows.Forms.ColumnHeader();
+            COL_PERSONAS_HOSPEDADAS = new System.Windows.Forms.ColumnHeader();
+            COL_PORCOCUPACION = new System.Windows.Forms.ColumnHeader();
+            LV_RESUMENOCUPACION = new System.Windows.Forms.ListView();
+            columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            columnHeader8 = new System.Windows.Forms.ColumnHeader();
             SuspendLayout();
             // 
             // BTN_SALIR
             // 
-            BTN_SALIR.Location = new System.Drawing.Point(1066, 515);
+            BTN_SALIR.Location = new System.Drawing.Point(1140, 354);
             BTN_SALIR.Name = "BTN_SALIR";
             BTN_SALIR.Size = new System.Drawing.Size(102, 34);
             BTN_SALIR.TabIndex = 3;
@@ -55,7 +65,7 @@ namespace PROYECTO_ADADAT
             // 
             // BTN_REGRESAR
             // 
-            BTN_REGRESAR.Location = new System.Drawing.Point(12, 515);
+            BTN_REGRESAR.Location = new System.Drawing.Point(12, 354);
             BTN_REGRESAR.Name = "BTN_REGRESAR";
             BTN_REGRESAR.Size = new System.Drawing.Size(102, 34);
             BTN_REGRESAR.TabIndex = 2;
@@ -63,101 +73,143 @@ namespace PROYECTO_ADADAT
             BTN_REGRESAR.UseVisualStyleBackColor = true;
             BTN_REGRESAR.Click += BTN_REGRESAR_Click;
             // 
-            // BTN_FILTROHOTEL
-            // 
-            BTN_FILTROHOTEL.Location = new System.Drawing.Point(441, 521);
-            BTN_FILTROHOTEL.Name = "BTN_FILTROHOTEL";
-            BTN_FILTROHOTEL.Size = new System.Drawing.Size(75, 23);
-            BTN_FILTROHOTEL.TabIndex = 16;
-            BTN_FILTROHOTEL.Text = "HOTEL";
-            BTN_FILTROHOTEL.UseVisualStyleBackColor = true;
-            // 
-            // BTN_FILTROCIUDAD
-            // 
-            BTN_FILTROCIUDAD.Location = new System.Drawing.Point(360, 521);
-            BTN_FILTROCIUDAD.Name = "BTN_FILTROCIUDAD";
-            BTN_FILTROCIUDAD.Size = new System.Drawing.Size(75, 23);
-            BTN_FILTROCIUDAD.TabIndex = 15;
-            BTN_FILTROCIUDAD.Text = "CIUDAD";
-            BTN_FILTROCIUDAD.UseVisualStyleBackColor = true;
-            // 
-            // BTN_FILTROANO
-            // 
-            BTN_FILTROANO.Location = new System.Drawing.Point(279, 521);
-            BTN_FILTROANO.Name = "BTN_FILTROANO";
-            BTN_FILTROANO.Size = new System.Drawing.Size(75, 23);
-            BTN_FILTROANO.TabIndex = 14;
-            BTN_FILTROANO.Text = "AÑO";
-            BTN_FILTROANO.UseVisualStyleBackColor = true;
-            // 
-            // BTN_FILTROPAIS
-            // 
-            BTN_FILTROPAIS.Location = new System.Drawing.Point(198, 521);
-            BTN_FILTROPAIS.Name = "BTN_FILTROPAIS";
-            BTN_FILTROPAIS.Size = new System.Drawing.Size(75, 23);
-            BTN_FILTROPAIS.TabIndex = 13;
-            BTN_FILTROPAIS.Text = "PAÍS";
-            BTN_FILTROPAIS.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(131, 525);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(61, 15);
-            label1.TabIndex = 12;
-            label1.Text = "Filtrar por:";
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Location = new System.Drawing.Point(20, 93);
-            label22.Name = "label22";
-            label22.Size = new System.Drawing.Size(1142, 15);
-            label22.TabIndex = 81;
-            label22.Text = resources.GetString("label22.Text");
-            // 
             // label17
             // 
             label17.AutoSize = true;
             label17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label17.Location = new System.Drawing.Point(360, 121);
+            label17.Location = new System.Drawing.Point(360, 16);
             label17.Name = "label17";
             label17.Size = new System.Drawing.Size(473, 21);
             label17.TabIndex = 80;
             label17.Text = "AQUÍ SE MUESTRA EL REPORTE DE OCUPACIÓN DE LOS HOTELES!";
             // 
-            // label2
+            // BTN_ACTUALIZAR
             // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(402, 47);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(114, 15);
-            label2.TabIndex = 82;
-            label2.Text = "Ingrese el filtro aquí:";
+            BTN_ACTUALIZAR.Location = new System.Drawing.Point(234, 354);
+            BTN_ACTUALIZAR.Name = "BTN_ACTUALIZAR";
+            BTN_ACTUALIZAR.Size = new System.Drawing.Size(821, 34);
+            BTN_ACTUALIZAR.TabIndex = 93;
+            BTN_ACTUALIZAR.Text = "ACTUALIZAR REPORTES";
+            BTN_ACTUALIZAR.UseVisualStyleBackColor = true;
+            BTN_ACTUALIZAR.Click += BTN_ACTUALIZAR_Click;
             // 
-            // TXT_FILTRO
+            // LV_OCUPACION
             // 
-            TXT_FILTRO.Location = new System.Drawing.Point(522, 44);
-            TXT_FILTRO.Name = "TXT_FILTRO";
-            TXT_FILTRO.Size = new System.Drawing.Size(274, 23);
-            TXT_FILTRO.TabIndex = 83;
+            LV_OCUPACION.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { COL_PAIS, COL_ANIO, COL_CIUDAD, COL_NOMBRE_HOTEL, COL_ANIOMES, COL_TIPO_HABITACION, COL_CANTIDAD_HABITACIONES, COL_PERSONAS_HOSPEDADAS, COL_PORCOCUPACION });
+            LV_OCUPACION.GridLines = true;
+            listViewGroup1.FooterAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup1.Header = "Reporte Clientes";
+            listViewGroup1.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup1.Name = "LV_CLIENTES";
+            LV_OCUPACION.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup1 });
+            LV_OCUPACION.HideSelection = false;
+            LV_OCUPACION.Location = new System.Drawing.Point(12, 40);
+            LV_OCUPACION.Name = "LV_OCUPACION";
+            LV_OCUPACION.Size = new System.Drawing.Size(1230, 185);
+            LV_OCUPACION.TabIndex = 92;
+            LV_OCUPACION.UseCompatibleStateImageBehavior = false;
+            LV_OCUPACION.View = System.Windows.Forms.View.Details;
+            // 
+            // COL_PAIS
+            // 
+            COL_PAIS.Text = "Pais";
+            COL_PAIS.Width = 95;
+            // 
+            // COL_ANIO
+            // 
+            COL_ANIO.Text = "Anio";
+            COL_ANIO.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            COL_ANIO.Width = 80;
+            // 
+            // COL_CIUDAD
+            // 
+            COL_CIUDAD.Text = "Ciudad";
+            COL_CIUDAD.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            COL_CIUDAD.Width = 95;
+            // 
+            // COL_NOMBRE_HOTEL
+            // 
+            COL_NOMBRE_HOTEL.Text = "Nombre Hotel";
+            COL_NOMBRE_HOTEL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            COL_NOMBRE_HOTEL.Width = 300;
+            // 
+            // COL_ANIOMES
+            // 
+            COL_ANIOMES.Text = "Mes/Anio";
+            COL_ANIOMES.Width = 95;
+            // 
+            // COL_TIPO_HABITACION
+            // 
+            COL_TIPO_HABITACION.Text = "Tipo Habitacion";
+            COL_TIPO_HABITACION.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            COL_TIPO_HABITACION.Width = 105;
+            // 
+            // COL_CANTIDAD_HABITACIONES
+            // 
+            COL_CANTIDAD_HABITACIONES.Text = "Cantidad Habitaciones";
+            COL_CANTIDAD_HABITACIONES.Width = 120;
+            // 
+            // COL_PERSONAS_HOSPEDADAS
+            // 
+            COL_PERSONAS_HOSPEDADAS.Text = "Personas Hospedadas";
+            COL_PERSONAS_HOSPEDADAS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            COL_PERSONAS_HOSPEDADAS.Width = 90;
+            // 
+            // COL_PORCOCUPACION
+            // 
+            COL_PORCOCUPACION.Text = "% Ocupacion";
+            COL_PORCOCUPACION.Width = 100;
+            // 
+            // LV_RESUMENOCUPACION
+            // 
+            LV_RESUMENOCUPACION.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader3, columnHeader4, columnHeader5, columnHeader8 });
+            LV_RESUMENOCUPACION.GridLines = true;
+            listViewGroup2.FooterAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup2.Header = "Reporte Clientes";
+            listViewGroup2.HeaderAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            listViewGroup2.Name = "LV_CLIENTES";
+            LV_RESUMENOCUPACION.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup2 });
+            LV_RESUMENOCUPACION.HideSelection = false;
+            LV_RESUMENOCUPACION.Location = new System.Drawing.Point(234, 231);
+            LV_RESUMENOCUPACION.Name = "LV_RESUMENOCUPACION";
+            LV_RESUMENOCUPACION.Size = new System.Drawing.Size(821, 117);
+            LV_RESUMENOCUPACION.TabIndex = 94;
+            LV_RESUMENOCUPACION.UseCompatibleStateImageBehavior = false;
+            LV_RESUMENOCUPACION.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Ciudad";
+            columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            columnHeader3.Width = 80;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Nombre Hotel";
+            columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            columnHeader4.Width = 300;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "Mes/Anio";
+            columnHeader5.Width = 80;
+            // 
+            // columnHeader8
+            // 
+            columnHeader8.Text = "% Ocupacion";
+            columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            columnHeader8.Width = 90;
             // 
             // FORM_REPORTE_OCUPACION
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1180, 561);
+            ClientSize = new System.Drawing.Size(1254, 398);
             ControlBox = false;
-            Controls.Add(TXT_FILTRO);
-            Controls.Add(label2);
-            Controls.Add(label22);
+            Controls.Add(LV_RESUMENOCUPACION);
+            Controls.Add(BTN_ACTUALIZAR);
+            Controls.Add(LV_OCUPACION);
             Controls.Add(label17);
-            Controls.Add(BTN_FILTROHOTEL);
-            Controls.Add(BTN_FILTROCIUDAD);
-            Controls.Add(BTN_FILTROANO);
-            Controls.Add(BTN_FILTROPAIS);
-            Controls.Add(label1);
             Controls.Add(BTN_SALIR);
             Controls.Add(BTN_REGRESAR);
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
@@ -173,14 +225,22 @@ namespace PROYECTO_ADADAT
 
         private System.Windows.Forms.Button BTN_SALIR;
         private System.Windows.Forms.Button BTN_REGRESAR;
-        private System.Windows.Forms.Button BTN_FILTROHOTEL;
-        private System.Windows.Forms.Button BTN_FILTROCIUDAD;
-        private System.Windows.Forms.Button BTN_FILTROANO;
-        private System.Windows.Forms.Button BTN_FILTROPAIS;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TXT_FILTRO;
+        private System.Windows.Forms.Button BTN_ACTUALIZAR;
+        private System.Windows.Forms.ListView LV_OCUPACION;
+        private System.Windows.Forms.ColumnHeader COL_PAIS;
+        private System.Windows.Forms.ColumnHeader COL_ANIO;
+        private System.Windows.Forms.ColumnHeader COL_CIUDAD;
+        private System.Windows.Forms.ColumnHeader COL_NOMBRE_HOTEL;
+        private System.Windows.Forms.ColumnHeader COL_TIPO_HABITACION;
+        private System.Windows.Forms.ColumnHeader COL_PERSONAS_HOSPEDADAS;
+        private System.Windows.Forms.ColumnHeader COL_ANIOMES;
+        private System.Windows.Forms.ColumnHeader COL_CANTIDAD_HABITACIONES;
+        private System.Windows.Forms.ColumnHeader COL_PORCOCUPACION;
+        private System.Windows.Forms.ListView LV_RESUMENOCUPACION;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
     }
 }

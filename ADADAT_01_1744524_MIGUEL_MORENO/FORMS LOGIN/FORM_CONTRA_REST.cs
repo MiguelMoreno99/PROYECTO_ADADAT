@@ -48,6 +48,7 @@ namespace PROYECTO_ADADAT
                     EnlaceCassandra.CambiarContrasenaOperador(VariablesGlobales.CorreoPersonaLogeada, TXT_CONTRASENA.Text);
                     VariablesGlobales.FormMenuOper.Show();
                     this.Hide();
+                    TXT_CONTRASENA.Text = "";
                 }
             }
             catch (FormatException error)

@@ -50,6 +50,7 @@ namespace PROYECTO_ADADAT
                         if (opCorreo.inhabilitado)
                         {
                             EnlaceCassandra.HabiliatarOperador(TXT_USUARIO.Text, opCorreo.contrasena_anterior, opCorreo.contrasena_actual);
+                            TXT_USUARIO.Text = "";
                         }
                         else
                         {

@@ -54,6 +54,15 @@ namespace PROYECTO_ADADAT
                         throw new FormatException("YA HAY UN HOTEL REGISTRADO CON ESE NOMBRE!");
                 }
                 EnlaceCassandra.RegistrarHotel(hot.nombre, hot.fecha_inicio, hot.ciudad, hot.estado, hot.pais, hot.domicilio, hot.numero_pisos, hot.zona_turistica, hot.servicios_adicionales, hot.caracteristicas);
+                TXT_CARACERISTICASHOTEL.Text = "";
+                TXT_CIUDAD.Text = "";
+                TXT_DOMICILIO.Text = "";
+                TXT_ESTADO.Text = "";
+                TXT_NOMBRE.Text = "";
+                TXT_NUMEROPISOS.Text = "";
+                TXT_PAIS.Text = "";
+                TXT_SERVICIOSADICIONALES.Text = "";
+                TXT_ZONATURISTICA.Text = "";
             }
             catch (FormatException error)
             {

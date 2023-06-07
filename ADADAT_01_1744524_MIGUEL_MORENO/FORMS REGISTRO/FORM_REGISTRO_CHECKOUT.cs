@@ -77,6 +77,7 @@ namespace PROYECTO_ADADAT
                                 VariablesGlobales.FormRegistroPagoReservacion.Show();
                                 VariablesGlobales.IDReservacionCheckOut = Guid.Parse(TXT_RESERVACION.Text);
                                 this.Hide();
+                                TXT_RESERVACION.Text = "";
                             }
                         }
                     }

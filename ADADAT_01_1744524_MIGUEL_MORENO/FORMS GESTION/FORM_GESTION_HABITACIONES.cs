@@ -55,6 +55,7 @@ namespace PROYECTO_ADADAT
                 Hab.numero_camas = int.Parse(CB_NUMEROCAMAS.Text);
                 Hab.max_personas = int.Parse(CB_PERSONAS.Text);
                 EnlaceCassandra.EditarHabitacion(Hab.nombre, Hab.nivel, Hab.nombre_nivel, Hab.numero_camas, Hab.tipo_cama, Hab.max_personas);
+                TXT_TIPOCAMAS.Text = "";
             }
             catch (FormatException error)
             {
@@ -69,6 +70,7 @@ namespace PROYECTO_ADADAT
                 EnlaceCassandra.EliminarHabitacion(LB_NOMBRE_HABITACION.Text);
                 List<Habitacion> listahab = EnlaceCassandra.HacerListaHabitaciones();
                 LB_NOMBRE_HABITACION.DataSource = listahab;
+                TXT_TIPOCAMAS.Text = "";
             }
             catch (FormatException error)
             {

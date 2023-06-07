@@ -63,6 +63,12 @@ namespace PROYECTO_ADADAT
                         throw new FormatException("YA HAY UNA HABITACION REGISTRADA CON ESE NUMERO DE HABITACION!");
                 }
                 EnlaceCassandra.RegistrarHabitacionEnHotel(habhot.id_habitacion_hotel, habhot.nombre_habitacion, habhot.nivel_habitacion, habhot.nombre_nivel_habitacion, habhot.numero_camas_habitacion, habhot.tipo_cama_habitacion, habhot.max_personas_habitacion, habhot.precio_noche, habhot.numero, habhot.caracteristicas, habhot.amenidades, hot.nombre, hot.habitaciones_en_hotel);
+                TXT_AMENIDADES.Text = "";
+                TXT_CARACTERISTICAS.Text = "";
+                TXT_DATOS.Text = "";
+                TXT_DATOS2.Text = "";
+                TXT_NUMERO.Text = "";
+                TXT_PRECIO.Text = "";
             }
             catch (FormatException error)
             {

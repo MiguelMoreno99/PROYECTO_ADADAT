@@ -53,6 +53,13 @@ namespace PROYECTO_ADADAT
                     res.total_pagar = double.Parse(TXT_TOTALPAGAR.Text);
                     EnlaceCassandra.CheckOutFactura(res.id_reservacion, res.servicios_utilizados, res.numero_servicios, res.descuento, res.total_servicios, res.total_pagar);
                     BTN_EXTENDERESTANCIA.Enabled = true;
+                    TXT_ANTICIPO.Text = "0";
+                    TXT_COSTOHOTEL.Text = "0";
+                    TXT_COSTOSERVICIOSADICIONALES.Text = "0";
+                    TXT_DESCUENTODADO.Text = "0";
+                    TXT_SERVICIOSADICIONALES.Text = "";
+                    TXT_SERVICIOSUTILIZADOS.Text = "";
+                    TXT_TOTALPAGAR.Text = "0";
                 }
                 else
                 {

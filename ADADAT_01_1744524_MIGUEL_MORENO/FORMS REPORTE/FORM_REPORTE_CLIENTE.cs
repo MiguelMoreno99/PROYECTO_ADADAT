@@ -61,26 +61,29 @@ namespace PROYECTO_ADADAT
                         {
                             continue;
                         }
-                        Hotel1 = ListaHoteles.Find(Hotel1=> Hotel1.id_hotel == Reservacion1.id_hotel);
+                        Hotel1 = ListaHoteles.Find(Hotel1 => Hotel1.id_hotel == Reservacion1.id_hotel);
                         habitacionEnHotel1 = ListaHabitacionesEnHoteles.Find(habitacionEnHotel1 => habitacionEnHotel1.id_habitacion_hotel == Reservacion1.id_habitacion_hotel);
-                        ListViewItem HistoriaCliente = new();
-                        HistoriaCliente.SubItems.Add(Cliente1.rfc);
-                        HistoriaCliente.SubItems.Add("2023");
-                        HistoriaCliente.SubItems.Add(Cliente1.nombre + Cliente1.apellido_paterno + Cliente1.apellido_materno);
-                        HistoriaCliente.SubItems.Add(Hotel1.ciudad);
-                        HistoriaCliente.SubItems.Add(Hotel1.nombre);
-                        HistoriaCliente.SubItems.Add(habitacionEnHotel1.nombre_habitacion);
-                        HistoriaCliente.SubItems.Add(Convert.ToString(habitacionEnHotel1.numero));
-                        HistoriaCliente.SubItems.Add(Convert.ToString(habitacionEnHotel1.personas_hospedadas));
-                        HistoriaCliente.SubItems.Add(Convert.ToString(guid));
-                        HistoriaCliente.SubItems.Add(Convert.ToString(Reservacion1.fecha_inicial));
-                        HistoriaCliente.SubItems.Add(Convert.ToString(Reservacion1.fecha_inicial));
-                        HistoriaCliente.SubItems.Add(Convert.ToString(Reservacion1.fecha_final));
-                        HistoriaCliente.SubItems.Add(Convert.ToString(Reservacion1.reservacion_activa));
-                        HistoriaCliente.SubItems.Add(Convert.ToString(Reservacion1.anticipo));
-                        HistoriaCliente.SubItems.Add(Convert.ToString(Reservacion1.total_hospedaje));
-                        HistoriaCliente.SubItems.Add(Convert.ToString(Reservacion1.total_servicios));
-                        HistoriaCliente.SubItems.Add(Convert.ToString(Reservacion1.total_pagar));
+                        string[] datosCliente =
+                        {
+                            (Cliente1.rfc),
+                            ("2023"),
+                            (Cliente1.nombre + " " + Cliente1.apellido_paterno + " " + Cliente1.apellido_materno),
+                            (Hotel1.ciudad),
+                            (Hotel1.nombre),
+                            (habitacionEnHotel1.nombre_habitacion),
+                            (Convert.ToString(habitacionEnHotel1.numero)),
+                            (Convert.ToString(Reservacion1.personas_hospedar)),
+                            (Convert.ToString(guid)),
+                            (Convert.ToString(Reservacion1.fecha_inicial)),
+                            (Convert.ToString(Reservacion1.fecha_inicial)),
+                            (Convert.ToString(Reservacion1.fecha_final)),
+                            (Convert.ToString(Reservacion1.reservacion_activa)),
+                            (Convert.ToString(Reservacion1.anticipo)),
+                            (Convert.ToString(Reservacion1.total_hospedaje)),
+                            (Convert.ToString(Reservacion1.total_servicios)),
+                            (Convert.ToString(Reservacion1.total_pagar)),
+                        };
+                        ListViewItem HistoriaCliente = new ListViewItem(datosCliente);
                         LV_HISTORIALCLIENTE.Items.Add(HistoriaCliente);
                     }
                 }
@@ -89,6 +92,84 @@ namespace PROYECTO_ADADAT
             {
                 MessageBox.Show(error.Message, "ERROR");
             }
+        }
+
+        private void BTN_FILTRORFC_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TXT_FILTRORFC.Text != "")
+                {
+                    List<Reservacion> ListaReservaciones = EnlaceCassandra.HacerListaReservaciones();
+                    if (ListaReservaciones.Count == 0)
+                    {
+                        throw new FormatException("PARA VER EL REPORTE DEBE DE HABER POR LO MENOS 1 RESERVACION CREADA");
+                    }
+                    Cliente Cliente1 = new();
+                    List<Cliente> ListaClientes = EnlaceCassandra.HacerListaClientes();
+                    ListaClientes = ListaClientes.FindAll(Cliente1 => Cliente1.rfc == TXT_FILTRORFC.Text);
+                    if (ListaClientes.Count == 0)
+                    {
+                        throw new FormatException("NO HAY NINGUN CLIENTE CON ESE RFC");
+                    }
+                    List<Hotel> ListaHoteles = EnlaceCassandra.HacerListaHoteles();
+                    List<HabitacionEnHotel> ListaHabitacionesEnHoteles = EnlaceCassandra.HacerListaHabitacionesEnHoteles();
+                    LV_HISTORIALCLIENTE.Items.Clear();
+                    for (int c = 0; c < ListaClientes.Count; c++)
+                    {
+                        for (int r = 0; r < ListaClientes[c].id_reservacion.Count; r++)
+                        {
+                            Cliente1 = ListaClientes[c];
+                            Reservacion Reservacion1 = new();
+                            Hotel Hotel1 = new();
+                            HabitacionEnHotel habitacionEnHotel1 = new();
+                            Guid guid = Cliente1.id_reservacion[r];
+                            Reservacion1 = ListaReservaciones.Find(Reservacion1 => Reservacion1.id_reservacion == guid);
+                            if (Reservacion1 == null)
+                            {
+                                continue;
+                            }
+                            Hotel1 = ListaHoteles.Find(Hotel1 => Hotel1.id_hotel == Reservacion1.id_hotel);
+                            habitacionEnHotel1 = ListaHabitacionesEnHoteles.Find(habitacionEnHotel1 => habitacionEnHotel1.id_habitacion_hotel == Reservacion1.id_habitacion_hotel);
+                            string[] datosCliente =
+                            {
+                            (Cliente1.rfc),
+                            ("2023"),
+                            (Cliente1.nombre + " " + Cliente1.apellido_paterno + " " + Cliente1.apellido_materno),
+                            (Hotel1.ciudad),
+                            (Hotel1.nombre),
+                            (habitacionEnHotel1.nombre_habitacion),
+                            (Convert.ToString(habitacionEnHotel1.numero)),
+                            (Convert.ToString(Reservacion1.personas_hospedar)),
+                            (Convert.ToString(guid)),
+                            (Convert.ToString(Reservacion1.fecha_inicial)),
+                            (Convert.ToString(Reservacion1.fecha_inicial)),
+                            (Convert.ToString(Reservacion1.fecha_final)),
+                            (Convert.ToString(Reservacion1.reservacion_activa)),
+                            (Convert.ToString(Reservacion1.anticipo)),
+                            (Convert.ToString(Reservacion1.total_hospedaje)),
+                            (Convert.ToString(Reservacion1.total_servicios)),
+                            (Convert.ToString(Reservacion1.total_pagar)),
+                        };
+                            ListViewItem HistoriaCliente = new ListViewItem(datosCliente);
+                            LV_HISTORIALCLIENTE.Items.Add(HistoriaCliente);
+                        }
+                    }
+                }
+                else
+                {
+                    throw new FormatException("PRIMERO INGRESE UN RFC!");
+                }
+            }
+            catch (FormatException error)
+            {
+                MessageBox.Show(error.Message, "ERROR");
+            }
+        }
+
+        private void BTN_FILTROANO_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

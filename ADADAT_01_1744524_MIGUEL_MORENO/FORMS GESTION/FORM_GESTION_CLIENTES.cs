@@ -60,6 +60,14 @@ namespace PROYECTO_ADADAT
                 Cli.estado_civil = CB_ESTADOCIVIL.Text;
                 Cli.fecha_nacimiento = DTP_FECHANACIMIENTO.Value.Date;
                 EnlaceCassandra.EditarCliente(Cli.id_cliente, Cli.nombre, Cli.apellido_paterno, Cli.apellido_materno, Cli.domicilio, Cli.correo_electronico, Cli.telefono_casa, Cli.telefono_celular, Cli.referencia, Cli.estado_civil, Cli.fecha_nacimiento);
+                TXT_CORREO.Text = "";
+                TXT_DOMICILIO.Text = "";
+                TXT_MATERNO.Text = "";
+                TXT_NOMBRE.Text = "";
+                TXT_PATERNO.Text = "";
+                TXT_REFERENCIA.Text = "";
+                TXT_TELEFONOCASA.Text = "";
+                TXT_TELEFONOCELULAR.Text = "";
             }
             catch (FormatException error)
             {
@@ -77,6 +85,14 @@ namespace PROYECTO_ADADAT
                 EnlaceCassandra.EliminarCliente(Cli.id_cliente);
                 listaCli = EnlaceCassandra.HacerListaClientes();
                 LB_RFC.DataSource = listaCli;
+                TXT_TELEFONOCELULAR.Text = "";
+                TXT_TELEFONOCASA.Text = "";
+                TXT_REFERENCIA.Text = "";
+                TXT_PATERNO.Text = "";
+                TXT_NOMBRE.Text = "";
+                TXT_MATERNO.Text = "";
+                TXT_DOMICILIO.Text = "";
+                TXT_CORREO.Text = "";
             }
             catch (FormatException error)
             {

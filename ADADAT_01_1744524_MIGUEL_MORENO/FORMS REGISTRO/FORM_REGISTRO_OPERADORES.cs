@@ -56,6 +56,13 @@ namespace PROYECTO_ADADAT
                         throw new FormatException("CORREO ELECTRONICO YA REGISTRADO!");
                 }
                 EnlaceCassandra.RegistrarOperador(op.correo_electronico, op.contrasena_actual, op.nombre_completo, op.numero_nomina, op.fecha_nacimiento, op.domicilio, op.telefono_casa, op.telefono_celular);
+                TXTB_CONTRASENA.Text = "";
+                TXTB_CORREO.Text = "";
+                TXTB_DOMICILIO.Text = "";
+                TXTB_NOMBRE.Text = "";
+                TXTB_NOMINA.Text = "";
+                TXTB_TELCASA.Text = "";
+                TXTB_TELCEL.Text = "";
             }
             catch (FormatException error)
             {

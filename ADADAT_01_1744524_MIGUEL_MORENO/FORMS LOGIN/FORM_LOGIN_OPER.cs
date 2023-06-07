@@ -56,19 +56,49 @@ namespace PROYECTO_ADADAT
                         {
                             if (opCorreo.restablecer_contrasena)
                             {
+                                Reservacion res = new();
+                                List<Reservacion> listaRes = EnlaceCassandra.HacerListaReservaciones();
+                                if (listaRes.Count > 0)
+                                {
+                                    for (int i = 0; i < listaRes.Count; i++)
+                                    {
+                                        TimeSpan DifDias = listaRes[i].fecha_inicial.Date - VariablesGlobales.FechaCheckInOut.Date;
+                                        if (DifDias.Days < 0 && listaRes[i].reservacion_activa && !listaRes[i].checkin)
+                                        {
+                                            EnlaceCassandra.CancelarReservacionAutomatica(listaRes[i].id_reservacion, listaRes[i].id_habitacion_hotel);
+                                        }
+                                    }
+                                }
                                 VariablesGlobales.FormContraRest.Show();
                                 VariablesGlobales.CorreoPersonaLogeada = TXT_USUARIO.Text;
                                 VariablesGlobales.IntentosOperador = 0;
                                 VariablesGlobales.CorreoIntentos = "";
                                 this.Hide();
+                                TXT_USUARIO.Text = "";
+                                TXT_CONTRASENA.Text = "";
                             }
                             else
                             {
+                                Reservacion res = new();
+                                List<Reservacion> listaRes = EnlaceCassandra.HacerListaReservaciones();
+                                if (listaRes.Count > 0)
+                                {
+                                    for (int i = 0; i < listaRes.Count; i++)
+                                    {
+                                        TimeSpan DifDias = listaRes[i].fecha_inicial.Date - VariablesGlobales.FechaCheckInOut.Date;
+                                        if (DifDias.Days < 0 && listaRes[i].reservacion_activa && !listaRes[i].checkin)
+                                        {
+                                            EnlaceCassandra.CancelarReservacionAutomatica(listaRes[i].id_reservacion, listaRes[i].id_habitacion_hotel);
+                                        }
+                                    }
+                                }
                                 VariablesGlobales.FormMenuOper.Show();
                                 VariablesGlobales.CorreoPersonaLogeada = TXT_USUARIO.Text;
                                 VariablesGlobales.IntentosOperador = 0;
                                 VariablesGlobales.CorreoIntentos = "";
                                 this.Hide();
+                                TXT_USUARIO.Text = "";
+                                TXT_CONTRASENA.Text = "";
                             }
                         }
                         else

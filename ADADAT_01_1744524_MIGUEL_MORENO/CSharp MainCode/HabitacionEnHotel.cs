@@ -19,7 +19,7 @@ namespace PROYECTO_ADADAT.CSharp_MainCode
         public int numero { set; get; }
         public string caracteristicas { set; get; }
         public string amenidades { set; get; }
-        public double ocupada { set; get; }
+        public bool ocupada { set; get; }
         public int personas_hospedadas { set; get; }
     }
 }
